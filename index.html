@@ -1,1 +1,414 @@
-Em contrução!
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link href="stylesheets/site.css" rel="stylesheet" type="text/css" />
+    <script src="javascripts/jquery-1.7.2.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('a[name=modal]').click(function (e) {
+                e.preventDefault();
+
+                var id = $(this).attr('href');
+                var maskHeight = $(document).height();
+                var maskWidth = $(window).width();
+
+                $('#mask').css({ 'width': maskWidth, 'height': maskHeight });
+                $('#mask').fadeIn(1000);
+                $('#mask').fadeTo("slow", 0.8);
+
+                //Get the window height and width
+                var winH = $(window).height();
+                var winW = $(window).width();
+
+                $(id).css('top', winH / 2 - $(id).height() / 2);
+                $(id).css('left', winW / 2 - $(id).width() / 2);
+                $(id).fadeIn(2000);
+            });
+
+            $('.window .close').click(function (e) {
+                e.preventDefault();
+                $('#mask').hide();
+                $('.window').hide();
+            });
+
+            $('#mask').click(function () {
+                $(this).hide();
+                $('.window').hide();
+            });
+
+        });
+	</script>
+
+    <title>Angelo Brand&atilde;o | Analista de Sistemas</title>
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <div id="header">
+
+            <div id="title">
+                <h1>Angelo Brand&atilde;o</h1>
+                <h2>Analista de Sistemas</h2>
+            </div>
+            <!-- fim do t&iacute;tulo -->
+
+            <div id="contact">
+                <table summary="Contact Info">
+                    <tr>
+                        <td>Webmail</td>
+                        <td>|</td>
+                        <td><a href="http://webmail.angelobrandao.com.br">Webmail</a></td>
+                    </tr>
+                    <tr>
+                        <td>Website</td>
+                        <td>|</td>
+                        <td><a href="http://www.angelobrandao.com.br">AngeloBrandao.com.br</a></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>|</td>
+                        <td><a href="mailto:contato@angelobrandao.com.br">contato@angelobrandao.com.br</a></td>
+                    </tr>
+				</table>
+            </div>       
+        </div>
+       
+        <div id="background">
+            <h3>Profissional</h3>
+            <p>
+                Mais de 10 anos de experi&ecirc;ncia na indústria de TI com s&oacute;lida experi&ecirc;ncia em diferentes &aacute;reas de desenvolvimento de software (7+ anos) 
+                em neg&oacute;cios do sector p&uacute;blico e privado. Graduado em Sistemas de Informa&ccedil;&atilde;o e especialista em engenharia de software. Em constante 
+                renova&ccedil;&atilde;o de conhecimentos, sempre trabalhando em colabora&ccedil;&atilde;o para o sucesso da organiza&ccedil;&atilde;o. Capacidade de se adaptar 
+                rapidamente &agrave;s novas ind&uacute;strias, novas culturas e novas tecnologias.
+            </p>
+            <p>
+                Bancos de dados: Microsoft SQL Server, Oracle, DB2, MySQL e PostgreSQL.
+            </p>
+            <p>
+                Profici&ecirc;ncias: Front-end (HTML5, CSS3, JavaScript e JQuery), Linguagem de programa&ccedil;&atilde;o (JAVA, ASP e C), Frameworks MVC (Struts, JSF, 
+                Spring e VRaptor), Frameworks persist&ecirc;ncia (Castor, JPA/OpenJPA, e JPA/Hibernate), EJB, Serviço web (REST, SOAP, XML e JSON), JMS, Apache Camel, web Integrator 
+                (WI), e Servidores de Aplicação (JBoss, Apache Tomcat e IBM Websphere).
+            </p>
+            <p>
+                IDEs: Eclipse e NetBeans.
+            </p>
+            <p>
+                Indústria Expertise:</br>
+                - Governo</br>
+                - Telecomunicações</br>
+                - Tecnologia da Informação</br>
+                - Educação
+            </p>
+            <p>
+                Atualmente Analista de Sistemas na <a href="https://www.capgemini.com/">Capgemini</a>, trabalhando com diversas tecnologias para desenvolvimento de sistemas WEB.            
+            </p>
+        </div>
+		
+        <!--
+		<div id="background">
+            <h3>Objetivo</h3>
+            <p>
+                Atuar na &aacute;rea de tecnologia da informa&ccedil;&atilde;o e comunica&ccedil;&atilde;o desenvolvendo atividades 
+				de acordo com a minha forma&ccedil;&atilde;o acad&ecirc;mica. Procuro crescimento profissional e constante 
+				renova&ccedil;&atilde;o de conhecimento, estando sempre em coopera&ccedil;&atilde;o para o sucesso da organiza&ccedil;&atilde;o.
+            </p>
+        </div>
+        -->
+
+		<!--
+        <div id="boxes">
+            <div id="pims" class="window">
+                <a href="#" class="close"> Fechar [X]</a>
+                PIMS<br />
+                Process Informatio Management System<br />
+                Sistemas PIMS s&atilde;o softwares que adquirem informa&ccedil;&otilde;es cont&iacute;nuas de processo (temperaturas,
+                press&otilde;es, vaz&otilde;es, quantidades, velocidades, pesos, etc.) de diversas fontes, os
+                armazenam em um banco de dados de hist&oacute;ricos, e os disponibilizam atrav&eacute;s de relat&oacute;rios
+                dos mais diversos tipos. Um PIMS tem como objetivo essencial proporcionar uma vis&atilde;o
+                unificada de todo processo.
+            </div>
+            <div id="mes" class="window">
+                <a href="#" class="close">Fechar [X]</a>
+                MES<br />
+                Manufacturing Executing System<br />
+                Sistemas MES s&atilde;o softwares que adquirem dados discretos de processo (quantidades
+                produzidas, itens reparados, lista dos lotes prontos, n&iacute;vel de utiliza&ccedil;&atilde;o das m&aacute;quinas,
+                tempos de setup, processo e movimenta&ccedil;&atilde;o, etc.) de diversas fontes, os armazenam
+                em um banco de dados (que tamb&eacute;m podem armazenar hist&oacute;ricos), e os disponibilizam
+                atrav&eacute;s de relat&oacute;rios dos mais diversos tipos. Um MES tem tamb&eacute;m como objetivo essencial
+                proporcionar uma vis&atilde;o unificada de todo processo.
+            </div>
+            <div id="mask">
+            </div>
+        </div>
+		-->
+		
+		<div id="education">
+            <h3>Forma&ccedil;&atilde;o</h3>
+            <div class="exp_unborder">
+                <h4>Centro Universit&aacute;rio Est&aacute;cio da Bahia - Est&aacute;cio FIB</h4>
+                <h5>Gradua&ccedil;&atilde;o em Bacharel em Sistemas de Informa&ccedil;&atilde;o</h5>
+            </div>
+            
+            <!-- 
+            <div class="exp_unborder">
+                <h4>Centro Universit&aacute;rio Est&aacute;cio da Bahia - Est&aacute;cio FIB</h4>
+                <h5>Gradua&ccedil;&atilde;o em Bacharel em Sistemas de Informa&ccedil;&atilde;o</h5>
+            </div>
+            -->
+         </div>
+		 
+		 <div id="education">
+            <h3>Idiomas</h3>
+            <div class="exp_unborder">
+                <h4>Inglês</h4> - <h5>Intermedi&aacute;rio</h5>
+                <h4>Espanhol</h4> - <h5>B&aacute;sico</h5> 
+         </div>
+
+        <div id="experience">
+            <h3>Experi&ecirc;ncia</h3>
+            
+            <div class="exp">
+                <h4>Capgemini</h4>				
+                <h5>Analista de Sistemas</h5>                
+                <p class="year">Atual</p>
+                <p class="description">
+                    Presta&ccedil;&atilde;o de servi&ccedil;o para SEFAZ - Secretaria da Fazenda do Estado da Bahia com an&aacute;lises e modelagem orientada a objetos, desenvolvimento 
+                    de aplica&ccedil;&otilde;es web usando a plataforma Java Enterprise Edition (J2EE), manuten&ccedil;&atilde;o e desenvolvimento de novas funcionalidades para sistemas 
+                    administrativos e elabora&ccedil;&atilde;o das documenta&ccedil;&otilde;es: Especifica&ccedil;&atilde;o de Caso de Uso, Diagrama UML, Dicion&aacute;rio de Dados e 
+                    Diagrama Entidade-Relacionamento (DER).                    
+                </p>
+            </div>
+            
+            <div class="exp">
+                <h4>Indra</h4>				
+                <h5>Analista de Sistemas</h5>
+                <p class="year">de Setembro/2014 a Março/2015</p>
+                <p class="description">                    
+                    Presta&ccedil;&atilde;o de servi&ccedil;o para a Telefonica | Vivo com an&aacute;lise e modelagem orientada a objetos, desenvolvimento de aplica&ccedil;&otilde;es web 
+                    usando a plataforma Java Enterprise Edition (J2EE), manuten&ccedil;&atilde;o corretiva e evolutiva, apoiando ao cliente de telecomunica&ccedil;&otilde;es em v&aacute;rios 
+                    aplicativos, e estimando o tempo de implementa&ccedil;&atilde;o, codifica&ccedil;&atilde;o, testes e entrega de pacotes. 
+                </p>
+            </div>
+			
+            <div class="exp">
+                <h4>Laureate International Universities</h4>				
+                <h5>Analista de Sistemas</h5>
+                <p class="year">de Abril/2012 a Agosto/2014</p>
+                <p class="description">
+					Desenvolvimento de aplica&ccedil;&otilde;es web utilizando plataforma J2EE, An&aacute;lise e Modelagem OO. 
+					Desenvolvimento de novas aplica&ccedil;&otilde;es utilizando framework MVC Vraptor3, JQuery e Hibernate. 
+					Manuten&ccedil;&atilde;o corretiva e desenvolvimento do m&oacute;dulos novos no sistema PGA (Portal de Gest&atilde;o Administrativa) 
+					desenvolvido na plataforma JAVA 1.6 utilizando: Struts, JSP, EJB e JDBC e banco de dados Microsoft SQL Server.
+                </p>
+            </div>
+
+            <div class="exp">
+                <h4>Stefanini</h4>
+                <h5>Analista de Sistemas</h5>
+                <p class="year">de Setembro/2011 a Abril/2012</p>
+                <p class="description">
+					Desenvolvimento de aplica&ccedil;&otilde;es web utilizando plataforma J2EE, Manuten&ccedil;&atilde;o Evolutiva e Corretiva, An&aacute;lise e 
+					Modelagem OO. Elabora&ccedil;&atilde;o de Documenta&ccedil;&atilde;o utilizando UML. Manuten&ccedil;&atilde;o dos sistema desenvolvidos utilizado 
+					WI - Web Integrator. Migra&ccedil;&atilde;o de dados.
+                </p>
+            </div>
+
+            <div class="exp">
+                <h4>Capgemini</h4>
+                <h5>Analista de Sistemas</h5>
+                <p class="year">de Fevereiro/2010 a Setembro/2011</p>
+                <p class="description">
+					Desenvolvimento de aplica&ccedil;&otilde;es web utilizando plataforma J2EE, Manuten&ccedil;&atilde;o Evolutiva e Corretiva, An&aacute;lise e 
+					Modelagem OO. Manunten&ccedil;&atilde;o e implanta&ccedil;&atilde;o do sistema SIPAC desenvolvido utilizando JSF 1.2. Struts 1.3, 
+					Hibernate 3.0, Spring 2.5, banco PostgreSQL vers&atilde;o 8.3 na Universidade Federal da Bahia. 
+					Desenvolvimento de solu&ccedil;&atilde;o para migra&ccedil;&atilde;o dos dados dos sistema legados desenvolvidos em Power 
+					Build para seus respectivos m&oacute;dulos no sistema SIPAC.	
+                </p>
+            </div>
+
+            <div class="exp">
+                <h4>Avansys Tecnologia</h4>
+                <h5>Analista de Sistemas</h5>
+                <p class="year">de Julho/2009 a Fevereiro/2010</p>
+                <p class="description">
+					Desenvolvimento de aplica&ccedil;&otilde;es web utilizando plataforma J2EE, Manuten&ccedil;&atilde;o Evolutiva e Corretiva, 
+					An&aacute;lise e Modelagem OO. Desenvolvimento do m&oacute;dulo de Leil&atilde;o do sistema SIAP (Sistema Integrado de 
+					Administra&ccedil;&atilde;o Patrimonial) utilizando JSF 1.2, Rich Faces, EJB 3.0 e Hibernate 3.0. Manuten&ccedil;&atilde;o de 
+					sistema embarcado para invent&aacute;rio de patrim&ocirc;nio desenvolvido em C (PAM OS III da Symbol).
+				</p>
+				<br />
+				<h5>Desenvolvedor</h5>
+                <p class="year">de Junho/2008 a Junho/2009</p>
+				<p class="description">
+					Manuten&ccedil;&atilde;o corretiva e evolutiva do sistema SIAP (Sistema Integrado de Administra&ccedil;&atilde;o Patrimonial), 
+					desenvolvido na plataforma JAVA 1.5 utilizando: HTML, JSP, Java Script, Struts, EJB 2.0, Jasper Reports, 
+					PageLayout, AJAX, CASTOR, OSCACHE e banco de dados Microsoft SQL Server; Elabora&ccedil;&atilde;o das seguintes documenta&ccedil;&otilde;es 
+					do SCA (Sistema de Cadastro de Atendimento): Especifica&ccedil;&atilde;o de Caso de Uso, Diagrama UML, Dicion&aacute;rio de dados 
+					e DER (Diagrama Entidade Relacionamento); Manuten&ccedil;&atilde;o corretiva e evolutiva do sistema SCA, desenvolvido na 
+					plataforma JAVA 1.5 utilizando: JSF, EJB 3.0, JPA, HIBERNATE 3; Migra&ccedil;&atilde;o dos sistemas SIAP Cliente X Servidor 
+					das unidades diretas para SIAP WEB; Revis&atilde;o e manuten&ccedil;&atilde;o das Stored Procedures utilizadas na migra&ccedil;&atilde;o dos sistemas 
+					SIAP Cliente X Servidor das unidades diretas para SIAP WEB; Instala&ccedil;&atilde;o e configura&ccedil;&atilde;o do JBOSS 4x.
+				</p>					
+            </div>
+
+            <div class="exp">
+                <h4>Netra Tecnologia</h4>
+                <h5>T&eacute;cnico em Suporte</h5>
+                <p class="year">de Fevereiro/2005 a Maio/2008</p>
+                <p class="description">
+					Alocado na Secretaria de Administra&ccedil;&atilde;o da Bahia - SAEB com Suporte N&iacute;vel 1 desenvolvendo as 
+					seguintes atividades: Instala&ccedil;&atilde;o de Sistemas corporativos; Instala&ccedil;&atilde;o de softwares de escrit&oacute;rio; Instala&ccedil;&atilde;o de 
+					impressoras locais e remotas; Remanejamento de equipamentos; Atendimento remoto por VNC; Instala&ccedil;&atilde;o de Cliente 
+					Lotus Notes; Prepara&ccedil;&atilde;o de sala de treinamento; Instala&ccedil;&atilde;o e remanejamento de pontos l&oacute;gicos; Instala&ccedil;&atilde;o 
+					de sistema operacional; Manuten&ccedil;&atilde;o de microcomputador; Manuten&ccedil;&atilde;o de perif&eacute;ricos; Registro de chamados via 
+					Sistema de HelpDesk, Manuten&ccedil;&atilde;o de impressoras; Atendimento externo SAF/ CEPREV; Grava&ccedil;&atilde;o de CD; Inclus&atilde;o de 
+					esta&ccedil;&otilde;es na rede; Otimiza&ccedil;&atilde;o das esta&ccedil;&otilde;es do usu&aacute;rio: internet, arquivos tempor&aacute;rios, defrag, scandisk; Atualiza&ccedil;&atilde;o 
+					de sistemas de outras Secretarias: Sicaf, Sicaj, SIPLAN, ICF; Atualiza&ccedil;&atilde;o tecnol&oacute;gica; Treinamento de utiliza&ccedil;&atilde;o 
+					do Sistema SIAP; Atendimento ao Sistema SIAP; Treinamento de utiliza&ccedil;&atilde;o do coletor para o Sistema SIAP.
+				</p>
+            </div>
+
+            <div class="exp">
+
+                <h4>Stefanini</h4>
+                <h5>T&eacute;cnico em Suporte</h5>
+                <p class="year">de Dezembro/2004 a Fevereiro/2005</p>
+                <p class="description">
+					Atendimento helpdesk 1&ordm; e 2&ordm; n&iacute;vel ao usu&aacute;rio do Club Mad, suporte a rede, suporte remoto, 
+					manuten&ccedil;&atilde;o de hardware, suporte a sistemas win98/ NT/ 2000/ XP, Office e Microsoft Outlook.
+				</p>
+            </div>
+			
+			<div class="exp">
+                <h4>SETPS</h4> <!-- <a href="http://www.setps.com.br/">setps.com.br</a> -->
+                <h5>T&eacute;cnico em Suporte</h5>
+                <p class="year">de Agosto/2003 a Dezembro/2004</p>
+                <p class="description">
+					Instala&ccedil;&atilde;o e configura&ccedil;&atilde;o de sistemas operacionais: Windows 2000 Profissional, Windows 2000 server, 
+					windows nt 4.0. server; Linux, Free BSD; Wndows XP, Windows 98. Suporte aos usu&aacute;rios da empresa; 
+					Instala&ccedil;&atilde;o, configura&ccedil;&atilde;o e atualiza&ccedil;&atilde;o dos sistemas utilizados pela pr&oacute;pria empresa (Sistema Tacom); 
+					Manuten&ccedil;&atilde;o a micro computadores; Suporte e configura&ccedil;&atilde;o da rede desta empresa; Help Desk 1&ordm; e 2&ordm; n&iacute;vel; 
+					Rotina de Backup; Instala&ccedil;&atilde;o do Pacote Office 2000 e Correio Eletr&ocirc;nico. Suporte Remoto utilizando VNC; 
+					Instala&ccedil;&atilde;o e configura&ccedil;&atilde;o do programa de Banco de Dados Oracle ao n&iacute;vel de usu&aacute;rio; Cria&ccedil;&atilde;o de conta de usu&aacute;rio.
+				</p>
+            </div>
+				
+            <div class="exp_unborder">
+                <h4>Loja I - Loja das Impressoras & Micros</h4>
+                <h5>T&eacute;cnico em Inform&aacute;tica</h5>
+                <p class="year">de Maio/2001 a Fevereiro/2003</p>
+                <p class="description">                    				
+					Trabalhei na Loja I, situada na Rua Osvaldo Cruz, n&ordm;. 420 - Rio Vermelho, como t&eacute;cnico em inform&aacute;tica, 
+					fazendo manuten&ccedil;&atilde;o de computadores e implanta&ccedil;&atilde;o de rede. Tenho experi&ecirc;ncia em montagem, configura&ccedil;&atilde;o e 
+					instala&ccedil;&atilde;o de diversos softwares e dravers.  Renovei o servidor da empresa (sistema Windows 2000 Server) e 
+					reestruturei o cabeamento da rede da mesma. Depois de um tempo tomei total responsabilidade do laborat&oacute;rio t&eacute;cnico, 
+					coordenando mais tr&ecirc;s t&eacute;cnicos. Implantei rede para empresas como: Cobase, LAP, Contabilidade Jos&eacute; Sergio, entre outras.
+				</p>
+            </div>
+
+        </div>
+
+
+        <div id="skills">
+
+            <h3>Conhecimentos</h3>
+
+            <ul>
+				<!--<h4>Analise de Sistemas</h4>-->
+				
+				<!--<br />-->
+				<!--
+                INDRA 
+                Tecnologias/Ferramentas: , , JSON, , JMS/WebSphere MQ, JMS/Camel, JAX-WS/CXF, WebService, Spring, Maven, Drools, MemCached, SoapUI e ShellScript. 
+                Ambiente: Linux, Virtual  Machines on Oracle VirtualBox com VirtualBox Web, WebSphere AS, WebSphere MQ, WebSphere Message Broker, e EAI (Enterprise Application Integration).
+                -->
+                
+                
+				<!--<li><a title="Laureate International Universities, Stefanini, Capgemini, Avansys, Projetos pessoais, Projetos acad&ecirc;micos">An&aacute;lise e Modelagem Orientada a Objeto</a></li>-->
+				<li><a title="Laureate International Universities, Stefanini, Capgemini, Avansys, Projetos pessoais, Projetos acad&ecirc;micos">UML</a></li>				               
+                
+                <li><a title="Indra, Laureate, Capgemini, Stefanini, Avansys, Projetos acad&ecirc;micos">HTML</a></li>
+                <li><a title="Indra, Laureate, Capgemini, Avansys, Projetos pessoais, Projetos acad&ecirc;micos">CSS</a></li>
+                <li><a title="Laureate, Capgemini, Avansys, Projetos pessoais, Projetos acad&ecirc;micos">Java Script</a></li>
+                <li><a title="Indra, Stefanini, Avansys, Projetos pessoais, Projetos acad&ecirc;micos">Ajax</a></li>
+				<li><a title="Laureate, Stefanini, Projetos pessoais">JQuery</a></li>
+                <li><a title="Indra, Laureate, Stefanini, Capgemini, Avansys, Projetos Pessoais, projetos Acad&ecirc;micos">JSP</a></li>                                
+                
+                <li><a title="Laureate, Capgemini, Stefanini, Avansys">Java</a></li>
+                <li><a title="Projetos pessoais">PHP</a></li>
+                <li><a title="Laureate, Projetos pessoais, Projetos acad&ecirc;micos">ASP</a></li>
+                <li><a title="Avansys">C</a></li>
+                
+                <li><a title="Laureate, Capgemini, Avansys, Projetos Acad&ecirc;micos">Struts</a></li>                
+                
+                <li><a title="Indra">JSF/IceFaces</a></li>
+                <li><a title="Capgemini, Projetos pessoais">JSF/PrimeFaces</a></li>
+				<li><a title="Avansys">JSF/RichFaces</a></li>
+                
+                
+                <li><a title="Capgemini, Projetos pessoais">Spring</a></li>
+                <li><a title="Laureate">VRaptor</a></li>
+                
+                <li><a title="Avansys">Castor</a></li>
+                <li><a title="Indra">JPA/OpenJPA</a></li>
+                <li><a title="">JPA/Hibernate</a></li>
+                
+                <!-- VERIFICAR -->
+                <li><a title="Laureate, Capgemini, Avansys, Projetos pessoais">Hibernate</a></li>
+                
+                <li><a title="Laureate, Capgemini, Avansys, Projetos pessoais, Projetos acad&ecirc;micos">JBoss</a></li>
+				<li><a title="Laureate, Projetos pessoais, Projetos acad&ecirc;micos">Apache Tomcat</a></li>
+				<li><a title="Indra">IBM Websphere</a></li>
+				
+				<a data-original-title="Facebook" href="http://www.facebook.com/sharer.php?u=https://www.nerdstickers.com.br/loja/produto/sticker-java/&amp;text=Java&amp;images=https://d2ynk7eq8kt7zo.cloudfront.net/arquivos/2015/08/14395364841.jpeg" target="_blank" rel="nofollow" data-toggle="tooltip" data-placement="bottom" title="" class="share-facebook">Facebook</a>
+				<li><a title="Laureate, Stefanini, Projetos pessoais">Servlet</a></li>  
+				<li><a title="Laureate, Capgemini, Avansys, Projetos Pessoais">EJB</a></li>
+				
+				<li><a title="Stefanini">Web Integrator</a></li>
+				
+				
+				<li><a title="Laureate, Capgemini, Avansys">iReport/JasperReports</a></li>
+				
+				<li><a title="Laureate, Stefanini, Avansys, Projetos pessoais, Projetos acad&ecirc;micos">Microsoft SQL Server</a></li>
+                <li><a title="Indra, Stefanini">Oracle</a></li>
+                <li><a title="Indra">DB2</a></li>
+				<li><a title="Projetos pessoais, Projetos acad&ecirc;micos">MySql</a></li>				
+				<li><a title="Laureate, Capgemini, Projetos pessoais">PostgreSQL</a></li>
+                
+				<li><a title="Avansys">CVS</a></li>
+                <li><a title="Laureate, Capgemini, Avansys, Projetos pessoais">Subversion</a></li>                
+                <li><a title="">GIT</a></li>
+                
+                <li><a title="">Maven</a></li>
+                
+                <br />
+            </ul>
+            
+            <br />
+        </div>
+
+        <div id="footer">
+            <p>
+                Todos os direitos reservados &#9400; Angelo Brand&atilde;o | <a href="mailto:angelobms@gmail.com">angelobms@gmail.com</a>! Atualizado em Setembro/2015.
+               <!-- | <a href="print.html">vers&atilde;o de impress&atilde;o</a> -->
+			</p>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+
+
+	
