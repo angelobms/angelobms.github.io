@@ -1,0 +1,26 @@
+{
+  "name": "angelobms.github.io",
+  "version": "1.0.0",
+  "homepage": "www.bmsti.com.br",
+  "authors": [
+    "Angelo Brandão <angelobms@gmail.com>"
+  ],
+  "description": "personal website",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "website",
+    "angelobms"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "asserts/vendor",
+    "test",
+    "tests"
+  ]
+}

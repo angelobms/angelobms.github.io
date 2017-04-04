@@ -4,45 +4,8 @@
 
 <head>
     <meta charset="utf-8"/>    
-    <link href="stylesheets/site.css" rel="stylesheet" type="text/css" />
-    <script src="javascripts/jquery-1.7.2.min.js" type="text/javascript"></script>
-
-    <script type="text/javascript">
-
-        $(document).ready(function () {
-            $('a[name=modal]').click(function (e) {
-                e.preventDefault();
-
-                var id = $(this).attr('href');
-                var maskHeight = $(document).height();
-                var maskWidth = $(window).width();
-
-                $('#mask').css({ 'width': maskWidth, 'height': maskHeight });
-                $('#mask').fadeIn(1000);
-                $('#mask').fadeTo("slow", 0.8);
-
-                //Get the window height and width
-                var winH = $(window).height();
-                var winW = $(window).width();
-
-                $(id).css('top', winH / 2 - $(id).height() / 2);
-                $(id).css('left', winW / 2 - $(id).width() / 2);
-                $(id).fadeIn(2000);
-            });
-
-            $('.window .close').click(function (e) {
-                e.preventDefault();
-                $('#mask').hide();
-                $('.window').hide();
-            });
-
-            $('#mask').click(function () {
-                $(this).hide();
-                $('.window').hide();
-            });
-
-        });
-	</script>
+    <link href="assets/stylesheets/site.css" rel="stylesheet" type="text/css" />
+    <script src="assets/vendor/jquery/dist/jquery.min.js" type="text/javascript"></script>
 
     <title>Angelo Brand&atilde;o | Analista de Sistemas</title>
 
@@ -264,67 +227,6 @@
 					SIAP Cliente X Servidor das unidades diretas para SIAP WEB; Instala&ccedil;&atilde;o e configura&ccedil;&atilde;o do JBOSS 4x.
 				</p>					
             </div>
-
-            <!--
-            <div class="exp">
-                <h4>Netra Tecnologia</h4>
-                <h5>T&eacute;cnico em Suporte</h5>
-                <p class="year">de Fevereiro/2005 a Maio/2008</p>
-                <p class="description">
-					Alocado na Secretaria de Administra&ccedil;&atilde;o da Bahia - SAEB com Suporte N&iacute;vel 1 desenvolvendo as 
-					seguintes atividades: Instala&ccedil;&atilde;o de Sistemas corporativos; Instala&ccedil;&atilde;o de softwares de escrit&oacute;rio; Instala&ccedil;&atilde;o de 
-					impressoras locais e remotas; Remanejamento de equipamentos; Atendimento remoto por VNC; Instala&ccedil;&atilde;o de Cliente 
-					Lotus Notes; Prepara&ccedil;&atilde;o de sala de treinamento; Instala&ccedil;&atilde;o e remanejamento de pontos l&oacute;gicos; Instala&ccedil;&atilde;o 
-					de sistema operacional; Manuten&ccedil;&atilde;o de microcomputador; Manuten&ccedil;&atilde;o de perif&eacute;ricos; Registro de chamados via 
-					Sistema de HelpDesk, Manuten&ccedil;&atilde;o de impressoras; Atendimento externo SAF/ CEPREV; Grava&ccedil;&atilde;o de CD; Inclus&atilde;o de 
-					esta&ccedil;&otilde;es na rede; Otimiza&ccedil;&atilde;o das esta&ccedil;&otilde;es do usu&aacute;rio: internet, arquivos tempor&aacute;rios, defrag, scandisk; Atualiza&ccedil;&atilde;o 
-					de sistemas de outras Secretarias: Sicaf, Sicaj, SIPLAN, ICF; Atualiza&ccedil;&atilde;o tecnol&oacute;gica; Treinamento de utiliza&ccedil;&atilde;o 
-					do Sistema SIAP; Atendimento ao Sistema SIAP; Treinamento de utiliza&ccedil;&atilde;o do coletor para o Sistema SIAP.
-				</p>
-            </div>
-            -->
-            <!--
-            <div class="exp">
-
-                <h4>Stefanini</h4>
-                <h5>T&eacute;cnico em Suporte</h5>
-                <p class="year">de Dezembro/2004 a Fevereiro/2005</p>
-                <p class="description">
-					Atendimento helpdesk 1&ordm; e 2&ordm; n&iacute;vel ao usu&aacute;rio do Club Mad, suporte a rede, suporte remoto, 
-					manuten&ccedil;&atilde;o de hardware, suporte a sistemas win98/ NT/ 2000/ XP, Office e Microsoft Outlook.
-				</p>
-            </div>
-			-->
-            <!--
-			<div class="exp">
-                
-                <h4>SETPS</h4> 
-                <h5>T&eacute;cnico em Suporte</h5>
-                <p class="year">de Agosto/2003 a Dezembro/2004</p>
-                <p class="description">
-					Instala&ccedil;&atilde;o e configura&ccedil;&atilde;o de sistemas operacionais: Windows 2000 Profissional, Windows 2000 server, 
-					windows nt 4.0. server; Linux, Free BSD; Wndows XP, Windows 98. Suporte aos usu&aacute;rios da empresa; 
-					Instala&ccedil;&atilde;o, configura&ccedil;&atilde;o e atualiza&ccedil;&atilde;o dos sistemas utilizados pela pr&oacute;pria empresa (Sistema Tacom); 
-					Manuten&ccedil;&atilde;o a micro computadores; Suporte e configura&ccedil;&atilde;o da rede desta empresa; Help Desk 1&ordm; e 2&ordm; n&iacute;vel; 
-					Rotina de Backup; Instala&ccedil;&atilde;o do Pacote Office 2000 e Correio Eletr&ocirc;nico. Suporte Remoto utilizando VNC; 
-					Instala&ccedil;&atilde;o e configura&ccedil;&atilde;o do programa de Banco de Dados Oracle ao n&iacute;vel de usu&aacute;rio; Cria&ccedil;&atilde;o de conta de usu&aacute;rio.
-				</p>
-            </div>
-            -->
-            <!--
-            <div class="exp_unborder">
-                <h4>Loja I - Loja das Impressoras & Micros</h4>
-                <h5>T&eacute;cnico em Inform&aacute;tica</h5>
-                <p class="year">de Maio/2001 a Fevereiro/2003</p>
-                <p class="description">                    				
-					Trabalhei na Loja I, situada na Rua Osvaldo Cruz, n&ordm;. 420 - Rio Vermelho, como t&eacute;cnico em inform&aacute;tica, 
-					fazendo manuten&ccedil;&atilde;o de computadores e implanta&ccedil;&atilde;o de rede. Tenho experi&ecirc;ncia em montagem, configura&ccedil;&atilde;o e 
-					instala&ccedil;&atilde;o de diversos softwares e dravers.  Renovei o servidor da empresa (sistema Windows 2000 Server) e 
-					reestruturei o cabeamento da rede da mesma. Depois de um tempo tomei total responsabilidade do laborat&oacute;rio t&eacute;cnico, 
-					coordenando mais tr&ecirc;s t&eacute;cnicos. Implantei rede para empresas como: Cobase, LAP, Contabilidade Jos&eacute; Sergio, entre outras.
-				</p>
-            </div>
-            -->
         </div>
 
 
@@ -412,6 +314,43 @@
         </div>
 
     </div>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('a[name=modal]').click(function (e) {
+                e.preventDefault();
+
+                var id = $(this).attr('href');
+                var maskHeight = $(document).height();
+                var maskWidth = $(window).width();
+
+                $('#mask').css({ 'width': maskWidth, 'height': maskHeight });
+                $('#mask').fadeIn(1000);
+                $('#mask').fadeTo("slow", 0.8);
+
+                //Get the window height and width
+                var winH = $(window).height();
+                var winW = $(window).width();
+
+                $(id).css('top', winH / 2 - $(id).height() / 2);
+                $(id).css('left', winW / 2 - $(id).width() / 2);
+                $(id).fadeIn(2000);
+            });
+
+            $('.window .close').click(function (e) {
+                e.preventDefault();
+                $('#mask').hide();
+                $('.window').hide();
+            });
+
+            $('#mask').click(function () {
+                $(this).hide();
+                $('.window').hide();
+            });
+
+        });
+	</script>
 
 </body>
 
