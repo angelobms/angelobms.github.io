@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Meu Site Pessoal</title>
-    <link>http://localhost:1313/pt/</link>
+    <link>https://angelobms.github.io/website/pt/</link>
     <description>Recent content on Meu Site Pessoal</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>pt</language>
     <lastBuildDate>Wed, 24 Sep 2025 18:59:31 -0300</lastBuildDate>
-    <atom:link href="http://localhost:1313/pt/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://angelobms.github.io/website/pt/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Criando Aplicações Resilientes com Tolerância a Falhas com Quarkus</title>
-      <link>http://localhost:1313/pt/posts/criando-aplica%C3%A7%C3%B5es-resilientes-com-toler%C3%A2ncia-a-falhas-com-quarkus/</link>
+      <link>https://angelobms.github.io/website/pt/posts/criando-aplica%C3%A7%C3%B5es-resilientes-com-toler%C3%A2ncia-a-falhas-com-quarkus/</link>
       <pubDate>Wed, 24 Sep 2025 18:59:31 -0300</pubDate>
-      <guid>http://localhost:1313/pt/posts/criando-aplica%C3%A7%C3%B5es-resilientes-com-toler%C3%A2ncia-a-falhas-com-quarkus/</guid>
+      <guid>https://angelobms.github.io/website/pt/posts/criando-aplica%C3%A7%C3%B5es-resilientes-com-toler%C3%A2ncia-a-falhas-com-quarkus/</guid>
       <description>&lt;img src=&#34;00-quarkus.png&#34; alt=&#34;Quarkus&#34; width=&#34;600&#34; style=&#34;max-width: 100%; height: auto; object-fit: contain;&#34; class=&#34;center&#34;&gt;
 &lt;h2 id=&#34;introdução&#34;&gt;Introdução&lt;/h2&gt;
 &lt;p&gt;Quem desenvolve microsserviços sabe: falhas acontecem. Conexões que caem, serviços externos lentos, filas congestionadas — tudo isso pode comprometer a disponibilidade de um sistema.&lt;/p&gt;
@@ -20,9 +20,9 @@
     </item>
     <item>
       <title>Contato</title>
-      <link>http://localhost:1313/pt/contact/</link>
+      <link>https://angelobms.github.io/website/pt/contact/</link>
       <pubDate>Wed, 24 Sep 2025 18:52:44 -0300</pubDate>
-      <guid>http://localhost:1313/pt/contact/</guid>
+      <guid>https://angelobms.github.io/website/pt/contact/</guid>
       <description>&lt;p&gt;📬 Entre em contato:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Email:&lt;/strong&gt; &lt;a href=&#34;mailto:angelobms@gmail.com&#34;&gt;angelobms@gmail.com&lt;/a&gt;&lt;/li&gt;
@@ -33,9 +33,9 @@
     </item>
     <item>
       <title>Currículo</title>
-      <link>http://localhost:1313/pt/resume/</link>
+      <link>https://angelobms.github.io/website/pt/resume/</link>
       <pubDate>Wed, 24 Sep 2025 18:52:23 -0300</pubDate>
-      <guid>http://localhost:1313/pt/resume/</guid>
+      <guid>https://angelobms.github.io/website/pt/resume/</guid>
       <description>&lt;h2 id=&#34;engenheiro-de-software-senior&#34;&gt;Engenheiro de Software Senior&lt;/h2&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;-resumo-profissional&#34;&gt;💼 Resumo Profissional&lt;/h3&gt;
@@ -44,9 +44,9 @@
     </item>
     <item>
       <title>Sobre mim</title>
-      <link>http://localhost:1313/pt/about/</link>
+      <link>https://angelobms.github.io/website/pt/about/</link>
       <pubDate>Wed, 24 Sep 2025 18:51:22 -0300</pubDate>
-      <guid>http://localhost:1313/pt/about/</guid>
+      <guid>https://angelobms.github.io/website/pt/about/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;Angelo Brandão&#34; loading=&#34;lazy&#34; src=&#34;https://github.com/angelobms.png&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;sou-um-brasileiro--apaixonado-por-tecnologia&#34;&gt;Sou um brasileiro 🇧🇷️ apaixonado por tecnologia.&lt;/h3&gt;
 &lt;p&gt;🔭 &lt;strong&gt;Mais de 20 anos de experiência&lt;/strong&gt; na indústria de TI com sólida formação em diferentes áreas de desenvolvimento de software (15+ anos) em negócios do setor público e privado;&lt;/p&gt;

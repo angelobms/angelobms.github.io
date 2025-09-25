@@ -2,189 +2,189 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/pt/categories/</loc>
+    <loc>https://angelobms.github.io/website/pt/categories/</loc>
     <lastmod>2025-09-24T18:59:31-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/en/categories/"
+                href="https://angelobms.github.io/website/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="http://localhost:1313/pt/categories/"
+                href="https://angelobms.github.io/website/pt/categories/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt/posts/criando-aplica%C3%A7%C3%B5es-resilientes-com-toler%C3%A2ncia-a-falhas-com-quarkus/</loc>
+    <loc>https://angelobms.github.io/website/pt/posts/criando-aplica%C3%A7%C3%B5es-resilientes-com-toler%C3%A2ncia-a-falhas-com-quarkus/</loc>
     <lastmod>2025-09-24T18:59:31-03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/pt/categories/development/</loc>
-    <lastmod>2025-09-24T18:59:31-03:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/categories/development/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="http://localhost:1313/pt/categories/development/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/pt/tags/fault-tolerance/</loc>
+    <loc>https://angelobms.github.io/website/pt/categories/development/</loc>
     <lastmod>2025-09-24T18:59:31-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/en/tags/fault-tolerance/"
+                href="https://angelobms.github.io/website/en/categories/development/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="http://localhost:1313/pt/tags/fault-tolerance/"
+                href="https://angelobms.github.io/website/pt/categories/development/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt/tags/java/</loc>
+    <loc>https://angelobms.github.io/website/pt/tags/fault-tolerance/</loc>
     <lastmod>2025-09-24T18:59:31-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/en/tags/java/"
+                href="https://angelobms.github.io/website/en/tags/fault-tolerance/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="http://localhost:1313/pt/tags/java/"
+                href="https://angelobms.github.io/website/pt/tags/fault-tolerance/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt/tags/microprofile/</loc>
+    <loc>https://angelobms.github.io/website/pt/tags/java/</loc>
     <lastmod>2025-09-24T18:59:31-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/en/tags/microprofile/"
+                href="https://angelobms.github.io/website/en/tags/java/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="http://localhost:1313/pt/tags/microprofile/"
+                href="https://angelobms.github.io/website/pt/tags/java/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt/tags/microservices/</loc>
+    <loc>https://angelobms.github.io/website/pt/tags/microprofile/</loc>
     <lastmod>2025-09-24T18:59:31-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/en/tags/microservices/"
+                href="https://angelobms.github.io/website/en/tags/microprofile/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="http://localhost:1313/pt/tags/microservices/"
+                href="https://angelobms.github.io/website/pt/tags/microprofile/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt/posts/</loc>
+    <loc>https://angelobms.github.io/website/pt/tags/microservices/</loc>
     <lastmod>2025-09-24T18:59:31-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/en/posts/"
+                href="https://angelobms.github.io/website/en/tags/microservices/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="http://localhost:1313/pt/posts/"
+                href="https://angelobms.github.io/website/pt/tags/microservices/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt/tags/quarkus/</loc>
+    <loc>https://angelobms.github.io/website/pt/posts/</loc>
     <lastmod>2025-09-24T18:59:31-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/en/tags/quarkus/"
+                href="https://angelobms.github.io/website/en/posts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="http://localhost:1313/pt/tags/quarkus/"
+                href="https://angelobms.github.io/website/pt/posts/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt/tags/resilience/</loc>
+    <loc>https://angelobms.github.io/website/pt/tags/quarkus/</loc>
     <lastmod>2025-09-24T18:59:31-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/en/tags/resilience/"
+                href="https://angelobms.github.io/website/en/tags/quarkus/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="http://localhost:1313/pt/tags/resilience/"
+                href="https://angelobms.github.io/website/pt/tags/quarkus/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt/tags/</loc>
+    <loc>https://angelobms.github.io/website/pt/tags/resilience/</loc>
     <lastmod>2025-09-24T18:59:31-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/en/tags/"
+                href="https://angelobms.github.io/website/en/tags/resilience/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="http://localhost:1313/pt/tags/"
+                href="https://angelobms.github.io/website/pt/tags/resilience/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt/contact/</loc>
+    <loc>https://angelobms.github.io/website/pt/tags/</loc>
+    <lastmod>2025-09-24T18:59:31-03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://angelobms.github.io/website/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://angelobms.github.io/website/pt/tags/"
+                />
+  </url><url>
+    <loc>https://angelobms.github.io/website/pt/contact/</loc>
     <lastmod>2025-09-24T18:52:44-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/en/contact/"
+                href="https://angelobms.github.io/website/en/contact/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="http://localhost:1313/pt/contact/"
+                href="https://angelobms.github.io/website/pt/contact/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt/resume/</loc>
+    <loc>https://angelobms.github.io/website/pt/resume/</loc>
     <lastmod>2025-09-24T18:52:23-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/en/resume/"
+                href="https://angelobms.github.io/website/en/resume/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="http://localhost:1313/pt/resume/"
+                href="https://angelobms.github.io/website/pt/resume/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt/about/</loc>
+    <loc>https://angelobms.github.io/website/pt/about/</loc>
     <lastmod>2025-09-24T18:51:22-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/en/about/"
+                href="https://angelobms.github.io/website/en/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="http://localhost:1313/pt/about/"
+                href="https://angelobms.github.io/website/pt/about/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt/</loc>
+    <loc>https://angelobms.github.io/website/pt/</loc>
     <lastmod>2025-09-24T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/en/"
+                href="https://angelobms.github.io/website/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="http://localhost:1313/pt/"
+                href="https://angelobms.github.io/website/pt/"
                 />
   </url>
 </urlset>
