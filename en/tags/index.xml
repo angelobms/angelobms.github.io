@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on My Personal Website</title>
+    <link>http://localhost:1313/en/tags/</link>
+    <description>Recent content in Tags on My Personal Website</description>
+    <generator>Hugo -- 0.150.0</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 24 Sep 2025 18:59:31 -0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fault-Tolerance</title>
+      <link>http://localhost:1313/en/tags/fault-tolerance/</link>
+      <pubDate>Wed, 24 Sep 2025 18:59:31 -0300</pubDate>
+      <guid>http://localhost:1313/en/tags/fault-tolerance/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java</title>
+      <link>http://localhost:1313/en/tags/java/</link>
+      <pubDate>Wed, 24 Sep 2025 18:59:31 -0300</pubDate>
+      <guid>http://localhost:1313/en/tags/java/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Microprofile</title>
+      <link>http://localhost:1313/en/tags/microprofile/</link>
+      <pubDate>Wed, 24 Sep 2025 18:59:31 -0300</pubDate>
+      <guid>http://localhost:1313/en/tags/microprofile/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Microservices</title>
+      <link>http://localhost:1313/en/tags/microservices/</link>
+      <pubDate>Wed, 24 Sep 2025 18:59:31 -0300</pubDate>
+      <guid>http://localhost:1313/en/tags/microservices/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Quarkus</title>
+      <link>http://localhost:1313/en/tags/quarkus/</link>
+      <pubDate>Wed, 24 Sep 2025 18:59:31 -0300</pubDate>
+      <guid>http://localhost:1313/en/tags/quarkus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Resilience</title>
+      <link>http://localhost:1313/en/tags/resilience/</link>
+      <pubDate>Wed, 24 Sep 2025 18:59:31 -0300</pubDate>
+      <guid>http://localhost:1313/en/tags/resilience/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

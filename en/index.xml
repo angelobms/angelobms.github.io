@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>My Personal Website</title>
+    <link>http://localhost:1313/en/</link>
+    <description>Recent content on My Personal Website</description>
+    <generator>Hugo -- 0.150.0</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 24 Sep 2025 18:59:31 -0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building Resilient, Fault-Tolerant Applications with Quarkus</title>
+      <link>http://localhost:1313/en/posts/building-resilient-fault-tolerant-applications-with-quarkus/</link>
+      <pubDate>Wed, 24 Sep 2025 18:59:31 -0300</pubDate>
+      <guid>http://localhost:1313/en/posts/building-resilient-fault-tolerant-applications-with-quarkus/</guid>
+      <description>&lt;img src=&#34;00-quarkus.png&#34; alt=&#34;Quarkus&#34; width=&#34;600&#34; style=&#34;max-width: 100%; height: auto; object-fit: contain;&#34; class=&#34;center&#34;&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Anyone who develops microservices knows: failures happen. Dropped connections, slow external services, congested queues — all of this can compromise a system&amp;rsquo;s availability.&lt;/p&gt;
+&lt;p&gt;Quarkus, in addition to being fast and optimized for native Kubernetes environments, already comes with support for resilience features through MicroProfile Fault Tolerance. This means we can apply classic fault tolerance patterns to our applications with just a few annotations.&lt;/p&gt;
+&lt;p&gt;In this article, I&amp;rsquo;ll show you how to implement these patterns practically, with code examples and tips that can save your application in production environments.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Contact</title>
+      <link>http://localhost:1313/en/contact/</link>
+      <pubDate>Wed, 24 Sep 2025 18:52:49 -0300</pubDate>
+      <guid>http://localhost:1313/en/contact/</guid>
+      <description>&lt;p&gt;📬 Get in touch:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Email:&lt;/strong&gt; &lt;a href=&#34;mailto:angelobms@gmail.com&#34;&gt;angelobms@gmail.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LinkedIn:&lt;/strong&gt; &lt;a href=&#34;https://linkedin.com/in/angelobms&#34;&gt;linkedin.com/in/angelobms&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHub:&lt;/strong&gt; &lt;a href=&#34;https://github.com/angelobms&#34;&gt;github.com/angelobms&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;WhatsApp:&lt;/strong&gt; &lt;a href=&#34;https://wa.me/5571999323676&#34;&gt;+55 71 999323676&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Resume</title>
+      <link>http://localhost:1313/en/resume/</link>
+      <pubDate>Wed, 24 Sep 2025 18:52:28 -0300</pubDate>
+      <guid>http://localhost:1313/en/resume/</guid>
+      <description>&lt;h2 id=&#34;senior-software-engineer&#34;&gt;Senior Software Engineer&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-professional-summary&#34;&gt;💼 Professional Summary&lt;/h3&gt;
+&lt;p&gt;Over 20 years of experience in the IT industry with solid experience in different areas of software development (15+ years), in the business world of both public and private sectors. Bachelor&amp;rsquo;s degree in Information Systems and specialist in Software Engineering.&lt;/p&gt;
+&lt;p&gt;Professional in constant learning and knowledge improvement, always working in collaboration for the organization&amp;rsquo;s success. Ability to quickly adapt to new industries, new cultures, and new technologies.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About Me</title>
+      <link>http://localhost:1313/en/about/</link>
+      <pubDate>Wed, 24 Sep 2025 18:51:32 -0300</pubDate>
+      <guid>http://localhost:1313/en/about/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;Angelo Brandão&#34; loading=&#34;lazy&#34; src=&#34;https://github.com/angelobms.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;i-am-a-brazilian--passionate-about-technology&#34;&gt;I am a Brazilian 🇧🇷️ passionate about technology.&lt;/h3&gt;
+&lt;p&gt;🔭 &lt;strong&gt;More than 20 years of experience&lt;/strong&gt; in IT industry with strong background in different areas of software development (15+ years) in public and private sector business;&lt;/p&gt;
+&lt;p&gt;👷️ I&amp;rsquo;m currently working on &lt;strong&gt;microservices with Java and Spring Cloud&lt;/strong&gt;;&lt;/p&gt;
+&lt;p&gt;🌱 &lt;strong&gt;Degree in Information Systems&lt;/strong&gt; and expert in software engineering;&lt;/p&gt;
+&lt;p&gt;👨‍💻️ I am in constant renewal of knowledge. &lt;a href=&#34;https://github.com/angelobms/list-courses-certifications&#34; target=&#34;_blank&#34;&gt;List of courses and certifications&lt;/a&gt;;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

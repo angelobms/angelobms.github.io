@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Quarkus on Meu Site Pessoal</title>
+    <link>http://localhost:1313/pt/tags/quarkus/</link>
+    <description>Recent content in Quarkus on Meu Site Pessoal</description>
+    <generator>Hugo -- 0.150.0</generator>
+    <language>pt</language>
+    <lastBuildDate>Wed, 24 Sep 2025 18:59:31 -0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/pt/tags/quarkus/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Criando Aplicações Resilientes com Tolerância a Falhas com Quarkus</title>
+      <link>http://localhost:1313/pt/posts/criando-aplica%C3%A7%C3%B5es-resilientes-com-toler%C3%A2ncia-a-falhas-com-quarkus/</link>
+      <pubDate>Wed, 24 Sep 2025 18:59:31 -0300</pubDate>
+      <guid>http://localhost:1313/pt/posts/criando-aplica%C3%A7%C3%B5es-resilientes-com-toler%C3%A2ncia-a-falhas-com-quarkus/</guid>
+      <description>&lt;img src=&#34;00-quarkus.png&#34; alt=&#34;Quarkus&#34; width=&#34;600&#34; style=&#34;max-width: 100%; height: auto; object-fit: contain;&#34; class=&#34;center&#34;&gt;
+&lt;h2 id=&#34;introdução&#34;&gt;Introdução&lt;/h2&gt;
+&lt;p&gt;Quem desenvolve microsserviços sabe: falhas acontecem. Conexões que caem, serviços externos lentos, filas congestionadas — tudo isso pode comprometer a disponibilidade de um sistema.&lt;/p&gt;
+&lt;p&gt;O Quarkus, além de rápido e otimizado para ambientes nativos em Kubernetes, já vem com suporte a recursos de resiliência por meio do MicroProfile Fault Tolerance. Isso significa que podemos aplicar, com poucas anotações, padrões clássicos de tolerância a falhas em nossas aplicações.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
