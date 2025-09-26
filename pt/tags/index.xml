@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Meu Site Pessoal</title>
-    <link>https://angelobms.github.io/website/pt/tags/</link>
+    <link>https://angelobms.github.io/pt/tags/</link>
     <description>Recent content in Tags on Meu Site Pessoal</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>pt</language>
     <lastBuildDate>Wed, 24 Sep 2025 18:59:31 -0300</lastBuildDate>
-    <atom:link href="https://angelobms.github.io/website/pt/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://angelobms.github.io/pt/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fault-Tolerance</title>
-      <link>https://angelobms.github.io/website/pt/tags/fault-tolerance/</link>
+      <link>https://angelobms.github.io/pt/tags/fault-tolerance/</link>
       <pubDate>Wed, 24 Sep 2025 18:59:31 -0300</pubDate>
-      <guid>https://angelobms.github.io/website/pt/tags/fault-tolerance/</guid>
+      <guid>https://angelobms.github.io/pt/tags/fault-tolerance/</guid>
       <description></description>
     </item>
     <item>
       <title>Java</title>
-      <link>https://angelobms.github.io/website/pt/tags/java/</link>
+      <link>https://angelobms.github.io/pt/tags/java/</link>
       <pubDate>Wed, 24 Sep 2025 18:59:31 -0300</pubDate>
-      <guid>https://angelobms.github.io/website/pt/tags/java/</guid>
+      <guid>https://angelobms.github.io/pt/tags/java/</guid>
       <description></description>
     </item>
     <item>
       <title>Microprofile</title>
-      <link>https://angelobms.github.io/website/pt/tags/microprofile/</link>
+      <link>https://angelobms.github.io/pt/tags/microprofile/</link>
       <pubDate>Wed, 24 Sep 2025 18:59:31 -0300</pubDate>
-      <guid>https://angelobms.github.io/website/pt/tags/microprofile/</guid>
+      <guid>https://angelobms.github.io/pt/tags/microprofile/</guid>
       <description></description>
     </item>
     <item>
       <title>Microservices</title>
-      <link>https://angelobms.github.io/website/pt/tags/microservices/</link>
+      <link>https://angelobms.github.io/pt/tags/microservices/</link>
       <pubDate>Wed, 24 Sep 2025 18:59:31 -0300</pubDate>
-      <guid>https://angelobms.github.io/website/pt/tags/microservices/</guid>
+      <guid>https://angelobms.github.io/pt/tags/microservices/</guid>
       <description></description>
     </item>
     <item>
       <title>Quarkus</title>
-      <link>https://angelobms.github.io/website/pt/tags/quarkus/</link>
+      <link>https://angelobms.github.io/pt/tags/quarkus/</link>
       <pubDate>Wed, 24 Sep 2025 18:59:31 -0300</pubDate>
-      <guid>https://angelobms.github.io/website/pt/tags/quarkus/</guid>
+      <guid>https://angelobms.github.io/pt/tags/quarkus/</guid>
       <description></description>
     </item>
     <item>
       <title>Resilience</title>
-      <link>https://angelobms.github.io/website/pt/tags/resilience/</link>
+      <link>https://angelobms.github.io/pt/tags/resilience/</link>
       <pubDate>Wed, 24 Sep 2025 18:59:31 -0300</pubDate>
-      <guid>https://angelobms.github.io/website/pt/tags/resilience/</guid>
+      <guid>https://angelobms.github.io/pt/tags/resilience/</guid>
       <description></description>
     </item>
   </channel>

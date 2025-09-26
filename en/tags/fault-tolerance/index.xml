@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Fault-Tolerance on My Personal Website</title>
-    <link>https://angelobms.github.io/website/en/tags/fault-tolerance/</link>
+    <link>https://angelobms.github.io/en/tags/fault-tolerance/</link>
     <description>Recent content in Fault-Tolerance on My Personal Website</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>en</language>
     <lastBuildDate>Wed, 24 Sep 2025 18:59:31 -0300</lastBuildDate>
-    <atom:link href="https://angelobms.github.io/website/en/tags/fault-tolerance/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://angelobms.github.io/en/tags/fault-tolerance/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Building Resilient, Fault-Tolerant Applications with Quarkus</title>
-      <link>https://angelobms.github.io/website/en/posts/building-resilient-fault-tolerant-applications-with-quarkus/</link>
+      <link>https://angelobms.github.io/en/posts/building-resilient-fault-tolerant-applications-with-quarkus/</link>
       <pubDate>Wed, 24 Sep 2025 18:59:31 -0300</pubDate>
-      <guid>https://angelobms.github.io/website/en/posts/building-resilient-fault-tolerant-applications-with-quarkus/</guid>
+      <guid>https://angelobms.github.io/en/posts/building-resilient-fault-tolerant-applications-with-quarkus/</guid>
       <description>&lt;img src=&#34;00-quarkus.png&#34; alt=&#34;Quarkus&#34; width=&#34;600&#34; style=&#34;max-width: 100%; height: auto; object-fit: contain;&#34; class=&#34;center&#34;&gt;
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Anyone who develops microservices knows: failures happen. Dropped connections, slow external services, congested queues — all of this can compromise a system&amp;rsquo;s availability.&lt;/p&gt;

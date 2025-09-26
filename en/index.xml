@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>My Personal Website</title>
-    <link>https://angelobms.github.io/website/en/</link>
+    <link>https://angelobms.github.io/en/</link>
     <description>Recent content on My Personal Website</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>en</language>
     <lastBuildDate>Wed, 24 Sep 2025 18:59:31 -0300</lastBuildDate>
-    <atom:link href="https://angelobms.github.io/website/en/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://angelobms.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Building Resilient, Fault-Tolerant Applications with Quarkus</title>
-      <link>https://angelobms.github.io/website/en/posts/building-resilient-fault-tolerant-applications-with-quarkus/</link>
+      <link>https://angelobms.github.io/en/posts/building-resilient-fault-tolerant-applications-with-quarkus/</link>
       <pubDate>Wed, 24 Sep 2025 18:59:31 -0300</pubDate>
-      <guid>https://angelobms.github.io/website/en/posts/building-resilient-fault-tolerant-applications-with-quarkus/</guid>
+      <guid>https://angelobms.github.io/en/posts/building-resilient-fault-tolerant-applications-with-quarkus/</guid>
       <description>&lt;img src=&#34;00-quarkus.png&#34; alt=&#34;Quarkus&#34; width=&#34;600&#34; style=&#34;max-width: 100%; height: auto; object-fit: contain;&#34; class=&#34;center&#34;&gt;
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Anyone who develops microservices knows: failures happen. Dropped connections, slow external services, congested queues — all of this can compromise a system&amp;rsquo;s availability.&lt;/p&gt;
@@ -21,9 +21,9 @@
     </item>
     <item>
       <title>Contact</title>
-      <link>https://angelobms.github.io/website/en/contact/</link>
+      <link>https://angelobms.github.io/en/contact/</link>
       <pubDate>Wed, 24 Sep 2025 18:52:49 -0300</pubDate>
-      <guid>https://angelobms.github.io/website/en/contact/</guid>
+      <guid>https://angelobms.github.io/en/contact/</guid>
       <description>&lt;p&gt;📬 Get in touch:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Email:&lt;/strong&gt; &lt;a href=&#34;mailto:angelobms@gmail.com&#34;&gt;angelobms@gmail.com&lt;/a&gt;&lt;/li&gt;
@@ -34,9 +34,9 @@
     </item>
     <item>
       <title>Resume</title>
-      <link>https://angelobms.github.io/website/en/resume/</link>
+      <link>https://angelobms.github.io/en/resume/</link>
       <pubDate>Wed, 24 Sep 2025 18:52:28 -0300</pubDate>
-      <guid>https://angelobms.github.io/website/en/resume/</guid>
+      <guid>https://angelobms.github.io/en/resume/</guid>
       <description>&lt;h2 id=&#34;senior-software-engineer&#34;&gt;Senior Software Engineer&lt;/h2&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;-professional-summary&#34;&gt;💼 Professional Summary&lt;/h3&gt;
@@ -45,9 +45,9 @@
     </item>
     <item>
       <title>About Me</title>
-      <link>https://angelobms.github.io/website/en/about/</link>
+      <link>https://angelobms.github.io/en/about/</link>
       <pubDate>Wed, 24 Sep 2025 18:51:32 -0300</pubDate>
-      <guid>https://angelobms.github.io/website/en/about/</guid>
+      <guid>https://angelobms.github.io/en/about/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;Angelo Brandão&#34; loading=&#34;lazy&#34; src=&#34;https://github.com/angelobms.png&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;i-am-a-brazilian--passionate-about-technology&#34;&gt;I am a Brazilian 🇧🇷️ passionate about technology.&lt;/h3&gt;
 &lt;p&gt;🔭 &lt;strong&gt;More than 20 years of experience&lt;/strong&gt; in IT industry with strong background in different areas of software development (15+ years) in public and private sector business;&lt;/p&gt;
