@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="pt" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Criando Seu Primeiro Projeto Spring Boot: Guia Completo para Iniciantes | Meu Site Pessoal</title>
+<meta name="keywords" content="spring-boot, java, desenvolvimento, iniciantes, backend">
+<meta name="description" content="
+Índice
+
+Por Que Spring Boot Mudou o Desenvolvimento Java?
+O Que Você Vai Aprender
+Preparando o Terreno
+Criando o Projeto: Três Caminhos Possíveis
+Desvendando a Estrutura do Projeto
+A Classe Principal: O Coração da Aplicação
+Rodando Pela Primeira Vez
+Criando Sua Primeira API REST
+Trabalhando com JSON: O Padrão da Web Moderna
+Criando uma Lista de Recursos
+Personalizando Configurações
+Organizando o Código: Arquitetura em Camadas
+Próximos Passos na Sua Jornada
+Dicas de Ouro para Iniciantes
+Recursos Complementares
+Conclusão
+
+1. Por Que Spring Boot Mudou o Desenvolvimento Java?
+Imagine poder criar uma aplicação web completa em Java sem precisar configurar dezenas de arquivos XML ou se perder em configurações complexas. Era exatamente esse o sonho de todo desenvolvedor Java há alguns anos — e o Spring Boot tornou isso realidade.">
+<meta name="author" content="Angelo Brandão">
+<link rel="canonical" href="https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8d898ce0db57dd06aa1a14c754e0b803505c5adda99ec420f42cea13e3222b5e.css" integrity="sha256-jYmM4NtX3QaqGhTHVOC4A1BcWt2pnsQg9CzqE&#43;MiK14=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://angelobms.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://angelobms.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://angelobms.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://angelobms.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://angelobms.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="pt" href="https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/">
+  <meta property="og:site_name" content="Meu Site Pessoal">
+  <meta property="og:title" content="Criando Seu Primeiro Projeto Spring Boot: Guia Completo para Iniciantes">
+  <meta property="og:description" content=" Índice Por Que Spring Boot Mudou o Desenvolvimento Java? O Que Você Vai Aprender Preparando o Terreno Criando o Projeto: Três Caminhos Possíveis Desvendando a Estrutura do Projeto A Classe Principal: O Coração da Aplicação Rodando Pela Primeira Vez Criando Sua Primeira API REST Trabalhando com JSON: O Padrão da Web Moderna Criando uma Lista de Recursos Personalizando Configurações Organizando o Código: Arquitetura em Camadas Próximos Passos na Sua Jornada Dicas de Ouro para Iniciantes Recursos Complementares Conclusão 1. Por Que Spring Boot Mudou o Desenvolvimento Java? Imagine poder criar uma aplicação web completa em Java sem precisar configurar dezenas de arquivos XML ou se perder em configurações complexas. Era exatamente esse o sonho de todo desenvolvedor Java há alguns anos — e o Spring Boot tornou isso realidade.">
+  <meta property="og:locale" content="pt">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-04T10:00:00-03:00">
+    <meta property="article:modified_time" content="2025-10-04T10:00:00-03:00">
+    <meta property="article:tag" content="Spring-Boot">
+    <meta property="article:tag" content="Java">
+    <meta property="article:tag" content="Desenvolvimento">
+    <meta property="article:tag" content="Iniciantes">
+    <meta property="article:tag" content="Backend">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Criando Seu Primeiro Projeto Spring Boot: Guia Completo para Iniciantes">
+<meta name="twitter:description" content="
+Índice
+
+Por Que Spring Boot Mudou o Desenvolvimento Java?
+O Que Você Vai Aprender
+Preparando o Terreno
+Criando o Projeto: Três Caminhos Possíveis
+Desvendando a Estrutura do Projeto
+A Classe Principal: O Coração da Aplicação
+Rodando Pela Primeira Vez
+Criando Sua Primeira API REST
+Trabalhando com JSON: O Padrão da Web Moderna
+Criando uma Lista de Recursos
+Personalizando Configurações
+Organizando o Código: Arquitetura em Camadas
+Próximos Passos na Sua Jornada
+Dicas de Ouro para Iniciantes
+Recursos Complementares
+Conclusão
+
+1. Por Que Spring Boot Mudou o Desenvolvimento Java?
+Imagine poder criar uma aplicação web completa em Java sem precisar configurar dezenas de arquivos XML ou se perder em configurações complexas. Era exatamente esse o sonho de todo desenvolvedor Java há alguns anos — e o Spring Boot tornou isso realidade.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://angelobms.github.io/pt/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Criando Seu Primeiro Projeto Spring Boot: Guia Completo para Iniciantes",
+      "item": "https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Criando Seu Primeiro Projeto Spring Boot: Guia Completo para Iniciantes",
+  "name": "Criando Seu Primeiro Projeto Spring Boot: Guia Completo para Iniciantes",
+  "description": " Índice Por Que Spring Boot Mudou o Desenvolvimento Java? O Que Você Vai Aprender Preparando o Terreno Criando o Projeto: Três Caminhos Possíveis Desvendando a Estrutura do Projeto A Classe Principal: O Coração da Aplicação Rodando Pela Primeira Vez Criando Sua Primeira API REST Trabalhando com JSON: O Padrão da Web Moderna Criando uma Lista de Recursos Personalizando Configurações Organizando o Código: Arquitetura em Camadas Próximos Passos na Sua Jornada Dicas de Ouro para Iniciantes Recursos Complementares Conclusão 1. Por Que Spring Boot Mudou o Desenvolvimento Java? Imagine poder criar uma aplicação web completa em Java sem precisar configurar dezenas de arquivos XML ou se perder em configurações complexas. Era exatamente esse o sonho de todo desenvolvedor Java há alguns anos — e o Spring Boot tornou isso realidade.\n",
+  "keywords": [
+    "spring-boot", "java", "desenvolvimento", "iniciantes", "backend"
+  ],
+  "articleBody": " Índice Por Que Spring Boot Mudou o Desenvolvimento Java? O Que Você Vai Aprender Preparando o Terreno Criando o Projeto: Três Caminhos Possíveis Desvendando a Estrutura do Projeto A Classe Principal: O Coração da Aplicação Rodando Pela Primeira Vez Criando Sua Primeira API REST Trabalhando com JSON: O Padrão da Web Moderna Criando uma Lista de Recursos Personalizando Configurações Organizando o Código: Arquitetura em Camadas Próximos Passos na Sua Jornada Dicas de Ouro para Iniciantes Recursos Complementares Conclusão 1. Por Que Spring Boot Mudou o Desenvolvimento Java? Imagine poder criar uma aplicação web completa em Java sem precisar configurar dezenas de arquivos XML ou se perder em configurações complexas. Era exatamente esse o sonho de todo desenvolvedor Java há alguns anos — e o Spring Boot tornou isso realidade.\nAntes do Spring Boot, configurar um projeto Spring tradicional era como montar um quebra-cabeça de mil peças: você precisava juntar manualmente cada componente, configurar servidores de aplicação, ajustar arquivos XML intermináveis e, só então, começar a escrever seu código de verdade.\nO Spring Boot virou esse jogo de cabeça para baixo. Ele trouxe a filosofia de “convenção sobre configuração”, o que significa: menos tempo configurando, mais tempo criando.\n2. O Que Você Vai Aprender Neste guia, vamos construir juntos uma aplicação do zero, entendendo cada passo do caminho. Não se preocupe se você nunca mexeu com Spring antes — vou explicar tudo de forma clara e objetiva.\nAo final deste artigo, você terá:\n✅ Um projeto Spring Boot funcionando na sua máquina ✅ Compreensão das peças fundamentais do framework ✅ Uma API REST simples que você mesmo criou ✅ Base sólida para explorar recursos mais avançados 3. Preparando o Terreno Antes de começar, certifique-se de ter instalado:\nJava 25: Spring Boot 3.x exige no mínimo o Java 17 Maven ou Gradle: gerenciadores de dependências (usaremos Maven nos exemplos) IDE de sua preferência: IntelliJ IDEA, Eclipse, VS Code ou qualquer editor que você goste Para verificar se o Java está instalado corretamente:\njava -version Se aparecer algo como java version \"25.0.x\" ou superior, está tudo certo!\n4. Criando o Projeto: Três Caminhos Possíveis Caminho 1: Spring Initializr (Recomendado) O Spring Initializr é uma ferramenta web oficial que gera o esqueleto do seu projeto em segundos.\nSegue explicação para cada campo na imagem:\nProject: Nesse campo você precisa escolher qual ferramenta de gerenciamento e compressão você vai utilizar. Para esse projeto de exemplo irei utilizar o Maven. Haaa, lembrando quê, o Meven também é um gerenciado de dependências do Java assim como o Gradle; Language: Selecione a linguagem de programação que você ira utilizar para implementar o projeto. No nosso casa iremos utilizar o Java; Spring Boot: Selecione a versão do Spring Boot que será utilizado para criar o projeto. O Spring Boot é um framework que torna fácil a criação de aplicações Spring autossuficientes e robustas, possibilitando a sua execução imediata. Para o nosso exemplo iremos utilizar a versão 3.5.6; Project Metadata: São as informações do projeto. Nesse campo você irá informar o Grupo, Artefato, Nome, Descricão, Nome do pacote, tipo de empacotamento e a versão do Java; Dependencies: Selecione as dependências para o projeto. Como esse é um projeto exemplo muito simples iremos selecionar apenas três dependências, são elas: Spring Boot DevTools, Spring Boot Actuator e Spring Web. Passo a passo:\nAcesse https://start.spring.io/ Configure seu projeto: Project: Maven Language: Java Spring Boot: 3.5.6 (ou a versão estável mais recente) Group: com.exemplo Artifact: meu-primeiro-app Packaging: Jar Java: 25 Adicione as dependências iniciais: Spring Web: para criar APIs REST Spring Boot DevTools: para reiniciar automaticamente durante desenvolvimento Clique em “GENERATE” e baixe o arquivo ZIP Descompacte o arquivo em uma pasta de sua escolha e abra na sua IDE favorita.\nCaminho 2: Via Linha de Comando (Para os Aventureiros) Se preferir usar o terminal:\ncurl https://start.spring.io/starter.zip \\ -d dependencies=web,devtools \\ -d type=maven-project \\ -d language=java \\ -d bootVersion=3.5.6 \\ -d groupId=com.exemplo \\ -d artifactId=meu-primeiro-app \\ -d packageName=com.exemplo.meuprimeiro \\ -d javaVersion=25 \\ -o meu-primeiro-app.zip Depois é só descompactar:\nunzip meu-primeiro-app.zip -d meu-primeiro-app cd meu-primeiro-app Caminho 3: Direto na IDE IntelliJ IDEA Community e Ultimate possuem integração direta com Spring Initializr. Basta ir em:\nFile → New → Project → Spring Initializr\n3. Desvendando a Estrutura do Projeto Quando você abre o projeto gerado, encontra uma estrutura organizada:\nmeu-primeiro-app/ ├── src/ │ ├── main/ │ │ ├── java/ │ │ │ └── com/exemplo/meuprimeiro/ │ │ │ └── MeuPrimeiroAppApplication.java │ │ └── resources/ │ │ ├── application.properties │ │ ├── static/ │ │ └── templates/ │ └── test/ │ └── java/ ├── pom.xml └── mvnw (Maven Wrapper) Entendendo Cada Parte src/main/java/: Aqui fica todo o código Java da sua aplicação.\nsrc/main/resources/: Arquivos de configuração, templates HTML, arquivos estáticos (CSS, JS).\napplication.properties: Arquivo central de configuração — é aqui que você define porta do servidor, conexão com banco de dados, etc.\npom.xml: Lista todas as dependências (bibliotecas) que seu projeto usa. O Maven baixa tudo automaticamente.\nMeuPrimeiroAppApplication.java: O ponto de entrada da aplicação — é a classe principal que inicia tudo.\n6. A Classe Principal: O Coração da Aplicação Abra o arquivo MeuPrimeiroAppApplication.java. Você verá algo assim:\npackage com.exemplo.meuprimeiro; import org.springframework.boot.SpringApplication; import org.springframework.boot.autoconfigure.SpringBootApplication; @SpringBootApplication public class MeuPrimeiroAppApplication { public static void main(String[] args) { SpringApplication.run(MeuPrimeiroAppApplication.class, args); } } Parece simples, mas há muita mágica acontecendo aqui.\nDesvendando a Anotação @SpringBootApplication A anotação @SpringBootApplication é na verdade três anotações em uma:\n@Configuration: Diz ao Spring que essa classe pode conter definições de beans (componentes gerenciados) @EnableAutoConfiguration: Ativa a configuração automática baseada nas dependências do projeto @ComponentScan: Procura por outros componentes no mesmo pacote e subpacotes Pense nela como o maestro de uma orquestra: ela coordena todas as peças da aplicação para trabalharem em harmonia.\n7. Rodando Pela Primeira Vez Vamos ver a mágica acontecer! No terminal, dentro da pasta do projeto:\n./mvnw spring-boot:run Ou, se estiver no Windows:\nmvnw.cmd spring-boot:run Você verá várias linhas de log passando rapidamente. Procure por algo como:\nStarted MeuPrimeiroAppApplication in 2.847 seconds Parabéns! Sua aplicação está rodando na porta 8080.\nAbra o navegador e acesse http://localhost:8080. Você verá uma página de erro — mas calma, isso é esperado! Ainda não criamos nenhuma rota. Vamos fazer isso agora.\n8. Criando Sua Primeira API REST Vamos criar um endpoint simples que retorna uma mensagem de boas-vindas.\nCrie uma nova classe chamada OlaController.java dentro de src/main/java/com/exemplo/meuprimeiro/:\npackage com.exemplo.meuprimeiro; import org.springframework.web.bind.annotation.GetMapping; import org.springframework.web.bind.annotation.RequestParam; import org.springframework.web.bind.annotation.RestController; @RestController public class OlaController { @GetMapping(\"/ola\") public String dizerOla(@RequestParam(defaultValue = \"Mundo\") String nome) { return \"Olá, \" + nome + \"! Bem-vindo ao Spring Boot!\"; } } Entendendo o Código @RestController: Combina @Controller + @ResponseBody, indicando que essa classe manipula requisições HTTP e retorna dados diretamente (geralmente JSON).\n@GetMapping(\"/ola\"): Define que o método abaixo responde a requisições GET no caminho /ola.\n@RequestParam: Captura parâmetros da URL. Se não for informado, usa “Mundo” como padrão.\nSalve o arquivo e, graças ao DevTools, a aplicação reinicia automaticamente.\nAgora acesse no navegador:\nhttp://localhost:8080/ola → “Olá, Mundo! Bem-vindo ao Spring Boot!” http://localhost:8080/ola?nome=João → “Olá, João! Bem-vindo ao Spring Boot!” 🎉 Você acabou de criar sua primeira API REST!\n9. Trabalhando com JSON: O Padrão da Web Moderna APIs REST geralmente trafegam dados em formato JSON. Vamos evoluir nosso exemplo.\nCrie uma classe Usuario.java:\npackage com.exemplo.meuprimeiro; public class Usuario { private String nome; private String email; private int idade; // Construtor public Usuario(String nome, String email, int idade) { this.nome = nome; this.email = email; this.idade = idade; } // Getters e Setters public String getNome() { return nome; } public void setNome(String nome) { this.nome = nome; } public String getEmail() { return email; } public void setEmail(String email) { this.email = email; } public int getIdade() { return idade; } public void setIdade(int idade) { this.idade = idade; } } Agora, adicione um novo método no OlaController:\n@GetMapping(\"/usuario\") public Usuario obterUsuario() { return new Usuario(\"Maria Silva\", \"maria@exemplo.com\", 28); } Acesse http://localhost:8080/usuario e veja a mágica:\n{ \"nome\": \"Maria Silva\", \"email\": \"maria@exemplo.com\", \"idade\": 28 } O Spring Boot automaticamente converte o objeto Java em JSON. Essa conversão é feita pela biblioteca Jackson, que já vem incluída.\n10. Criando uma Lista de Recursos Vamos criar algo mais realista: uma API de tarefas (to-do list).\nPrimeiro, crie a classe Tarefa.java:\npackage com.exemplo.meuprimeiro; public class Tarefa { private Long id; private String descricao; private boolean concluida; public Tarefa(Long id, String descricao, boolean concluida) { this.id = id; this.descricao = descricao; this.concluida = concluida; } // Getters e Setters public Long getId() { return id; } public void setId(Long id) { this.id = id; } public String getDescricao() { return descricao; } public void setDescricao(String descricao) { this.descricao = descricao; } public boolean isConcluida() { return concluida; } public void setConcluida(boolean concluida) { this.concluida = concluida; } } Agora crie o TarefaController.java:\npackage com.exemplo.meuprimeiro; import org.springframework.web.bind.annotation.*; import java.util.ArrayList; import java.util.List; @RestController @RequestMapping(\"/tarefas\") public class TarefaController { private List\u003cTarefa\u003e tarefas = new ArrayList\u003c\u003e(); private Long proximoId = 1L; // Construtor com dados iniciais public TarefaController() { tarefas.add(new Tarefa(proximoId++, \"Aprender Spring Boot\", false)); tarefas.add(new Tarefa(proximoId++, \"Criar minha primeira API\", true)); } // Listar todas as tarefas @GetMapping public List\u003cTarefa\u003e listarTodas() { return tarefas; } // Buscar tarefa por ID @GetMapping(\"/{id}\") public Tarefa buscarPorId(@PathVariable Long id) { return tarefas.stream() .filter(t -\u003e t.getId().equals(id)) .findFirst() .orElse(null); } // Criar nova tarefa @PostMapping public Tarefa criar(@RequestBody Tarefa novaTarefa) { novaTarefa.setId(proximoId++); tarefas.add(novaTarefa); return novaTarefa; } // Marcar como concluída @PatchMapping(\"/{id}/concluir\") public Tarefa concluir(@PathVariable Long id) { Tarefa tarefa = buscarPorId(id); if (tarefa != null) { tarefa.setConcluida(true); } return tarefa; } // Deletar tarefa @DeleteMapping(\"/{id}\") public String deletar(@PathVariable Long id) { tarefas.removeIf(t -\u003e t.getId().equals(id)); return \"Tarefa removida com sucesso!\"; } } Testando a API de Tarefas Você pode usar ferramentas como Postman, Insomnia ou o próprio cURL:\nListar todas as tarefas:\ncurl http://localhost:8080/tarefas Buscar tarefa específica:\ncurl http://localhost:8080/tarefas/1 Criar nova tarefa:\ncurl -X POST http://localhost:8080/tarefas \\ -H \"Content-Type: application/json\" \\ -d '{\"descricao\":\"Estudar Controllers\",\"concluida\":false}' Marcar como concluída:\ncurl -X PATCH http://localhost:8080/tarefas/1/concluir Deletar tarefa:\ncurl -X DELETE http://localhost:8080/tarefas/2 11. Personalizando Configurações O arquivo application.properties é onde você ajusta o comportamento da aplicação.\n# Alterar a porta do servidor server.port=9090 # Definir contexto da aplicação server.servlet.context-path=/api # Configurar logs logging.level.root=INFO logging.level.com.exemplo.meuprimeiro=DEBUG # Mensagens personalizadas app.mensagem-boas-vindas=Seja bem-vindo à nossa aplicação! Você pode injetar essas propriedades no código:\n@RestController public class ConfigController { @Value(\"${app.mensagem-boas-vindas}\") private String mensagem; @GetMapping(\"/config\") public String obterMensagem() { return mensagem; } } 12. Organizando o Código: Arquitetura em Camadas À medida que sua aplicação cresce, é fundamental organizar bem o código. Uma estrutura comum é:\ncom/exemplo/meuprimeiro/ ├── controller/ ← Recebe requisições HTTP ├── service/ ← Contém lógica de negócio ├── repository/ ← Acessa dados (banco, APIs externas) └── model/ ← Classes de domínio (Tarefa, Usuario, etc) Essa separação traz vários benefícios:\n🧩 Código mais organizado: cada classe tem uma responsabilidade clara 🔄 Facilita manutenção: mudanças em uma camada não afetam as outras 🧪 Testes mais fáceis: você pode testar cada camada isoladamente 13. Próximos Passos na Sua Jornada Você deu o primeiro passo — e que passo importante! Mas o universo Spring Boot é vasto. Aqui estão algumas direções para explorar:\nBanco de Dados com Spring Data JPA Aprenda a persistir dados de verdade usando JPA e Hibernate. Adicione a dependência spring-boot-starter-data-jpa e um banco H2 para começar.\nSegurança com Spring Security Proteja suas APIs com autenticação e autorização. Spring Security oferece recursos poderosos desde basic auth até OAuth2.\nTestes Automatizados Use @SpringBootTest e @WebMvcTest para garantir que sua aplicação funciona como esperado.\nDeploy em Produção Aprenda a empacotar sua aplicação em um container Docker e fazer deploy em serviços cloud como Heroku, AWS, ou Azure.\nDocumentação com OpenAPI Adicione springdoc-openapi para gerar documentação interativa automática da sua API.\n14. Dicas de Ouro para Iniciantes 💡 Aprenda aos poucos: Não tente dominar tudo de uma vez. Spring Boot tem muitos recursos, mas você não precisa de todos no começo.\n💡 Leia as mensagens de erro: O Spring fornece erros bem descritivos. Leia com atenção — geralmente a solução está ali.\n💡 Use o DevTools: Ele reinicia a aplicação automaticamente quando você salva um arquivo. Economiza muito tempo!\n💡 Explore a documentação oficial: docs.spring.io/spring-boot é seu melhor amigo.\n💡 Pratique, pratique, pratique e pratique mais, mais e mais: Crie projetos pessoais. A melhor forma de aprender é fazendo.\n15. Recursos Complementares 📚 Spring Boot Reference Guide: Documentação oficial completa 🎓 Spring Academy: Cursos gratuitos oficiais do Spring 🎥 Spring I/O YouTube: Palestras e tutoriais em vídeo 16. Conclusão Criar seu primeiro projeto Spring Boot é como aprender a andar de bicicleta: pode parecer complicado no começo, mas depois que você pega o jeito, nunca mais esquece.\nVocê aprendeu hoje os fundamentos essenciais:\nComo estruturar um projeto Spring Boot O que são controllers e como criar endpoints REST Como trabalhar com JSON e objetos Java Conceitos de configuração e organização de código O mais importante é que você não apenas leu sobre — você fez. Sua aplicação está rodando, respondendo requisições, processando dados. Isso é programação de verdade.\nAgora é hora de experimentar, quebrar, consertar e aprender ainda mais. O Spring Boot é uma ferramenta poderosa que está presente em milhares de empresas ao redor do mundo. Dominar essa tecnologia abre muitas portas no mercado de trabalho.\nEntão continue explorando, continue criando e, acima de tudo, continue se divertindo com código!\n",
+  "wordCount" : "2200",
+  "inLanguage": "pt",
+  "datePublished": "2025-10-04T10:00:00-03:00",
+  "dateModified": "2025-10-04T10:00:00-03:00",
+  "author":{
+    "@type": "Person",
+    "name": "Angelo Brandão"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Meu Site Pessoal",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://angelobms.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="/pt/" accesskey="h" title="Meu Site Pessoal (Alt + H)">Meu Site Pessoal</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://angelobms.github.io/en/" title="🇺🇸 English"
+                            aria-label="🇺🇸 English">🇺🇸 English</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/pt/about/" title="Sobre mim">
+                    <span>Sobre mim</span>
+                </a>
+            </li>
+            <li>
+                <a href="/pt/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="/pt/resume/" title="Currículo">
+                    <span>Currículo</span>
+                </a>
+            </li>
+            <li>
+                <a href="/pt/contact/" title="Contato">
+                    <span>Contato</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://angelobms.github.io/pt/">Início</a>&nbsp;»&nbsp;<a href="https://angelobms.github.io/pt/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Criando Seu Primeiro Projeto Spring Boot: Guia Completo para Iniciantes
+    </h1>
+    <div class="post-meta"><span title='2025-10-04 10:00:00 -0300 -03'>outubro 4, 2025</span>&nbsp;·&nbsp;11 minutos&nbsp;·&nbsp;2200 palavras&nbsp;·&nbsp;Angelo Brandão
+
+</div>
+  </header> 
+  <div class="post-content"><img src="00-spring-boot.png" alt="Spring Boot" width="600" style="max-width: 100%; height: auto; object-fit: contain;" class="center">
+<h2 id="índice">Índice<a hidden class="anchor" aria-hidden="true" href="#índice">#</a></h2>
+<ol>
+<li><a href="/pt/posts/criando-seu-primeiro-projeto-spring-boot/#1-por-que-spring-boot-mudou-o-desenvolvimento-java">Por Que Spring Boot Mudou o Desenvolvimento Java?</a></li>
+<li><a href="/pt/posts/criando-seu-primeiro-projeto-spring-boot/#2-o-que-voc%c3%aa-vai-aprender">O Que Você Vai Aprender</a></li>
+<li><a href="/pt/posts/criando-seu-primeiro-projeto-spring-boot/#3-preparando-o-terreno">Preparando o Terreno</a></li>
+<li><a href="/pt/posts/criando-seu-primeiro-projeto-spring-boot/#4-criando-o-projeto-tr%c3%aas-caminhos-poss%c3%adveis">Criando o Projeto: Três Caminhos Possíveis</a></li>
+<li><a href="/pt/posts/criando-seu-primeiro-projeto-spring-boot/#3-desvendando-a-estrutura-do-projeto">Desvendando a Estrutura do Projeto</a></li>
+<li><a href="/pt/posts/criando-seu-primeiro-projeto-spring-boot/#6-a-classe-principal-o-cora%c3%a7%c3%a3o-da-aplica%c3%a7%c3%a3o">A Classe Principal: O Coração da Aplicação</a></li>
+<li><a href="/pt/posts/criando-seu-primeiro-projeto-spring-boot/#7-rodando-pela-primeira-vez">Rodando Pela Primeira Vez</a></li>
+<li><a href="/pt/posts/criando-seu-primeiro-projeto-spring-boot/#8-criando-sua-primeira-api-rest">Criando Sua Primeira API REST</a></li>
+<li><a href="/pt/posts/criando-seu-primeiro-projeto-spring-boot/#9-trabalhando-com-json-o-padr%c3%a3o-da-web-moderna">Trabalhando com JSON: O Padrão da Web Moderna</a></li>
+<li><a href="/pt/posts/criando-seu-primeiro-projeto-spring-boot/#10-criando-uma-lista-de-recursos">Criando uma Lista de Recursos</a></li>
+<li><a href="/pt/posts/criando-seu-primeiro-projeto-spring-boot/#11-personalizando-configura%c3%a7%c3%b5es">Personalizando Configurações</a></li>
+<li><a href="/pt/posts/criando-seu-primeiro-projeto-spring-boot/#12-organizando-o-c%c3%b3digo-arquitetura-em-camadas">Organizando o Código: Arquitetura em Camadas</a></li>
+<li><a href="/pt/posts/criando-seu-primeiro-projeto-spring-boot/#13-pr%c3%b3ximos-passos-na-sua-jornada">Próximos Passos na Sua Jornada</a></li>
+<li><a href="/pt/posts/criando-seu-primeiro-projeto-spring-boot/#14-dicas-de-ouro-para-iniciantes">Dicas de Ouro para Iniciantes</a></li>
+<li><a href="/pt/posts/criando-seu-primeiro-projeto-spring-boot/#15-recursos-complementares">Recursos Complementares</a></li>
+<li><a href="/pt/posts/criando-seu-primeiro-projeto-spring-boot/#16-conclus%c3%a3o">Conclusão</a></li>
+</ol>
+<h2 id="1-por-que-spring-boot-mudou-o-desenvolvimento-java">1. Por Que Spring Boot Mudou o Desenvolvimento Java?<a hidden class="anchor" aria-hidden="true" href="#1-por-que-spring-boot-mudou-o-desenvolvimento-java">#</a></h2>
+<p>Imagine poder criar uma aplicação web completa em Java sem precisar configurar dezenas de arquivos XML ou se perder em configurações complexas. Era exatamente esse o sonho de todo desenvolvedor Java há alguns anos — e o Spring Boot tornou isso realidade.</p>
+<p>Antes do Spring Boot, configurar um projeto Spring tradicional era como montar um quebra-cabeça de mil peças: você precisava juntar manualmente cada componente, configurar servidores de aplicação, ajustar arquivos XML intermináveis e, só então, começar a escrever seu código de verdade.</p>
+<p>O Spring Boot virou esse jogo de cabeça para baixo. Ele trouxe a filosofia de &ldquo;convenção sobre configuração&rdquo;, o que significa: menos tempo configurando, mais tempo criando.</p>
+<h2 id="2-o-que-você-vai-aprender">2. O Que Você Vai Aprender<a hidden class="anchor" aria-hidden="true" href="#2-o-que-você-vai-aprender">#</a></h2>
+<p>Neste guia, vamos construir juntos uma aplicação do zero, entendendo cada passo do caminho. Não se preocupe se você nunca mexeu com Spring antes — vou explicar tudo de forma clara e objetiva.</p>
+<p>Ao final deste artigo, você terá:</p>
+<ul>
+<li>✅ Um projeto Spring Boot funcionando na sua máquina</li>
+<li>✅ Compreensão das peças fundamentais do framework</li>
+<li>✅ Uma API REST simples que você mesmo criou</li>
+<li>✅ Base sólida para explorar recursos mais avançados</li>
+</ul>
+<h2 id="3-preparando-o-terreno">3. Preparando o Terreno<a hidden class="anchor" aria-hidden="true" href="#3-preparando-o-terreno">#</a></h2>
+<p>Antes de começar, certifique-se de ter instalado:</p>
+<ul>
+<li><strong>Java 25</strong>: Spring Boot 3.x exige no mínimo o Java 17</li>
+<li><strong>Maven ou Gradle</strong>: gerenciadores de dependências (usaremos Maven nos exemplos)</li>
+<li><strong>IDE de sua preferência</strong>: IntelliJ IDEA, Eclipse, VS Code ou qualquer editor que você goste</li>
+</ul>
+<p>Para verificar se o Java está instalado corretamente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>java -version
+</span></span></code></pre></div><p>Se aparecer algo como <code>java version &quot;25.0.x&quot;</code> ou superior, está tudo certo!</p>
+<h2 id="4-criando-o-projeto-três-caminhos-possíveis">4. Criando o Projeto: Três Caminhos Possíveis<a hidden class="anchor" aria-hidden="true" href="#4-criando-o-projeto-três-caminhos-possíveis">#</a></h2>
+<h3 id="caminho-1-spring-initializr-recomendado">Caminho 1: Spring Initializr (Recomendado)<a hidden class="anchor" aria-hidden="true" href="#caminho-1-spring-initializr-recomendado">#</a></h3>
+<p>O <a href="https://start.spring.io/">Spring Initializr</a> é uma ferramenta web oficial que gera o esqueleto do seu projeto em segundos.</p>
+<img src="01-spring-initializr.png" alt="Spring Initializr" width="400" class="center">
+<br/>
+<p>Segue explicação para cada campo na imagem:</p>
+<ul>
+<li><strong>Project</strong>: Nesse campo você precisa escolher qual ferramenta de gerenciamento e compressão você vai utilizar. Para esse projeto de exemplo irei utilizar o Maven. Haaa, lembrando quê, o Meven também é um gerenciado de dependências do Java assim como o Gradle;</li>
+<li><strong>Language</strong>: Selecione a linguagem de programação que você ira utilizar para implementar o projeto. No nosso casa iremos utilizar o Java;</li>
+<li><strong>Spring Boot</strong>: Selecione a versão do Spring Boot que será utilizado para criar o projeto. O Spring Boot é um framework que torna fácil a criação de aplicações Spring autossuficientes e robustas, possibilitando a sua execução imediata. Para o nosso exemplo iremos utilizar a versão 3.5.6;</li>
+<li><strong>Project Metadata</strong>: São as informações do projeto. Nesse campo você irá informar o Grupo, Artefato, Nome, Descricão, Nome do pacote, tipo de empacotamento e a versão do Java;</li>
+<li><strong>Dependencies</strong>: Selecione as dependências para o projeto. Como esse é um projeto exemplo muito simples iremos selecionar apenas três dependências, são elas: Spring Boot DevTools, Spring Boot Actuator e Spring Web.</li>
+</ul>
+<p><strong>Passo a passo:</strong></p>
+<ol>
+<li>Acesse <code>https://start.spring.io/</code></li>
+<li>Configure seu projeto:
+<ul>
+<li><strong>Project</strong>: Maven</li>
+<li><strong>Language</strong>: Java</li>
+<li><strong>Spring Boot</strong>: 3.5.6 (ou a versão estável mais recente)</li>
+<li><strong>Group</strong>: com.exemplo</li>
+<li><strong>Artifact</strong>: meu-primeiro-app</li>
+<li><strong>Packaging</strong>: Jar</li>
+<li><strong>Java</strong>: 25</li>
+</ul>
+</li>
+<li>Adicione as dependências iniciais:
+<ul>
+<li><strong>Spring Web</strong>: para criar APIs REST</li>
+<li><strong>Spring Boot DevTools</strong>: para reiniciar automaticamente durante desenvolvimento</li>
+</ul>
+</li>
+<li>Clique em &ldquo;GENERATE&rdquo; e baixe o arquivo ZIP</li>
+</ol>
+<p>Descompacte o arquivo em uma pasta de sua escolha e abra na sua IDE favorita.</p>
+<h3 id="caminho-2-via-linha-de-comando-para-os-aventureiros">Caminho 2: Via Linha de Comando (Para os Aventureiros)<a hidden class="anchor" aria-hidden="true" href="#caminho-2-via-linha-de-comando-para-os-aventureiros">#</a></h3>
+<p>Se preferir usar o terminal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl https://start.spring.io/starter.zip <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -d dependencies<span style="color:#f92672">=</span>web,devtools <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -d type<span style="color:#f92672">=</span>maven-project <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -d language<span style="color:#f92672">=</span>java <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -d bootVersion<span style="color:#f92672">=</span>3.5.6 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -d groupId<span style="color:#f92672">=</span>com.exemplo <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -d artifactId<span style="color:#f92672">=</span>meu-primeiro-app <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -d packageName<span style="color:#f92672">=</span>com.exemplo.meuprimeiro <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -d javaVersion<span style="color:#f92672">=</span><span style="color:#ae81ff">25</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -o meu-primeiro-app.zip
+</span></span></code></pre></div><p>Depois é só descompactar:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>unzip meu-primeiro-app.zip -d meu-primeiro-app
+</span></span><span style="display:flex;"><span>cd meu-primeiro-app
+</span></span></code></pre></div><h3 id="caminho-3-direto-na-ide">Caminho 3: Direto na IDE<a hidden class="anchor" aria-hidden="true" href="#caminho-3-direto-na-ide">#</a></h3>
+<p>IntelliJ IDEA Community e Ultimate possuem integração direta com Spring Initializr. Basta ir em:</p>
+<p><code>File → New → Project → Spring Initializr</code></p>
+<h2 id="3-desvendando-a-estrutura-do-projeto">3. Desvendando a Estrutura do Projeto<a hidden class="anchor" aria-hidden="true" href="#3-desvendando-a-estrutura-do-projeto">#</a></h2>
+<p>Quando você abre o projeto gerado, encontra uma estrutura organizada:</p>
+<pre tabindex="0"><code>meu-primeiro-app/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/exemplo/meuprimeiro/
+│   │   │       └── MeuPrimeiroAppApplication.java
+│   │   └── resources/
+│   │       ├── application.properties
+│   │       ├── static/
+│   │       └── templates/
+│   └── test/
+│       └── java/
+├── pom.xml
+└── mvnw (Maven Wrapper)
+</code></pre><img src="02-project-structure.png" alt="Estrutura Projeto" width="400" class="center">
+<h3 id="entendendo-cada-parte">Entendendo Cada Parte<a hidden class="anchor" aria-hidden="true" href="#entendendo-cada-parte">#</a></h3>
+<p><strong><code>src/main/java/</code></strong>: Aqui fica todo o código Java da sua aplicação.</p>
+<p><strong><code>src/main/resources/</code></strong>: Arquivos de configuração, templates HTML, arquivos estáticos (CSS, JS).</p>
+<p><strong><code>application.properties</code></strong>: Arquivo central de configuração — é aqui que você define porta do servidor, conexão com banco de dados, etc.</p>
+<p><strong><code>pom.xml</code></strong>: Lista todas as dependências (bibliotecas) que seu projeto usa. O Maven baixa tudo automaticamente.</p>
+<p><strong><code>MeuPrimeiroAppApplication.java</code></strong>: O ponto de entrada da aplicação — é a classe principal que inicia tudo.</p>
+<h2 id="6-a-classe-principal-o-coração-da-aplicação">6. A Classe Principal: O Coração da Aplicação<a hidden class="anchor" aria-hidden="true" href="#6-a-classe-principal-o-coração-da-aplicação">#</a></h2>
+<p>Abra o arquivo <code>MeuPrimeiroAppApplication.java</code>. Você verá algo assim:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.exemplo.meuprimeiro;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.boot.SpringApplication;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@SpringBootApplication</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MeuPrimeiroAppApplication</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        SpringApplication.<span style="color:#a6e22e">run</span>(MeuPrimeiroAppApplication.<span style="color:#a6e22e">class</span>, args);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Parece simples, mas há muita mágica acontecendo aqui.</p>
+<h3 id="desvendando-a-anotação-springbootapplication">Desvendando a Anotação @SpringBootApplication<a hidden class="anchor" aria-hidden="true" href="#desvendando-a-anotação-springbootapplication">#</a></h3>
+<p>A anotação <code>@SpringBootApplication</code> é na verdade três anotações em uma:</p>
+<ol>
+<li><strong><code>@Configuration</code></strong>: Diz ao Spring que essa classe pode conter definições de beans (componentes gerenciados)</li>
+<li><strong><code>@EnableAutoConfiguration</code></strong>: Ativa a configuração automática baseada nas dependências do projeto</li>
+<li><strong><code>@ComponentScan</code></strong>: Procura por outros componentes no mesmo pacote e subpacotes</li>
+</ol>
+<p>Pense nela como o maestro de uma orquestra: ela coordena todas as peças da aplicação para trabalharem em harmonia.</p>
+<h2 id="7-rodando-pela-primeira-vez">7. Rodando Pela Primeira Vez<a hidden class="anchor" aria-hidden="true" href="#7-rodando-pela-primeira-vez">#</a></h2>
+<p>Vamos ver a mágica acontecer! No terminal, dentro da pasta do projeto:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./mvnw spring-boot:run
+</span></span></code></pre></div><p>Ou, se estiver no Windows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mvnw.cmd spring-boot:run
+</span></span></code></pre></div><img src="03-terminal-running.png" alt="terminal" width="400" class="center">
+<p>Você verá várias linhas de log passando rapidamente. Procure por algo como:</p>
+<pre tabindex="0"><code>Started MeuPrimeiroAppApplication in 2.847 seconds
+</code></pre><p>Parabéns! Sua aplicação está rodando na porta 8080.</p>
+<p>Abra o navegador e acesse <code>http://localhost:8080</code>. Você verá uma página de erro — mas calma, isso é esperado! Ainda não criamos nenhuma rota. Vamos fazer isso agora.</p>
+<h2 id="8-criando-sua-primeira-api-rest">8. Criando Sua Primeira API REST<a hidden class="anchor" aria-hidden="true" href="#8-criando-sua-primeira-api-rest">#</a></h2>
+<p>Vamos criar um endpoint simples que retorna uma mensagem de boas-vindas.</p>
+<p>Crie uma nova classe chamada <code>OlaController.java</code> dentro de <code>src/main/java/com/exemplo/meuprimeiro/</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.exemplo.meuprimeiro;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.web.bind.annotation.GetMapping;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.web.bind.annotation.RequestParam;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.web.bind.annotation.RestController;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RestController</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OlaController</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GetMapping</span>(<span style="color:#e6db74">&#34;/ola&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">dizerOla</span>(<span style="color:#a6e22e">@RequestParam</span>(defaultValue <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Mundo&#34;</span>) String nome) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Olá, &#34;</span> <span style="color:#f92672">+</span> nome <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;! Bem-vindo ao Spring Boot!&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><img src="04-controller-explained.png" alt="Controller" width="300" height="200" class="center">
+<h3 id="entendendo-o-código">Entendendo o Código<a hidden class="anchor" aria-hidden="true" href="#entendendo-o-código">#</a></h3>
+<p><strong><code>@RestController</code></strong>: Combina <code>@Controller</code> + <code>@ResponseBody</code>, indicando que essa classe manipula requisições HTTP e retorna dados diretamente (geralmente JSON).</p>
+<p><strong><code>@GetMapping(&quot;/ola&quot;)</code></strong>: Define que o método abaixo responde a requisições GET no caminho <code>/ola</code>.</p>
+<p><strong><code>@RequestParam</code></strong>: Captura parâmetros da URL. Se não for informado, usa &ldquo;Mundo&rdquo; como padrão.</p>
+<p>Salve o arquivo e, graças ao DevTools, a aplicação reinicia automaticamente.</p>
+<p>Agora acesse no navegador:</p>
+<ul>
+<li><code>http://localhost:8080/ola</code> → &ldquo;Olá, Mundo! Bem-vindo ao Spring Boot!&rdquo;</li>
+<li><code>http://localhost:8080/ola?nome=João</code> → &ldquo;Olá, João! Bem-vindo ao Spring Boot!&rdquo;</li>
+</ul>
+<p>🎉 <strong>Você acabou de criar sua primeira API REST!</strong></p>
+<h2 id="9-trabalhando-com-json-o-padrão-da-web-moderna">9. Trabalhando com JSON: O Padrão da Web Moderna<a hidden class="anchor" aria-hidden="true" href="#9-trabalhando-com-json-o-padrão-da-web-moderna">#</a></h2>
+<p>APIs REST geralmente trafegam dados em formato JSON. Vamos evoluir nosso exemplo.</p>
+<p>Crie uma classe <code>Usuario.java</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.exemplo.meuprimeiro;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Usuario</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String nome;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String email;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> idade;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Construtor</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Usuario</span>(String nome, String email, <span style="color:#66d9ef">int</span> idade) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">nome</span> <span style="color:#f92672">=</span> nome;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">email</span> <span style="color:#f92672">=</span> email;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">idade</span> <span style="color:#f92672">=</span> idade;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Getters e Setters</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getNome</span>() { <span style="color:#66d9ef">return</span> nome; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setNome</span>(String nome) { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">nome</span> <span style="color:#f92672">=</span> nome; }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getEmail</span>() { <span style="color:#66d9ef">return</span> email; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setEmail</span>(String email) { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">email</span> <span style="color:#f92672">=</span> email; }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getIdade</span>() { <span style="color:#66d9ef">return</span> idade; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setIdade</span>(<span style="color:#66d9ef">int</span> idade) { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">idade</span> <span style="color:#f92672">=</span> idade; }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Agora, adicione um novo método no <code>OlaController</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@GetMapping</span>(<span style="color:#e6db74">&#34;/usuario&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> Usuario <span style="color:#a6e22e">obterUsuario</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Usuario(<span style="color:#e6db74">&#34;Maria Silva&#34;</span>, <span style="color:#e6db74">&#34;maria@exemplo.com&#34;</span>, 28);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Acesse <code>http://localhost:8080/usuario</code> e veja a mágica:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;nome&#34;</span>: <span style="color:#e6db74">&#34;Maria Silva&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;email&#34;</span>: <span style="color:#e6db74">&#34;maria@exemplo.com&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;idade&#34;</span>: <span style="color:#ae81ff">28</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>O Spring Boot automaticamente converte o objeto Java em JSON. Essa conversão é feita pela biblioteca Jackson, que já vem incluída.</p>
+<h2 id="10-criando-uma-lista-de-recursos">10. Criando uma Lista de Recursos<a hidden class="anchor" aria-hidden="true" href="#10-criando-uma-lista-de-recursos">#</a></h2>
+<p>Vamos criar algo mais realista: uma API de tarefas (to-do list).</p>
+<p>Primeiro, crie a classe <code>Tarefa.java</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.exemplo.meuprimeiro;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Tarefa</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Long id;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String descricao;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> concluida;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Tarefa</span>(Long id, String descricao, <span style="color:#66d9ef">boolean</span> concluida) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> id;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">descricao</span> <span style="color:#f92672">=</span> descricao;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">concluida</span> <span style="color:#f92672">=</span> concluida;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Getters e Setters</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Long <span style="color:#a6e22e">getId</span>() { <span style="color:#66d9ef">return</span> id; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setId</span>(Long id) { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> id; }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getDescricao</span>() { <span style="color:#66d9ef">return</span> descricao; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setDescricao</span>(String descricao) { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">descricao</span> <span style="color:#f92672">=</span> descricao; }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isConcluida</span>() { <span style="color:#66d9ef">return</span> concluida; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setConcluida</span>(<span style="color:#66d9ef">boolean</span> concluida) { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">concluida</span> <span style="color:#f92672">=</span> concluida; }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Agora crie o <code>TarefaController.java</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.exemplo.meuprimeiro;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.web.bind.annotation.*;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.ArrayList;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.List;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RestController</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RequestMapping</span>(<span style="color:#e6db74">&#34;/tarefas&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TarefaController</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>Tarefa<span style="color:#f92672">&gt;</span> tarefas <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Long proximoId <span style="color:#f92672">=</span> 1L;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Construtor com dados iniciais</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">TarefaController</span>() {
+</span></span><span style="display:flex;"><span>        tarefas.<span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">new</span> Tarefa(proximoId<span style="color:#f92672">++</span>, <span style="color:#e6db74">&#34;Aprender Spring Boot&#34;</span>, <span style="color:#66d9ef">false</span>));
+</span></span><span style="display:flex;"><span>        tarefas.<span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">new</span> Tarefa(proximoId<span style="color:#f92672">++</span>, <span style="color:#e6db74">&#34;Criar minha primeira API&#34;</span>, <span style="color:#66d9ef">true</span>));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Listar todas as tarefas</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GetMapping</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>Tarefa<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">listarTodas</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> tarefas;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Buscar tarefa por ID</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GetMapping</span>(<span style="color:#e6db74">&#34;/{id}&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Tarefa <span style="color:#a6e22e">buscarPorId</span>(<span style="color:#a6e22e">@PathVariable</span> Long id) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> tarefas.<span style="color:#a6e22e">stream</span>()
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">filter</span>(t <span style="color:#f92672">-&gt;</span> t.<span style="color:#a6e22e">getId</span>().<span style="color:#a6e22e">equals</span>(id))
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">findFirst</span>()
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">orElse</span>(<span style="color:#66d9ef">null</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Criar nova tarefa</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@PostMapping</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Tarefa <span style="color:#a6e22e">criar</span>(<span style="color:#a6e22e">@RequestBody</span> Tarefa novaTarefa) {
+</span></span><span style="display:flex;"><span>        novaTarefa.<span style="color:#a6e22e">setId</span>(proximoId<span style="color:#f92672">++</span>);
+</span></span><span style="display:flex;"><span>        tarefas.<span style="color:#a6e22e">add</span>(novaTarefa);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> novaTarefa;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Marcar como concluída</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@PatchMapping</span>(<span style="color:#e6db74">&#34;/{id}/concluir&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Tarefa <span style="color:#a6e22e">concluir</span>(<span style="color:#a6e22e">@PathVariable</span> Long id) {
+</span></span><span style="display:flex;"><span>        Tarefa tarefa <span style="color:#f92672">=</span> buscarPorId(id);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (tarefa <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>            tarefa.<span style="color:#a6e22e">setConcluida</span>(<span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> tarefa;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Deletar tarefa</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@DeleteMapping</span>(<span style="color:#e6db74">&#34;/{id}&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">deletar</span>(<span style="color:#a6e22e">@PathVariable</span> Long id) {
+</span></span><span style="display:flex;"><span>        tarefas.<span style="color:#a6e22e">removeIf</span>(t <span style="color:#f92672">-&gt;</span> t.<span style="color:#a6e22e">getId</span>().<span style="color:#a6e22e">equals</span>(id));
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Tarefa removida com sucesso!&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><img src="05-crud-completed.png" alt="Crud completo" width="300" class="center">
+<h3 id="testando-a-api-de-tarefas">Testando a API de Tarefas<a hidden class="anchor" aria-hidden="true" href="#testando-a-api-de-tarefas">#</a></h3>
+<p>Você pode usar ferramentas como Postman, Insomnia ou o próprio cURL:</p>
+<p><strong>Listar todas as tarefas:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl http://localhost:8080/tarefas
+</span></span></code></pre></div><p><strong>Buscar tarefa específica:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl http://localhost:8080/tarefas/1
+</span></span></code></pre></div><p><strong>Criar nova tarefa:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -X POST http://localhost:8080/tarefas <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -d <span style="color:#e6db74">&#39;{&#34;descricao&#34;:&#34;Estudar Controllers&#34;,&#34;concluida&#34;:false}&#39;</span>
+</span></span></code></pre></div><p><strong>Marcar como concluída:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -X PATCH http://localhost:8080/tarefas/1/concluir
+</span></span></code></pre></div><p><strong>Deletar tarefa:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -X DELETE http://localhost:8080/tarefas/2
+</span></span></code></pre></div><h2 id="11-personalizando-configurações">11. Personalizando Configurações<a hidden class="anchor" aria-hidden="true" href="#11-personalizando-configurações">#</a></h2>
+<p>O arquivo <code>application.properties</code> é onde você ajusta o comportamento da aplicação.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#75715e"># Alterar a porta do servidor</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">server.port</span><span style="color:#f92672">=</span><span style="color:#e6db74">9090</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Definir contexto da aplicação</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">server.servlet.context-path</span><span style="color:#f92672">=</span><span style="color:#e6db74">/api</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Configurar logs</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">logging.level.root</span><span style="color:#f92672">=</span><span style="color:#e6db74">INFO</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">logging.level.com.exemplo.meuprimeiro</span><span style="color:#f92672">=</span><span style="color:#e6db74">DEBUG</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Mensagens personalizadas</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">app.mensagem-boas-vindas</span><span style="color:#f92672">=</span><span style="color:#e6db74">Seja bem-vindo à nossa aplicação!</span>
+</span></span></code></pre></div><p>Você pode injetar essas propriedades no código:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@RestController</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ConfigController</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Value</span>(<span style="color:#e6db74">&#34;${app.mensagem-boas-vindas}&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String mensagem;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GetMapping</span>(<span style="color:#e6db74">&#34;/config&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">obterMensagem</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> mensagem;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="12-organizando-o-código-arquitetura-em-camadas">12. Organizando o Código: Arquitetura em Camadas<a hidden class="anchor" aria-hidden="true" href="#12-organizando-o-código-arquitetura-em-camadas">#</a></h2>
+<p>À medida que sua aplicação cresce, é fundamental organizar bem o código. Uma estrutura comum é:</p>
+<pre tabindex="0"><code>com/exemplo/meuprimeiro/
+├── controller/      ← Recebe requisições HTTP
+├── service/         ← Contém lógica de negócio
+├── repository/      ← Acessa dados (banco, APIs externas)
+└── model/           ← Classes de domínio (Tarefa, Usuario, etc)
+</code></pre><img src="06-architecture-layers.png" alt="Arquitetura em camadas" width="300" class="center">
+<p>Essa separação traz vários benefícios:</p>
+<ul>
+<li>🧩 <strong>Código mais organizado</strong>: cada classe tem uma responsabilidade clara</li>
+<li>🔄 <strong>Facilita manutenção</strong>: mudanças em uma camada não afetam as outras</li>
+<li>🧪 <strong>Testes mais fáceis</strong>: você pode testar cada camada isoladamente</li>
+</ul>
+<h2 id="13-próximos-passos-na-sua-jornada">13. Próximos Passos na Sua Jornada<a hidden class="anchor" aria-hidden="true" href="#13-próximos-passos-na-sua-jornada">#</a></h2>
+<p>Você deu o primeiro passo — e que passo importante! Mas o universo Spring Boot é vasto. Aqui estão algumas direções para explorar:</p>
+<h3 id="banco-de-dados-com-spring-data-jpa">Banco de Dados com Spring Data JPA<a hidden class="anchor" aria-hidden="true" href="#banco-de-dados-com-spring-data-jpa">#</a></h3>
+<p>Aprenda a persistir dados de verdade usando JPA e Hibernate. Adicione a dependência <code>spring-boot-starter-data-jpa</code> e um banco H2 para começar.</p>
+<h3 id="segurança-com-spring-security">Segurança com Spring Security<a hidden class="anchor" aria-hidden="true" href="#segurança-com-spring-security">#</a></h3>
+<p>Proteja suas APIs com autenticação e autorização. Spring Security oferece recursos poderosos desde basic auth até OAuth2.</p>
+<h3 id="testes-automatizados">Testes Automatizados<a hidden class="anchor" aria-hidden="true" href="#testes-automatizados">#</a></h3>
+<p>Use <code>@SpringBootTest</code> e <code>@WebMvcTest</code> para garantir que sua aplicação funciona como esperado.</p>
+<h3 id="deploy-em-produção">Deploy em Produção<a hidden class="anchor" aria-hidden="true" href="#deploy-em-produção">#</a></h3>
+<p>Aprenda a empacotar sua aplicação em um container Docker e fazer deploy em serviços cloud como Heroku, AWS, ou Azure.</p>
+<h3 id="documentação-com-openapi">Documentação com OpenAPI<a hidden class="anchor" aria-hidden="true" href="#documentação-com-openapi">#</a></h3>
+<p>Adicione <code>springdoc-openapi</code> para gerar documentação interativa automática da sua API.</p>
+<h2 id="14-dicas-de-ouro-para-iniciantes">14. Dicas de Ouro para Iniciantes<a hidden class="anchor" aria-hidden="true" href="#14-dicas-de-ouro-para-iniciantes">#</a></h2>
+<p>💡 <strong>Aprenda aos poucos</strong>: Não tente dominar tudo de uma vez. Spring Boot tem muitos recursos, mas você não precisa de todos no começo.</p>
+<p>💡 <strong>Leia as mensagens de erro</strong>: O Spring fornece erros bem descritivos. Leia com atenção — geralmente a solução está ali.</p>
+<p>💡 <strong>Use o DevTools</strong>: Ele reinicia a aplicação automaticamente quando você salva um arquivo. Economiza muito tempo!</p>
+<p>💡 <strong>Explore a documentação oficial</strong>: <a href="https://docs.spring.io/spring-boot">docs.spring.io/spring-boot</a> é seu melhor amigo.</p>
+<p>💡 <strong>Pratique, pratique, pratique e pratique mais, mais e mais</strong>: Crie projetos pessoais. A melhor forma de aprender é fazendo.</p>
+<h2 id="15-recursos-complementares">15. Recursos Complementares<a hidden class="anchor" aria-hidden="true" href="#15-recursos-complementares">#</a></h2>
+<ul>
+<li>📚 <strong>Spring Boot Reference Guide</strong>: Documentação oficial completa</li>
+<li>🎓 <strong>Spring Academy</strong>: Cursos gratuitos oficiais do Spring</li>
+<li>🎥 <strong>Spring I/O YouTube</strong>: Palestras e tutoriais em vídeo</li>
+</ul>
+<h2 id="16-conclusão">16. Conclusão<a hidden class="anchor" aria-hidden="true" href="#16-conclusão">#</a></h2>
+<p>Criar seu primeiro projeto Spring Boot é como aprender a andar de bicicleta: pode parecer complicado no começo, mas depois que você pega o jeito, nunca mais esquece.</p>
+<p>Você aprendeu hoje os fundamentos essenciais:</p>
+<ul>
+<li>Como estruturar um projeto Spring Boot</li>
+<li>O que são controllers e como criar endpoints REST</li>
+<li>Como trabalhar com JSON e objetos Java</li>
+<li>Conceitos de configuração e organização de código</li>
+</ul>
+<p>O mais importante é que você não apenas leu sobre — você <strong>fez</strong>. Sua aplicação está rodando, respondendo requisições, processando dados. Isso é programação de verdade.</p>
+<p>Agora é hora de experimentar, quebrar, consertar e aprender ainda mais. O Spring Boot é uma ferramenta poderosa que está presente em milhares de empresas ao redor do mundo. Dominar essa tecnologia abre muitas portas no mercado de trabalho.</p>
+<p><strong>Então continue explorando, continue criando e, acima de tudo, continue se divertindo com código!</strong></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://angelobms.github.io/pt/tags/spring-boot/">Spring-Boot</a></li>
+      <li><a href="https://angelobms.github.io/pt/tags/java/">Java</a></li>
+      <li><a href="https://angelobms.github.io/pt/tags/desenvolvimento/">Desenvolvimento</a></li>
+      <li><a href="https://angelobms.github.io/pt/tags/iniciantes/">Iniciantes</a></li>
+      <li><a href="https://angelobms.github.io/pt/tags/backend/">Backend</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://angelobms.github.io/pt/posts/criando-aplica%C3%A7%C3%B5es-resilientes-com-toler%C3%A2ncia-a-falhas-com-quarkus/">
+    <span class="title">Próxima Página »</span>
+    <br>
+    <span>Criando Aplicações Resilientes com Tolerância a Falhas com Quarkus</span>
+  </a>
+</nav>
+
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Criando Seu Primeiro Projeto Spring Boot: Guia Completo para Iniciantes on x"
+            href="https://x.com/intent/tweet/?text=Criando%20Seu%20Primeiro%20Projeto%20Spring%20Boot%3a%20Guia%20Completo%20para%20Iniciantes&amp;url=https%3a%2f%2fangelobms.github.io%2fpt%2fposts%2fcriando-seu-primeiro-projeto-spring-boot%2f&amp;hashtags=spring-boot%2cjava%2cdesenvolvimento%2ciniciantes%2cbackend">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Criando Seu Primeiro Projeto Spring Boot: Guia Completo para Iniciantes on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fangelobms.github.io%2fpt%2fposts%2fcriando-seu-primeiro-projeto-spring-boot%2f&amp;title=Criando%20Seu%20Primeiro%20Projeto%20Spring%20Boot%3a%20Guia%20Completo%20para%20Iniciantes&amp;summary=Criando%20Seu%20Primeiro%20Projeto%20Spring%20Boot%3a%20Guia%20Completo%20para%20Iniciantes&amp;source=https%3a%2f%2fangelobms.github.io%2fpt%2fposts%2fcriando-seu-primeiro-projeto-spring-boot%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Criando Seu Primeiro Projeto Spring Boot: Guia Completo para Iniciantes on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2fangelobms.github.io%2fpt%2fposts%2fcriando-seu-primeiro-projeto-spring-boot%2f&title=Criando%20Seu%20Primeiro%20Projeto%20Spring%20Boot%3a%20Guia%20Completo%20para%20Iniciantes">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Criando Seu Primeiro Projeto Spring Boot: Guia Completo para Iniciantes on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fangelobms.github.io%2fpt%2fposts%2fcriando-seu-primeiro-projeto-spring-boot%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Criando Seu Primeiro Projeto Spring Boot: Guia Completo para Iniciantes on whatsapp"
+            href="https://api.whatsapp.com/send?text=Criando%20Seu%20Primeiro%20Projeto%20Spring%20Boot%3a%20Guia%20Completo%20para%20Iniciantes%20-%20https%3a%2f%2fangelobms.github.io%2fpt%2fposts%2fcriando-seu-primeiro-projeto-spring-boot%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Criando Seu Primeiro Projeto Spring Boot: Guia Completo para Iniciantes on telegram"
+            href="https://telegram.me/share/url?text=Criando%20Seu%20Primeiro%20Projeto%20Spring%20Boot%3a%20Guia%20Completo%20para%20Iniciantes&amp;url=https%3a%2f%2fangelobms.github.io%2fpt%2fposts%2fcriando-seu-primeiro-projeto-spring-boot%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Criando Seu Primeiro Projeto Spring Boot: Guia Completo para Iniciantes on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Criando%20Seu%20Primeiro%20Projeto%20Spring%20Boot%3a%20Guia%20Completo%20para%20Iniciantes&u=https%3a%2f%2fangelobms.github.io%2fpt%2fposts%2fcriando-seu-primeiro-projeto-spring-boot%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://angelobms.github.io/pt/">Meu Site Pessoal</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copiar';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copiado!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copiar';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

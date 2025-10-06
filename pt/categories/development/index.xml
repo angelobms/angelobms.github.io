@@ -6,8 +6,36 @@
     <description>Recent content in Development on Meu Site Pessoal</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>pt</language>
-    <lastBuildDate>Wed, 24 Sep 2025 18:59:31 -0300</lastBuildDate>
+    <lastBuildDate>Sat, 04 Oct 2025 10:00:00 -0300</lastBuildDate>
     <atom:link href="https://angelobms.github.io/pt/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Criando Seu Primeiro Projeto Spring Boot: Guia Completo para Iniciantes</title>
+      <link>https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/</link>
+      <pubDate>Sat, 04 Oct 2025 10:00:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/</guid>
+      <description>&lt;img src=&#34;00-spring-boot.png&#34; alt=&#34;Spring Boot&#34; width=&#34;600&#34; style=&#34;max-width: 100%; height: auto; object-fit: contain;&#34; class=&#34;center&#34;&gt;
+&lt;h2 id=&#34;índice&#34;&gt;Índice&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/#1-por-que-spring-boot-mudou-o-desenvolvimento-java&#34;&gt;Por Que Spring Boot Mudou o Desenvolvimento Java?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/#2-o-que-voc%c3%aa-vai-aprender&#34;&gt;O Que Você Vai Aprender&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/#3-preparando-o-terreno&#34;&gt;Preparando o Terreno&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/#4-criando-o-projeto-tr%c3%aas-caminhos-poss%c3%adveis&#34;&gt;Criando o Projeto: Três Caminhos Possíveis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/#3-desvendando-a-estrutura-do-projeto&#34;&gt;Desvendando a Estrutura do Projeto&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/#6-a-classe-principal-o-cora%c3%a7%c3%a3o-da-aplica%c3%a7%c3%a3o&#34;&gt;A Classe Principal: O Coração da Aplicação&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/#7-rodando-pela-primeira-vez&#34;&gt;Rodando Pela Primeira Vez&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/#8-criando-sua-primeira-api-rest&#34;&gt;Criando Sua Primeira API REST&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/#9-trabalhando-com-json-o-padr%c3%a3o-da-web-moderna&#34;&gt;Trabalhando com JSON: O Padrão da Web Moderna&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/#10-criando-uma-lista-de-recursos&#34;&gt;Criando uma Lista de Recursos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/#11-personalizando-configura%c3%a7%c3%b5es&#34;&gt;Personalizando Configurações&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/#12-organizando-o-c%c3%b3digo-arquitetura-em-camadas&#34;&gt;Organizando o Código: Arquitetura em Camadas&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/#13-pr%c3%b3ximos-passos-na-sua-jornada&#34;&gt;Próximos Passos na Sua Jornada&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/#14-dicas-de-ouro-para-iniciantes&#34;&gt;Dicas de Ouro para Iniciantes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/#15-recursos-complementares&#34;&gt;Recursos Complementares&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/#16-conclus%c3%a3o&#34;&gt;Conclusão&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;1-por-que-spring-boot-mudou-o-desenvolvimento-java&#34;&gt;1. Por Que Spring Boot Mudou o Desenvolvimento Java?&lt;/h2&gt;
+&lt;p&gt;Imagine poder criar uma aplicação web completa em Java sem precisar configurar dezenas de arquivos XML ou se perder em configurações complexas. Era exatamente esse o sonho de todo desenvolvedor Java há alguns anos — e o Spring Boot tornou isso realidade.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Criando Aplicações Resilientes com Tolerância a Falhas com Quarkus</title>
       <link>https://angelobms.github.io/pt/posts/criando-aplica%C3%A7%C3%B5es-resilientes-com-toler%C3%A2ncia-a-falhas-com-quarkus/</link>

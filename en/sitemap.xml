@@ -2,11 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://angelobms.github.io/en/posts/building-resilient-fault-tolerant-applications-with-quarkus/</loc>
-    <lastmod>2025-09-24T18:59:31-03:00</lastmod>
+    <loc>https://angelobms.github.io/en/tags/backend/</loc>
+    <lastmod>2025-10-04T10:00:00-03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://angelobms.github.io/pt/tags/backend/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://angelobms.github.io/en/tags/backend/"
+                />
+  </url><url>
+    <loc>https://angelobms.github.io/en/tags/beginners/</loc>
+    <lastmod>2025-10-04T10:00:00-03:00</lastmod>
   </url><url>
     <loc>https://angelobms.github.io/en/categories/</loc>
-    <lastmod>2025-09-24T18:59:31-03:00</lastmod>
+    <lastmod>2025-10-04T10:00:00-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
@@ -18,8 +31,11 @@
                 href="https://angelobms.github.io/en/categories/"
                 />
   </url><url>
+    <loc>https://angelobms.github.io/en/posts/creating-your-first-spring-boot-project/</loc>
+    <lastmod>2025-10-04T10:00:00-03:00</lastmod>
+  </url><url>
     <loc>https://angelobms.github.io/en/categories/development/</loc>
-    <lastmod>2025-09-24T18:59:31-03:00</lastmod>
+    <lastmod>2025-10-04T10:00:00-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
@@ -30,6 +46,64 @@
                 hreflang="en"
                 href="https://angelobms.github.io/en/categories/development/"
                 />
+  </url><url>
+    <loc>https://angelobms.github.io/en/tags/development/</loc>
+    <lastmod>2025-10-04T10:00:00-03:00</lastmod>
+  </url><url>
+    <loc>https://angelobms.github.io/en/tags/java/</loc>
+    <lastmod>2025-10-04T10:00:00-03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://angelobms.github.io/pt/tags/java/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://angelobms.github.io/en/tags/java/"
+                />
+  </url><url>
+    <loc>https://angelobms.github.io/en/posts/</loc>
+    <lastmod>2025-10-04T10:00:00-03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://angelobms.github.io/pt/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://angelobms.github.io/en/posts/"
+                />
+  </url><url>
+    <loc>https://angelobms.github.io/en/tags/spring-boot/</loc>
+    <lastmod>2025-10-04T10:00:00-03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://angelobms.github.io/pt/tags/spring-boot/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://angelobms.github.io/en/tags/spring-boot/"
+                />
+  </url><url>
+    <loc>https://angelobms.github.io/en/tags/</loc>
+    <lastmod>2025-10-04T10:00:00-03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://angelobms.github.io/pt/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://angelobms.github.io/en/tags/"
+                />
+  </url><url>
+    <loc>https://angelobms.github.io/en/posts/building-resilient-fault-tolerant-applications-with-quarkus/</loc>
+    <lastmod>2025-09-24T18:59:31-03:00</lastmod>
   </url><url>
     <loc>https://angelobms.github.io/en/tags/fault-tolerance/</loc>
     <lastmod>2025-09-24T18:59:31-03:00</lastmod>
@@ -42,19 +116,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://angelobms.github.io/en/tags/fault-tolerance/"
-                />
-  </url><url>
-    <loc>https://angelobms.github.io/en/tags/java/</loc>
-    <lastmod>2025-09-24T18:59:31-03:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://angelobms.github.io/pt/tags/java/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://angelobms.github.io/en/tags/java/"
                 />
   </url><url>
     <loc>https://angelobms.github.io/en/tags/microprofile/</loc>
@@ -83,19 +144,6 @@
                 href="https://angelobms.github.io/en/tags/microservices/"
                 />
   </url><url>
-    <loc>https://angelobms.github.io/en/posts/</loc>
-    <lastmod>2025-09-24T18:59:31-03:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://angelobms.github.io/pt/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://angelobms.github.io/en/posts/"
-                />
-  </url><url>
     <loc>https://angelobms.github.io/en/tags/quarkus/</loc>
     <lastmod>2025-09-24T18:59:31-03:00</lastmod>
     <xhtml:link
@@ -120,19 +168,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://angelobms.github.io/en/tags/resilience/"
-                />
-  </url><url>
-    <loc>https://angelobms.github.io/en/tags/</loc>
-    <lastmod>2025-09-24T18:59:31-03:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://angelobms.github.io/pt/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://angelobms.github.io/en/tags/"
                 />
   </url><url>
     <loc>https://angelobms.github.io/en/contact/</loc>

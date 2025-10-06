@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Beginners on My Personal Website</title>
+    <link>https://angelobms.github.io/en/tags/beginners/</link>
+    <description>Recent content in Beginners on My Personal Website</description>
+    <generator>Hugo -- 0.150.0</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 04 Oct 2025 10:00:00 -0300</lastBuildDate>
+    <atom:link href="https://angelobms.github.io/en/tags/beginners/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating Your First Spring Boot Project: Complete Guide for Beginners</title>
+      <link>https://angelobms.github.io/en/posts/creating-your-first-spring-boot-project/</link>
+      <pubDate>Sat, 04 Oct 2025 10:00:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/en/posts/creating-your-first-spring-boot-project/</guid>
+      <description>&lt;img src=&#34;00-spring-boot.png&#34; alt=&#34;Spring Boot&#34; width=&#34;600&#34; style=&#34;max-width: 100%; height: auto; object-fit: contain;&#34; class=&#34;center&#34;&gt;
+&lt;h2 id=&#34;table-of-contents&#34;&gt;Table of Contents&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/en/posts/creating-your-first-spring-boot-project/#1-why-spring-boot-changed-java-development&#34;&gt;Why Spring Boot Changed Java Development?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/en/posts/creating-your-first-spring-boot-project/#2-what-you-will-learn&#34;&gt;What You Will Learn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/en/posts/creating-your-first-spring-boot-project/#3-setting-up&#34;&gt;Setting Up&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/en/posts/creating-your-first-spring-boot-project/#4-creating-the-project-three-possible-ways&#34;&gt;Creating the Project: Three Possible Ways&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/en/posts/creating-your-first-spring-boot-project/#3-understanding-the-project-structure&#34;&gt;Understanding the Project Structure&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/en/posts/creating-your-first-spring-boot-project/#6-the-main-class-the-heart-of-the-application&#34;&gt;The Main Class: The Heart of the Application&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/en/posts/creating-your-first-spring-boot-project/#7-running-for-the-first-time&#34;&gt;Running for the First Time&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/en/posts/creating-your-first-spring-boot-project/#8-creating-your-first-rest-api&#34;&gt;Creating Your First REST API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/en/posts/creating-your-first-spring-boot-project/#9-working-with-json-the-modern-web-standard&#34;&gt;Working with JSON: The Modern Web Standard&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/en/posts/creating-your-first-spring-boot-project/#10-creating-a-resource-list&#34;&gt;Creating a Resource List&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/en/posts/creating-your-first-spring-boot-project/#11-customizing-configurations&#34;&gt;Customizing Configurations&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/en/posts/creating-your-first-spring-boot-project/#12-organizing-code-layered-architecture&#34;&gt;Organizing Code: Layered Architecture&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/en/posts/creating-your-first-spring-boot-project/#13-next-steps-in-your-journey&#34;&gt;Next Steps in Your Journey&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/en/posts/creating-your-first-spring-boot-project/#14-golden-tips-for-beginners&#34;&gt;Golden Tips for Beginners&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/en/posts/creating-your-first-spring-boot-project/#15-complementary-resources&#34;&gt;Complementary Resources&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angelobms.github.io/en/posts/creating-your-first-spring-boot-project/#16-conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;1-why-spring-boot-changed-java-development&#34;&gt;1. Why Spring Boot Changed Java Development?&lt;/h2&gt;
+&lt;p&gt;Imagine being able to create a complete web application in Java without having to configure dozens of XML files or getting lost in complex configurations. This was exactly the dream of every Java developer a few years ago — and Spring Boot made it a reality.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
