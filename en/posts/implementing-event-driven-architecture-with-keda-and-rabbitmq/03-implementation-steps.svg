@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&amp;display=swap');
+      .hand-drawn {
+        font-family: 'Indie Flower', cursive;
+        font-size: 16px;
+        fill: #333;
+      }
+      .hand-drawn-title {
+        font-family: 'Indie Flower', cursive;
+        font-size: 20px;
+        font-weight: bold;
+        fill: #2c3e50;
+      }
+      .step-number {
+        font-family: 'Indie Flower', cursive;
+        font-size: 28px;
+        font-weight: bold;
+        fill: #e74c3c;
+      }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#fdfcf5"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" class="hand-drawn-title" text-anchor="middle">Step-by-Step Implementation</text>
+  
+  <!-- Step 1: RabbitMQ Docker -->
+  <g id="step1">
+    <!-- Wavy box -->
+    <path d="M 30 70 Q 32 68 50 70 L 190 72 Q 192 70 195 72 L 195 150 Q 192 152 190 150 L 50 148 Q 48 150 45 148 L 30 147 Q 28 145 30 143 Z" 
+          fill="#fff" stroke="#3498db" stroke-width="2.5" stroke-linecap="round"/>
+    
+    <!-- Step number -->
+    <text x="50" y="100" class="step-number">1</text>
+    
+    <!-- Docker icon sketch -->
+    <g transform="translate(100, 80)">
+      <rect x="0" y="0" width="60" height="50" fill="none" stroke="#3498db" stroke-width="2" rx="3"/>
+      <line x1="20" y1="0" x2="20" y2="50" stroke="#3498db" stroke-width="1.5"/>
+      <line x1="40" y1="0" x2="40" y2="50" stroke="#3498db" stroke-width="1.5"/>
+      <line x1="0" y1="15" x2="60" y2="15" stroke="#3498db" stroke-width="1.5"/>
+      <line x1="0" y1="30" x2="60" y2="30" stroke="#3498db" stroke-width="1.5"/>
+    </g>
+    
+    <text x="50" y="170" class="hand-drawn">RabbitMQ on Docker</text>
+  </g>
+  
+  <!-- Arrow 1 -->
+  <path d="M 200 110 Q 230 110 250 110" stroke="#95a5a6" stroke-width="2.5" fill="none" 
+        stroke-linecap="round" stroke-dasharray="5,5"/>
+  <path d="M 250 110 L 242 106 L 242 114 Z" fill="#95a5a6"/>
+  
+  <!-- Step 2: Microservice Creation -->
+  <g id="step2">
+    <!-- Wavy box -->
+    <path d="M 260 70 Q 262 68 280 70 L 430 72 Q 432 70 435 72 L 435 180 Q 432 182 430 180 L 280 178 Q 278 180 275 178 L 260 177 Q 258 175 260 173 Z" 
+          fill="#fff" stroke="#27ae60" stroke-width="2.5" stroke-linecap="round"/>
+    
+    <!-- Step number -->
+    <text x="280" y="100" class="step-number">2</text>
+    
+    <!-- Microservice sketch -->
+    <g transform="translate(330, 75)">
+      <!-- Server/service icon -->
+      <rect x="5" y="5" width="50" height="35" fill="none" stroke="#27ae60" stroke-width="2" rx="4"/>
+      <circle cx="15" cy="15" r="3" fill="#27ae60"/>
+      <circle cx="25" cy="15" r="3" fill="#27ae60"/>
+      <circle cx="35" cy="15" r="3" fill="#27ae60"/>
+      <line x1="10" y1="25" x2="50" y2="25" stroke="#27ae60" stroke-width="1.5"/>
+      <line x1="10" y1="30" x2="45" y2="30" stroke="#27ae60" stroke-width="1.5"/>
+      <line x1="10" y1="35" x2="40" y2="35" stroke="#27ae60" stroke-width="1.5"/>
+    </g>
+    
+    <text x="270" y="170" class="hand-drawn">Create Microservice</text>
+    <text x="270" y="190" class="hand-drawn" font-size="13">+ Config + Entity</text>
+  </g>
+  
+  <!-- Arrow 2 -->
+  <path d="M 345 185 Q 345 210 345 235" stroke="#95a5a6" stroke-width="2.5" fill="none" 
+        stroke-linecap="round" stroke-dasharray="5,5"/>
+  <path d="M 345 235 L 341 227 L 349 227 Z" fill="#95a5a6"/>
+  
+  <!-- Step 3: Kubernetes Deployment -->
+  <g id="step3">
+    <!-- Wavy box -->
+    <path d="M 260 245 Q 262 243 280 245 L 430 247 Q 432 245 435 247 L 435 360 Q 432 362 430 360 L 280 358 Q 278 360 275 358 L 260 357 Q 258 355 260 353 Z" 
+          fill="#fff" stroke="#9b59b6" stroke-width="2.5" stroke-linecap="round"/>
+    
+    <!-- Step number -->
+    <text x="280" y="275" class="step-number">3</text>
+    
+    <!-- Kubernetes logo sketch -->
+    <g transform="translate(335, 255)">
+      <circle cx="20" cy="20" r="18" fill="none" stroke="#9b59b6" stroke-width="2"/>
+      <path d="M 20 8 L 25 20 L 20 32 L 15 20 Z" fill="none" stroke="#9b59b6" stroke-width="2"/>
+      <path d="M 8 20 L 32 20" stroke="#9b59b6" stroke-width="2"/>
+      <circle cx="20" cy="20" r="3" fill="#9b59b6"/>
+    </g>
+    
+    <text x="280" y="320" class="hand-drawn">Deploy to K8s</text>
+    <text x="280" y="340" class="hand-drawn" font-size="13">deployment.yml</text>
+  </g>
+  
+  <!-- Arrow 3 -->
+  <path d="M 200 305 Q 230 305 250 305" stroke="#95a5a6" stroke-width="2.5" fill="none" 
+        stroke-linecap="round" stroke-dasharray="5,5" transform="rotate(180 225 305)"/>
+  <path d="M 200 305 L 208 301 L 208 309 Z" fill="#95a5a6"/>
+  
+  <!-- Step 4: KEDA Autoscaling -->
+  <g id="step4">
+    <!-- Wavy box -->
+    <path d="M 30 245 Q 32 243 50 245 L 190 247 Q 192 245 195 247 L 195 360 Q 192 362 190 360 L 50 358 Q 48 360 45 358 L 30 357 Q 28 355 30 353 Z" 
+          fill="#fff" stroke="#e67e22" stroke-width="2.5" stroke-linecap="round"/>
+    
+    <!-- Step number -->
+    <text x="50" y="275" class="step-number">4</text>
+    
+    <!-- KEDA autoscaling sketch -->
+    <g transform="translate(90, 255)">
+      <!-- Pods scaling up -->
+      <rect x="0" y="35" width="20" height="25" fill="none" stroke="#e67e22" stroke-width="2" rx="2"/>
+      <rect x="25" y="20" width="20" height="40" fill="none" stroke="#e67e22" stroke-width="2" rx="2"/>
+      <rect x="50" y="10" width="20" height="50" fill="none" stroke="#e67e22" stroke-width="2" rx="2"/>
+      
+      <!-- Arrow up -->
+      <path d="M 75 40 L 85 35 L 85 45 Z" fill="#e67e22"/>
+      <line x1="75" y1="40" x2="85" y2="40" stroke="#e67e22" stroke-width="2"/>
+    </g>
+    
+    <text x="55" y="330" class="hand-drawn">Configure KEDA</text>
+    <text x="65" y="350" class="hand-drawn" font-size="13">Autoscaling</text>
+  </g>
+  
+  <!-- Right side: Integration diagram -->
+  <g id="integration">
+    <path d="M 470 150 Q 472 148 490 150 L 760 152 Q 762 150 765 152 L 765 460 Q 762 462 760 460 L 490 458 Q 488 460 485 458 L 470 457 Q 468 455 470 453 Z" 
+          fill="#fff9f0" stroke="#34495e" stroke-width="2.5" stroke-linecap="round"/>
+    
+    <text x="615" y="180" class="hand-drawn-title" text-anchor="middle">Final Flow</text>
+    
+    <!-- RabbitMQ icon -->
+    <g transform="translate(550, 200)">
+      <circle cx="30" cy="25" r="22" fill="none" stroke="#ff6b6b" stroke-width="2.5"/>
+      <text x="30" y="32" class="hand-drawn" text-anchor="middle" font-size="14">RMQ</text>
+    </g>
+    <text x="600" y="245" class="hand-drawn" font-size="13">RabbitMQ</text>
+    
+    <!-- Arrow down -->
+    <path d="M 580 250 Q 580 270 580 285" stroke="#34495e" stroke-width="2.5" fill="none" 
+          stroke-linecap="round"/>
+    <path d="M 580 285 L 576 277 L 584 277 Z" fill="#34495e"/>
+    
+    <!-- KEDA monitoring -->
+    <g transform="translate(530, 290)">
+      <rect x="10" y="0" width="80" height="40" fill="none" stroke="#f39c12" stroke-width="2.5" rx="5"/>
+      <text x="50" y="25" class="hand-drawn" text-anchor="middle">KEDA</text>
+    </g>
+    <text x="515" y="350" class="hand-drawn" font-size="13">monitors queue</text>
+    
+    <!-- Arrow down -->
+    <path d="M 580 335 Q 580 355 580 370" stroke="#34495e" stroke-width="2.5" fill="none" 
+          stroke-linecap="round"/>
+    <path d="M 580 370 L 576 362 L 584 362 Z" fill="#34495e"/>
+    
+    <!-- Pods scaling -->
+    <g transform="translate(535, 375)">
+      <rect x="0" y="0" width="25" height="30" fill="#3498db" fill-opacity="0.3" stroke="#3498db" stroke-width="2" rx="2"/>
+      <rect x="30" y="0" width="25" height="30" fill="#3498db" fill-opacity="0.3" stroke="#3498db" stroke-width="2" rx="2"/>
+      <rect x="60" y="0" width="25" height="30" fill="#3498db" fill-opacity="0.5" stroke="#3498db" stroke-width="2" stroke-dasharray="3,3" rx="2"/>
+    </g>
+    <text x="510" y="425" class="hand-drawn" font-size="13">Pods scale dynamically</text>
+  </g>
+  
+  <!-- Bottom note -->
+  <g transform="translate(50, 520)">
+    <path d="M 0 0 Q 2 -2 20 0 L 700 2 Q 702 0 705 2 L 705 55 Q 702 57 700 55 L 20 53 Q 18 55 15 53 L 0 52 Q -2 50 0 48 Z" 
+          fill="#fff3cd" stroke="#856404" stroke-width="2" stroke-linecap="round"/>
+    <text x="20" y="25" class="hand-drawn" font-size="14">💡 Tip: Start by testing locally (steps 1-2) before deploying to K8s</text>
+    <text x="20" y="45" class="hand-drawn" font-size="14">   KEDA automatically adjusts the number of pods based on queue messages!</text>
+  </g>
+  
+  <!-- Decorative doodles -->
+  <path d="M 445 120 Q 460 115 470 125" stroke="#95a5a6" stroke-width="1.5" fill="none" 
+        stroke-linecap="round" opacity="0.4"/>
+  <circle cx="455" cy="115" r="3" fill="#95a5a6" opacity="0.4"/>
+  
+  <path d="M 240 380 Q 250 370 255 385" stroke="#95a5a6" stroke-width="1.5" fill="none" 
+        stroke-linecap="round" opacity="0.4"/>
+  <circle cx="250" cy="375" r="2.5" fill="#95a5a6" opacity="0.4"/>
+</svg>

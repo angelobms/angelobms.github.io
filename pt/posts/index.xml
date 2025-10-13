@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Meu Site Pessoal</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>pt</language>
-    <lastBuildDate>Sat, 04 Oct 2025 10:00:00 -0300</lastBuildDate>
+    <lastBuildDate>Sat, 11 Oct 2025 10:00:00 -0300</lastBuildDate>
     <atom:link href="https://angelobms.github.io/pt/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Implementando uma Arquitetura Event-Driven com KEDA e RabbitMQ</title>
+      <link>https://angelobms.github.io/pt/posts/implementando-uma-arquitetura-event-driven-com-keda-e-rabbitmq/</link>
+      <pubDate>Sat, 11 Oct 2025 10:00:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/pt/posts/implementando-uma-arquitetura-event-driven-com-keda-e-rabbitmq/</guid>
+      <description>Aprenda passo a passo como construir uma arquitetura orientada a eventos com RabbitMQ e KEDA no Kubernetes. Veja um exemplo prático de microserviço de auditoria com escalabilidade automática.</description>
+    </item>
     <item>
       <title>Criando Seu Primeiro Projeto Spring Boot: Guia Completo para Iniciantes</title>
       <link>https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/</link>

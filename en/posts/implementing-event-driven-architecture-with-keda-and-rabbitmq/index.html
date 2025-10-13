@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Implementing an Event-Driven Architecture with KEDA and RabbitMQ | My Personal Website</title>
+<meta name="keywords" content="KEDA RabbitMQ tutorial, Event-Driven microservice, Kubernetes autoscaling RabbitMQ, Spring Boot audit service, event driven architecture example">
+<meta name="description" content="Learn step by step how to build an event-driven architecture with RabbitMQ and KEDA on Kubernetes. See a practical example of an audit microservice with automatic scalability.">
+<meta name="author" content="Angelo Brandão">
+<link rel="canonical" href="https://angelobms.github.io/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8d898ce0db57dd06aa1a14c754e0b803505c5adda99ec420f42cea13e3222b5e.css" integrity="sha256-jYmM4NtX3QaqGhTHVOC4A1BcWt2pnsQg9CzqE&#43;MiK14=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://angelobms.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://angelobms.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://angelobms.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://angelobms.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://angelobms.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://angelobms.github.io/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://angelobms.github.io/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/">
+  <meta property="og:site_name" content="My Personal Website">
+  <meta property="og:title" content="Implementing an Event-Driven Architecture with KEDA and RabbitMQ">
+  <meta property="og:description" content="Learn step by step how to build an event-driven architecture with RabbitMQ and KEDA on Kubernetes. See a practical example of an audit microservice with automatic scalability.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-11T10:00:00-03:00">
+    <meta property="article:modified_time" content="2025-10-11T10:00:00-03:00">
+    <meta property="article:tag" content="Event-Driven Architecture">
+    <meta property="article:tag" content="KEDA">
+    <meta property="article:tag" content="RabbitMQ">
+    <meta property="article:tag" content="Kubernetes Autoscaling">
+    <meta property="article:tag" content="Microservices">
+    <meta property="article:tag" content="Spring Boot">
+      <meta property="og:image" content="https://angelobms.github.io/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/00_cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://angelobms.github.io/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/00_cover.jpg">
+<meta name="twitter:title" content="Implementing an Event-Driven Architecture with KEDA and RabbitMQ">
+<meta name="twitter:description" content="Learn step by step how to build an event-driven architecture with RabbitMQ and KEDA on Kubernetes. See a practical example of an audit microservice with automatic scalability.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://angelobms.github.io/en/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Implementing an Event-Driven Architecture with KEDA and RabbitMQ",
+      "item": "https://angelobms.github.io/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Implementing an Event-Driven Architecture with KEDA and RabbitMQ",
+  "name": "Implementing an Event-Driven Architecture with KEDA and RabbitMQ",
+  "description": "Learn step by step how to build an event-driven architecture with RabbitMQ and KEDA on Kubernetes. See a practical example of an audit microservice with automatic scalability.",
+  "keywords": [
+    "KEDA RabbitMQ tutorial", "Event-Driven microservice", "Kubernetes autoscaling RabbitMQ", "Spring Boot audit service", "event driven architecture example"
+  ],
+  "articleBody": " Introduction to Event-Driven Architecture with KEDA and RabbitMQ The need to build scalable and reactive systems has increasingly led teams to adopt the Event-Driven Architecture (EDA) model.\nInstead of relying on direct integrations between services, communication is done through asynchronous events, which reduces coupling and improves overall performance.\nIn this practical guide — a true KEDA RabbitMQ tutorial — you will learn to:\nImplement an event-driven audit microservice Integrate RabbitMQ as a message broker Configure KEDA to automatically scale consumption on Kubernetes Table of Contents What is an Event-Driven Architecture 1.1. Benefits of Event-Driven Architecture 1.2. Communication Flow Technologies and Tools Used Proposed Scenario: Event-Driven Audit Microservice 3.1. Overall Solution Flow Event-Driven Project Structure with RabbitMQ and KEDA Step-by-Step Implementation 1️⃣ Running RabbitMQ Locally 2️⃣ Creating the Audit Microservice 3️⃣ Deploying the Service on Kubernetes 4️⃣ Configuring KEDA for Autoscaling with RabbitMQ Testing Autoscaling on Kubernetes Best Practices and Observability Conclusion — Advantages of Event-Driven Architecture with KEDA and RabbitMQ References and Further Reading 1. What is an Event-Driven Architecture An event-driven architecture is based on the idea that each relevant action within the system (such as creating an order or updating a record) generates an event.\nThese events are published to a queue and processed independently by interested services.\n1.1. Benefits of Event-Driven Architecture Decoupling between services — each component only knows about events, not implementations. Automatic scalability — consumers can be scaled as the queue grows. Resilience — temporary failures don’t affect the system, as messages remain in the queue. Flexibility — new consumers can be added without impacting the rest of the architecture. 1.2. Communication Flow The diagram below illustrates how the communication flow works in an event-driven architecture:\nAs we can observe:\nProducers send events to the Message Broker asynchronously The Message Broker (RabbitMQ) manages queues and distributes messages Independent Consumers process events from their respective queues Each service can scale independently based on demand 2. Technologies and Tools Used Technology Function RabbitMQ Manages message routing and storage KEDA Autoscales based on RabbitMQ queue size Spring Boot / Quarkus Audit microservice implementation Docker \u0026 Kubernetes Application containerization and orchestration Prometheus \u0026 Grafana Monitoring and observability These tools together form the foundation for a modern and elastic cloud-native architecture.\n3. Proposed Scenario: Event-Driven Audit Microservice The Audit Service will be responsible for recording all critical system actions. Every time an event occurs — for example, a record creation or deletion — a message is sent to RabbitMQ, and the audit service processes this event asynchronously.\n3.1. Overall Solution Flow 4. Event-Driven Project Structure with RabbitMQ and KEDA event-driven-audit/ ├── audit-service/ │ ├── src/ │ │ ├── main/java/com/example/audit/ │ │ │ ├── controller/ │ │ │ ├── service/ │ │ │ ├── consumer/ │ │ │ └── model/ │ ├── resources/ │ │ └── application.yml ├── docker-compose.yml └── k8s/ ├── deployment.yml ├── keda-scaledobject.yml └── rabbitmq-config.yml A minimal organization like the one above cleanly separates three concerns: the service code, the local development environment, and the Kubernetes execution manifests. This division keeps day-to-day work frictionless and prevents operational details from leaking into business logic.\naudit-service: the microservice module itself. This is where events are turned into persisted audit records. src/main/java/com/example/audit/controller: HTTP entry points (audit queries, health/debug endpoints). Even in event-driven solutions, exposing read and health checks via API is common. src/main/java/com/example/audit/service: business rules and persistence orchestration. Keep audit logic here, isolating messaging and transport concerns. src/main/java/com/example/audit/consumer: RabbitMQ integration. Consumers (e.g., @RabbitListener) translate queue messages into service calls, handling idempotency, conversion, and validation. src/main/java/com/example/audit/model: domain models and event DTOs. The audit event contract lives here (fields, types, semantics), easing evolution without breaking consumers. resources/application.yml: service configuration. Centralizes connections (RabbitMQ, database), queue names, and runtime parameters. Prefer environment variables and Spring profiles to distinguish local, staging, and production. docker-compose.yml: development support. Brings up RabbitMQ (and, if needed, the database) for quick local tests, mirroring queue names and credentials used by the cluster manifests. k8s/deployment.yml: defines the audit-service pod in Kubernetes (image, ports, env vars, requests/limits). It does not know about queues or triggers — only the service runtime. k8s/keda-scaledobject.yml: links queue load to autoscaling. Declares which queue to observe, replica bounds, and KEDA’s reaction policy. k8s/rabbitmq-config.yml: broker-related infrastructure resources (credentials, vhost, policies or bindings, depending on the team’s approach). Versioning these avoids manual tweaks and environment drift. With this structure, every change has a natural home: contracts and logic in audit-service, local experience in docker-compose.yml, and execution/scale behavior in k8s/. The outcome is a predictable dev cycle and a deployment path without surprises.\n5. Step-by-Step Implementation 1️⃣ Running RabbitMQ Locally In the docker-compose.yml file:\nversion: \"3.8\" services: rabbitmq: image: rabbitmq:3-management ports: - \"5672:5672\" - \"15672:15672\" environment: RABBITMQ_DEFAULT_USER: user RABBITMQ_DEFAULT_PASS: pass Access the RabbitMQ Management UI.\n2️⃣ Creating the Audit Microservice application.yml\nspring: rabbitmq: host: rabbitmq username: user password: pass datasource: url: jdbc:postgresql://db/audit username: postgres password: postgres AuditEvent.java Entity\n@Entity public class AuditEvent { @Id @GeneratedValue private Long id; private String action; private String entity; private String user; private LocalDateTime timestamp; } AuditConsumer.java Consumer\n@Component public class AuditConsumer { private final AuditService auditService; public AuditConsumer(AuditService auditService) { this.auditService = auditService; } @RabbitListener(queues = \"audit.queue\") public void consume(AuditEvent event) { auditService.save(event); } } This component consumes messages from the queue and saves audit events to the database.\n3️⃣ Deploying the Service on Kubernetes deployment.yml\napiVersion: apps/v1 kind: Deployment metadata: name: audit-service spec: replicas: 1 selector: matchLabels: app: audit-service template: metadata: labels: app: audit-service spec: containers: - name: audit-service image: yourrepo/audit-service:latest ports: - containerPort: 8080 4️⃣ Configuring KEDA for Autoscaling with RabbitMQ keda-scaledobject.yml\napiVersion: keda.sh/v1alpha1 kind: ScaledObject metadata: name: audit-service-scaler spec: scaleTargetRef: name: audit-service minReplicaCount: 1 maxReplicaCount: 10 triggers: - type: rabbitmq metadata: queueName: audit.queue host: RabbitMQConnectionString queueLength: \"10\" When the audit.queue accumulates messages, KEDA will increase the number of pods. When the volume drops, it will automatically reduce — optimizing cost and resources.\n6. Testing Autoscaling on Kubernetes Generate sample events to populate the queue. Observe RabbitMQ growing with pending messages. Verify KEDA dynamically adjusting audit-service replicas. Check logs confirming parallel processing. 7. Best Practices and Observability Use structured logs (JSON) to facilitate correlation and parsing in monitoring tools. Implement correlation IDs to trace events end-to-end. Expose metrics for Prometheus and create dashboards in Grafana. Configure Dead Letter Queues (DLQs) for problematic messages. These practices increase reliability and make the system observable and sustainable.\n8. Conclusion — Advantages of Event-Driven Architecture with KEDA and RabbitMQ Adopting an event-driven architecture with RabbitMQ and KEDA allows your system to:\nProcess events asynchronously Scale automatically based on load Be resilient, modular, and easy to evolve Our audit microservice demonstrated in practice how to combine messaging, autoscaling, and best practices in a modern application.\nSuggested next steps:\nAdd retries and fallback mechanisms Create DLQs for unprocessed messages Evolve the design to event streaming (Kafka, Pulsar) 9. References and Further Reading KEDA Documentation Official RabbitMQ Guide Spring AMQP Kubernetes Documentation ",
+  "wordCount" : "1142",
+  "inLanguage": "en",
+  "image": "https://angelobms.github.io/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/00_cover.jpg","datePublished": "2025-10-11T10:00:00-03:00",
+  "dateModified": "2025-10-11T10:00:00-03:00",
+  "author":{
+    "@type": "Person",
+    "name": "Angelo Brandão"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://angelobms.github.io/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My Personal Website",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://angelobms.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="/en/" accesskey="h" title="My Personal Website (Alt + H)">My Personal Website</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://angelobms.github.io/pt/" title="🇧🇷 Português"
+                            aria-label="🇧🇷 Português">🇧🇷 Português</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/en/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="/en/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="/en/resume/" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="/en/contact/" title="Contact">
+                    <span>Contact</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://angelobms.github.io/en/">Home</a>&nbsp;»&nbsp;<a href="https://angelobms.github.io/en/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Implementing an Event-Driven Architecture with KEDA and RabbitMQ
+    </h1>
+    <div class="post-description">
+      Learn step by step how to build an event-driven architecture with RabbitMQ and KEDA on Kubernetes. See a practical example of an audit microservice with automatic scalability.
+    </div>
+    <div class="post-meta"><span title='2025-10-11 10:00:00 -0300 -03'>October 11, 2025</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;1142 words&nbsp;·&nbsp;Angelo Brandão
+
+</div>
+  </header> 
+  <div class="post-content"><img src="00_cover.jpg" alt="Spring Boot" width="600" style="max-width: 100%; height: auto; object-fit: contain;" class="center">
+<h2 id="introduction-to-event-driven-architecture-with-keda-and-rabbitmq">Introduction to Event-Driven Architecture with KEDA and RabbitMQ<a hidden class="anchor" aria-hidden="true" href="#introduction-to-event-driven-architecture-with-keda-and-rabbitmq">#</a></h2>
+<p>The need to build scalable and reactive systems has increasingly led teams to adopt the <strong>Event-Driven Architecture (EDA)</strong> model.<br>
+Instead of relying on direct integrations between services, communication is done through <strong>asynchronous events</strong>, which reduces coupling and improves overall performance.</p>
+<p>In this practical guide — a true <em>KEDA RabbitMQ tutorial</em> — you will learn to:</p>
+<ul>
+<li>Implement an event-driven <strong>audit microservice</strong></li>
+<li>Integrate <strong>RabbitMQ</strong> as a message broker</li>
+<li>Configure <strong>KEDA</strong> to automatically scale consumption on Kubernetes</li>
+</ul>
+<h2 id="table-of-contents">Table of Contents<a hidden class="anchor" aria-hidden="true" href="#table-of-contents">#</a></h2>
+<ol>
+<li><a href="/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/#1-what-is-an-event-driven-architecture">What is an Event-Driven Architecture</a>
+<ul>
+<li><a href="/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/#11-benefits-of-event-driven-architecture">1.1. Benefits of Event-Driven Architecture</a></li>
+<li><a href="/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/#12-communication-flow">1.2. Communication Flow</a></li>
+</ul>
+</li>
+<li><a href="/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/#2-technologies-and-tools-used">Technologies and Tools Used</a></li>
+<li><a href="/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/#3-proposed-scenario-event-driven-audit-microservice">Proposed Scenario: Event-Driven Audit Microservice</a>
+<ul>
+<li><a href="/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/#31-overall-solution-flow">3.1. Overall Solution Flow</a></li>
+</ul>
+</li>
+<li><a href="/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/#4-event-driven-project-structure-with-rabbitmq-and-keda">Event-Driven Project Structure with RabbitMQ and KEDA</a></li>
+<li><a href="/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/#5-step-by-step-implementation">Step-by-Step Implementation</a>
+<ul>
+<li><a href="/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/#1%ef%b8%8f%e2%83%a3-running-rabbitmq-locally">1️⃣ Running RabbitMQ Locally</a></li>
+<li><a href="/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/#2%ef%b8%8f%e2%83%a3-creating-the-audit-microservice">2️⃣ Creating the Audit Microservice</a></li>
+<li><a href="/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/#3%ef%b8%8f%e2%83%a3-deploying-the-service-on-kubernetes">3️⃣ Deploying the Service on Kubernetes</a></li>
+<li><a href="/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/#4%ef%b8%8f%e2%83%a3-configuring-keda-for-autoscaling-with-rabbitmq">4️⃣ Configuring KEDA for Autoscaling with RabbitMQ</a></li>
+</ul>
+</li>
+<li><a href="/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/#6-testing-autoscaling-on-kubernetes">Testing Autoscaling on Kubernetes</a></li>
+<li><a href="/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/#7-best-practices-and-observability">Best Practices and Observability</a></li>
+<li><a href="/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/#8-conclusion--advantages-of-event-driven-architecture-with-keda-and-rabbitmq">Conclusion — Advantages of Event-Driven Architecture with KEDA and RabbitMQ</a></li>
+<li><a href="/en/posts/implementing-event-driven-architecture-with-keda-and-rabbitmq/#9-references-and-further-reading">References and Further Reading</a></li>
+</ol>
+<h2 id="1-what-is-an-event-driven-architecture">1. What is an Event-Driven Architecture<a hidden class="anchor" aria-hidden="true" href="#1-what-is-an-event-driven-architecture">#</a></h2>
+<p>An <strong>event-driven architecture</strong> is based on the idea that each relevant action within the system (such as creating an order or updating a record) generates an <em>event</em>.<br>
+These events are published to a queue and processed independently by interested services.</p>
+<h3 id="11-benefits-of-event-driven-architecture">1.1. Benefits of Event-Driven Architecture<a hidden class="anchor" aria-hidden="true" href="#11-benefits-of-event-driven-architecture">#</a></h3>
+<ul>
+<li><strong>Decoupling between services</strong> — each component only knows about events, not implementations.</li>
+<li><strong>Automatic scalability</strong> — consumers can be scaled as the queue grows.</li>
+<li><strong>Resilience</strong> — temporary failures don&rsquo;t affect the system, as messages remain in the queue.</li>
+<li><strong>Flexibility</strong> — new consumers can be added without impacting the rest of the architecture.</li>
+</ul>
+<h3 id="12-communication-flow">1.2. Communication Flow<a hidden class="anchor" aria-hidden="true" href="#12-communication-flow">#</a></h3>
+<p>The diagram below illustrates how the communication flow works in an event-driven architecture:</p>
+<div align="center">
+  <img src="01-communication-flow.svg" alt="Event-Driven Communication Flow" />
+</div>
+<p>As we can observe:</p>
+<ul>
+<li><strong>Producers</strong> send events to the Message Broker asynchronously</li>
+<li>The <strong>Message Broker</strong> (RabbitMQ) manages queues and distributes messages</li>
+<li>Independent <strong>Consumers</strong> process events from their respective queues</li>
+<li>Each service can scale independently based on demand</li>
+</ul>
+<h2 id="2-technologies-and-tools-used">2. Technologies and Tools Used<a hidden class="anchor" aria-hidden="true" href="#2-technologies-and-tools-used">#</a></h2>
+<table>
+  <thead>
+      <tr>
+          <th>Technology</th>
+          <th>Function</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>RabbitMQ</td>
+          <td>Manages message routing and storage</td>
+      </tr>
+      <tr>
+          <td>KEDA</td>
+          <td>Autoscales based on RabbitMQ queue size</td>
+      </tr>
+      <tr>
+          <td>Spring Boot / Quarkus</td>
+          <td>Audit microservice implementation</td>
+      </tr>
+      <tr>
+          <td>Docker &amp; Kubernetes</td>
+          <td>Application containerization and orchestration</td>
+      </tr>
+      <tr>
+          <td>Prometheus &amp; Grafana</td>
+          <td>Monitoring and observability</td>
+      </tr>
+  </tbody>
+</table>
+<p>These tools together form the foundation for a modern and elastic cloud-native architecture.</p>
+<h2 id="3-proposed-scenario-event-driven-audit-microservice">3. Proposed Scenario: Event-Driven Audit Microservice<a hidden class="anchor" aria-hidden="true" href="#3-proposed-scenario-event-driven-audit-microservice">#</a></h2>
+<p>The Audit Service will be responsible for recording all critical system actions.
+Every time an event occurs — for example, a record creation or deletion — a message is sent to RabbitMQ, and the audit service processes this event asynchronously.</p>
+<h3 id="31-overall-solution-flow">3.1. Overall Solution Flow<a hidden class="anchor" aria-hidden="true" href="#31-overall-solution-flow">#</a></h3>
+<div align="center">
+  <img src="02-geral-flow.svg" alt="Geral Flow" />
+</div>
+<h2 id="4-event-driven-project-structure-with-rabbitmq-and-keda">4. Event-Driven Project Structure with RabbitMQ and KEDA<a hidden class="anchor" aria-hidden="true" href="#4-event-driven-project-structure-with-rabbitmq-and-keda">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>event-driven-audit/
+</span></span><span style="display:flex;"><span>├── audit-service/
+</span></span><span style="display:flex;"><span>│   ├── src/
+</span></span><span style="display:flex;"><span>│   │   ├── main/java/com/example/audit/
+</span></span><span style="display:flex;"><span>│   │   │   ├── controller/
+</span></span><span style="display:flex;"><span>│   │   │   ├── service/
+</span></span><span style="display:flex;"><span>│   │   │   ├── consumer/
+</span></span><span style="display:flex;"><span>│   │   │   └── model/
+</span></span><span style="display:flex;"><span>│   ├── resources/
+</span></span><span style="display:flex;"><span>│   │   └── application.yml
+</span></span><span style="display:flex;"><span>├── docker-compose.yml
+</span></span><span style="display:flex;"><span>└── k8s/
+</span></span><span style="display:flex;"><span>    ├── deployment.yml
+</span></span><span style="display:flex;"><span>    ├── keda-scaledobject.yml
+</span></span><span style="display:flex;"><span>    └── rabbitmq-config.yml
+</span></span></code></pre></div><p>A minimal organization like the one above cleanly separates three concerns: the service code, the local development environment, and the Kubernetes execution manifests. This division keeps day-to-day work frictionless and prevents operational details from leaking into business logic.</p>
+<ul>
+<li><code>audit-service</code>: the microservice module itself. This is where events are turned into persisted audit records.</li>
+<li><code>src/main/java/com/example/audit/controller</code>: HTTP entry points (audit queries, health/debug endpoints). Even in event-driven solutions, exposing read and health checks via API is common.</li>
+<li><code>src/main/java/com/example/audit/service</code>: business rules and persistence orchestration. Keep audit logic here, isolating messaging and transport concerns.</li>
+<li><code>src/main/java/com/example/audit/consumer</code>: RabbitMQ integration. Consumers (e.g., <code>@RabbitListener</code>) translate queue messages into service calls, handling idempotency, conversion, and validation.</li>
+<li><code>src/main/java/com/example/audit/model</code>: domain models and event DTOs. The audit event contract lives here (fields, types, semantics), easing evolution without breaking consumers.</li>
+<li><code>resources/application.yml</code>: service configuration. Centralizes connections (RabbitMQ, database), queue names, and runtime parameters. Prefer environment variables and Spring profiles to distinguish local, staging, and production.</li>
+<li><code>docker-compose.yml</code>: development support. Brings up RabbitMQ (and, if needed, the database) for quick local tests, mirroring queue names and credentials used by the cluster manifests.</li>
+<li><code>k8s/deployment.yml</code>: defines the <code>audit-service</code> pod in Kubernetes (image, ports, env vars, requests/limits). It does not know about queues or triggers — only the service runtime.</li>
+<li><code>k8s/keda-scaledobject.yml</code>: links queue load to autoscaling. Declares which queue to observe, replica bounds, and KEDA’s reaction policy.</li>
+<li><code>k8s/rabbitmq-config.yml</code>: broker-related infrastructure resources (credentials, vhost, policies or bindings, depending on the team’s approach). Versioning these avoids manual tweaks and environment drift.</li>
+</ul>
+<p>With this structure, every change has a natural home: contracts and logic in <code>audit-service</code>, local experience in <code>docker-compose.yml</code>, and execution/scale behavior in <code>k8s/</code>. The outcome is a predictable dev cycle and a deployment path without surprises.</p>
+<h2 id="5-step-by-step-implementation">5. Step-by-Step Implementation<a hidden class="anchor" aria-hidden="true" href="#5-step-by-step-implementation">#</a></h2>
+<div align="center">
+  <img src="03-implementation-steps.svg" alt="Step-by-Step Implementation" />
+</div>
+<h3 id="1-running-rabbitmq-locally">1️⃣ Running RabbitMQ Locally<a hidden class="anchor" aria-hidden="true" href="#1-running-rabbitmq-locally">#</a></h3>
+<p>In the docker-compose.yml file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">version:</span> <span style="color:#e6db74">&#34;3.8&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">services:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">rabbitmq:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">image:</span> <span style="color:#960050;background-color:#1e0010">rabbitmq:</span><span style="color:#ae81ff">3</span><span style="color:#960050;background-color:#1e0010">-management</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">ports:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#e6db74">&#34;5672:5672&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#e6db74">&#34;15672:15672&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">environment:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">RABBITMQ_DEFAULT_USER:</span> <span style="color:#960050;background-color:#1e0010">user</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">RABBITMQ_DEFAULT_PASS:</span> <span style="color:#960050;background-color:#1e0010">pass</span>
+</span></span></code></pre></div><p>Access the <a href="http://localhost:15672">RabbitMQ Management UI</a>.</p>
+<h3 id="2-creating-the-audit-microservice">2️⃣ Creating the Audit Microservice<a hidden class="anchor" aria-hidden="true" href="#2-creating-the-audit-microservice">#</a></h3>
+<p><strong>application.yml</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">spring:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">rabbitmq:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">host:</span> <span style="color:#960050;background-color:#1e0010">rabbitmq</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">username:</span> <span style="color:#960050;background-color:#1e0010">user</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">password:</span> <span style="color:#960050;background-color:#1e0010">pass</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">datasource:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">url:</span> <span style="color:#960050;background-color:#1e0010">jdbc:postgresql:</span><span style="color:#75715e">//db/audit
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#960050;background-color:#1e0010">username:</span> <span style="color:#960050;background-color:#1e0010">postgres</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">password:</span> <span style="color:#960050;background-color:#1e0010">postgres</span>
+</span></span></code></pre></div><p><strong>AuditEvent.java Entity</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Entity</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AuditEvent</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Id</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GeneratedValue</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Long id;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String action;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String entity;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String user;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> LocalDateTime timestamp;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>AuditConsumer.java Consumer</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Component</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AuditConsumer</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> AuditService auditService;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">AuditConsumer</span>(AuditService auditService) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">auditService</span> <span style="color:#f92672">=</span> auditService;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@RabbitListener</span>(queues <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;audit.queue&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">consume</span>(AuditEvent event) {
+</span></span><span style="display:flex;"><span>        auditService.<span style="color:#a6e22e">save</span>(event);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This component consumes messages from the queue and saves audit events to the database.</p>
+<h3 id="3-deploying-the-service-on-kubernetes">3️⃣ Deploying the Service on Kubernetes<a hidden class="anchor" aria-hidden="true" href="#3-deploying-the-service-on-kubernetes">#</a></h3>
+<p><strong>deployment.yml</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">apiVersion:</span> <span style="color:#960050;background-color:#1e0010">apps/v</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">kind:</span> <span style="color:#960050;background-color:#1e0010">Deployment</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">metadata:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">name:</span> <span style="color:#960050;background-color:#1e0010">audit-service</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">spec:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">replicas:</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">selector:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">matchLabels:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">app:</span> <span style="color:#960050;background-color:#1e0010">audit-service</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">template:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">metadata:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">labels:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">app:</span> <span style="color:#960050;background-color:#1e0010">audit-service</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">spec:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">containers:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#960050;background-color:#1e0010">name:</span> <span style="color:#960050;background-color:#1e0010">audit-service</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#960050;background-color:#1e0010">image:</span> <span style="color:#960050;background-color:#1e0010">yourrepo/audit-service:latest</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#960050;background-color:#1e0010">ports:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#960050;background-color:#1e0010">containerPort:</span> <span style="color:#ae81ff">8080</span>
+</span></span></code></pre></div><h3 id="4-configuring-keda-for-autoscaling-with-rabbitmq">4️⃣ Configuring KEDA for Autoscaling with RabbitMQ<a hidden class="anchor" aria-hidden="true" href="#4-configuring-keda-for-autoscaling-with-rabbitmq">#</a></h3>
+<p><strong>keda-scaledobject.yml</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">apiVersion:</span> <span style="color:#960050;background-color:#1e0010">keda.sh/v</span><span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">alpha</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">kind:</span> <span style="color:#960050;background-color:#1e0010">ScaledObject</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">metadata:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">name:</span> <span style="color:#960050;background-color:#1e0010">audit-service-scaler</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">spec:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">scaleTargetRef:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">name:</span> <span style="color:#960050;background-color:#1e0010">audit-service</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">minReplicaCount:</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">maxReplicaCount:</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">triggers:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#960050;background-color:#1e0010">type:</span> <span style="color:#960050;background-color:#1e0010">rabbitmq</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">metadata:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">queueName:</span> <span style="color:#960050;background-color:#1e0010">audit.queue</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">host:</span> <span style="color:#960050;background-color:#1e0010">RabbitMQConnectionString</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">queueLength:</span> <span style="color:#e6db74">&#34;10&#34;</span>
+</span></span></code></pre></div><p>When the audit.queue accumulates messages, KEDA will increase the number of pods.
+When the volume drops, it will automatically reduce — optimizing cost and resources.</p>
+<h2 id="6-testing-autoscaling-on-kubernetes">6. Testing Autoscaling on Kubernetes<a hidden class="anchor" aria-hidden="true" href="#6-testing-autoscaling-on-kubernetes">#</a></h2>
+<ol>
+<li>Generate sample events to populate the queue.</li>
+<li>Observe RabbitMQ growing with pending messages.</li>
+<li>Verify KEDA dynamically adjusting audit-service replicas.</li>
+<li>Check logs confirming parallel processing.</li>
+</ol>
+<div align="center">
+  <img src="04-keda-autoscaling.svg" alt="Autoscaling with KEDA" />
+</div>
+<h2 id="7-best-practices-and-observability">7. Best Practices and Observability<a hidden class="anchor" aria-hidden="true" href="#7-best-practices-and-observability">#</a></h2>
+<ul>
+<li>Use structured logs (JSON) to facilitate correlation and parsing in monitoring tools.</li>
+<li>Implement correlation IDs to trace events end-to-end.</li>
+<li>Expose metrics for Prometheus and create dashboards in Grafana.</li>
+<li>Configure Dead Letter Queues (DLQs) for problematic messages.</li>
+</ul>
+<p>These practices increase reliability and make the system observable and sustainable.</p>
+<h2 id="8-conclusion--advantages-of-event-driven-architecture-with-keda-and-rabbitmq">8. Conclusion — Advantages of Event-Driven Architecture with KEDA and RabbitMQ<a hidden class="anchor" aria-hidden="true" href="#8-conclusion--advantages-of-event-driven-architecture-with-keda-and-rabbitmq">#</a></h2>
+<p>Adopting an event-driven architecture with RabbitMQ and KEDA allows your system to:</p>
+<ul>
+<li>Process events asynchronously</li>
+<li>Scale automatically based on load</li>
+<li>Be resilient, modular, and easy to evolve</li>
+</ul>
+<p>Our audit microservice demonstrated in practice how to combine messaging, autoscaling, and best practices in a modern application.</p>
+<p>Suggested next steps:</p>
+<ul>
+<li>Add retries and fallback mechanisms</li>
+<li>Create DLQs for unprocessed messages</li>
+<li>Evolve the design to event streaming (Kafka, Pulsar)</li>
+</ul>
+<h2 id="9-references-and-further-reading">9. References and Further Reading<a hidden class="anchor" aria-hidden="true" href="#9-references-and-further-reading">#</a></h2>
+<ul>
+<li><a href="https://keda.sh/">KEDA Documentation</a></li>
+<li><a href="https://www.rabbitmq.com">Official RabbitMQ Guide</a></li>
+<li><a href="https://spring.io/projects/spring-amqp">Spring AMQP</a></li>
+<li><a href="https://kubernetes.io">Kubernetes Documentation</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://angelobms.github.io/en/tags/event-driven-architecture/">Event-Driven Architecture</a></li>
+      <li><a href="https://angelobms.github.io/en/tags/keda/">KEDA</a></li>
+      <li><a href="https://angelobms.github.io/en/tags/rabbitmq/">RabbitMQ</a></li>
+      <li><a href="https://angelobms.github.io/en/tags/kubernetes-autoscaling/">Kubernetes Autoscaling</a></li>
+      <li><a href="https://angelobms.github.io/en/tags/microservices/">Microservices</a></li>
+      <li><a href="https://angelobms.github.io/en/tags/spring-boot/">Spring Boot</a></li>
+      <li><a href="https://angelobms.github.io/en/tags/audit-microservice/">Audit Microservice</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://angelobms.github.io/en/posts/creating-your-first-spring-boot-project/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Creating Your First Spring Boot Project: Complete Guide for Beginners</span>
+  </a>
+</nav>
+
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Implementing an Event-Driven Architecture with KEDA and RabbitMQ on x"
+            href="https://x.com/intent/tweet/?text=Implementing%20an%20Event-Driven%20Architecture%20with%20KEDA%20and%20RabbitMQ&amp;url=https%3a%2f%2fangelobms.github.io%2fen%2fposts%2fimplementing-event-driven-architecture-with-keda-and-rabbitmq%2f&amp;hashtags=Event-DrivenArchitecture%2cKEDA%2cRabbitMQ%2cKubernetesAutoscaling%2cMicroservices%2cSpringBoot%2cAuditMicroservice">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Implementing an Event-Driven Architecture with KEDA and RabbitMQ on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fangelobms.github.io%2fen%2fposts%2fimplementing-event-driven-architecture-with-keda-and-rabbitmq%2f&amp;title=Implementing%20an%20Event-Driven%20Architecture%20with%20KEDA%20and%20RabbitMQ&amp;summary=Implementing%20an%20Event-Driven%20Architecture%20with%20KEDA%20and%20RabbitMQ&amp;source=https%3a%2f%2fangelobms.github.io%2fen%2fposts%2fimplementing-event-driven-architecture-with-keda-and-rabbitmq%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Implementing an Event-Driven Architecture with KEDA and RabbitMQ on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2fangelobms.github.io%2fen%2fposts%2fimplementing-event-driven-architecture-with-keda-and-rabbitmq%2f&title=Implementing%20an%20Event-Driven%20Architecture%20with%20KEDA%20and%20RabbitMQ">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Implementing an Event-Driven Architecture with KEDA and RabbitMQ on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fangelobms.github.io%2fen%2fposts%2fimplementing-event-driven-architecture-with-keda-and-rabbitmq%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Implementing an Event-Driven Architecture with KEDA and RabbitMQ on whatsapp"
+            href="https://api.whatsapp.com/send?text=Implementing%20an%20Event-Driven%20Architecture%20with%20KEDA%20and%20RabbitMQ%20-%20https%3a%2f%2fangelobms.github.io%2fen%2fposts%2fimplementing-event-driven-architecture-with-keda-and-rabbitmq%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Implementing an Event-Driven Architecture with KEDA and RabbitMQ on telegram"
+            href="https://telegram.me/share/url?text=Implementing%20an%20Event-Driven%20Architecture%20with%20KEDA%20and%20RabbitMQ&amp;url=https%3a%2f%2fangelobms.github.io%2fen%2fposts%2fimplementing-event-driven-architecture-with-keda-and-rabbitmq%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Implementing an Event-Driven Architecture with KEDA and RabbitMQ on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Implementing%20an%20Event-Driven%20Architecture%20with%20KEDA%20and%20RabbitMQ&u=https%3a%2f%2fangelobms.github.io%2fen%2fposts%2fimplementing-event-driven-architecture-with-keda-and-rabbitmq%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://angelobms.github.io/en/">My Personal Website</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

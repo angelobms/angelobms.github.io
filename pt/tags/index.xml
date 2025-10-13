@@ -6,8 +6,57 @@
     <description>Recent content in Tags on Meu Site Pessoal</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>pt</language>
-    <lastBuildDate>Sat, 04 Oct 2025 10:00:00 -0300</lastBuildDate>
+    <lastBuildDate>Sat, 11 Oct 2025 10:00:00 -0300</lastBuildDate>
     <atom:link href="https://angelobms.github.io/pt/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Audit Microservice</title>
+      <link>https://angelobms.github.io/pt/tags/audit-microservice/</link>
+      <pubDate>Sat, 11 Oct 2025 10:00:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/pt/tags/audit-microservice/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Event-Driven Architecture</title>
+      <link>https://angelobms.github.io/pt/tags/event-driven-architecture/</link>
+      <pubDate>Sat, 11 Oct 2025 10:00:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/pt/tags/event-driven-architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>KEDA</title>
+      <link>https://angelobms.github.io/pt/tags/keda/</link>
+      <pubDate>Sat, 11 Oct 2025 10:00:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/pt/tags/keda/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kubernetes Autoscaling</title>
+      <link>https://angelobms.github.io/pt/tags/kubernetes-autoscaling/</link>
+      <pubDate>Sat, 11 Oct 2025 10:00:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/pt/tags/kubernetes-autoscaling/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Microservices</title>
+      <link>https://angelobms.github.io/pt/tags/microservices/</link>
+      <pubDate>Sat, 11 Oct 2025 10:00:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/pt/tags/microservices/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RabbitMQ</title>
+      <link>https://angelobms.github.io/pt/tags/rabbitmq/</link>
+      <pubDate>Sat, 11 Oct 2025 10:00:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/pt/tags/rabbitmq/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Spring Boot</title>
+      <link>https://angelobms.github.io/pt/tags/spring-boot/</link>
+      <pubDate>Sat, 11 Oct 2025 10:00:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/pt/tags/spring-boot/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Backend</title>
       <link>https://angelobms.github.io/pt/tags/backend/</link>
@@ -37,13 +86,6 @@
       <description></description>
     </item>
     <item>
-      <title>Spring-Boot</title>
-      <link>https://angelobms.github.io/pt/tags/spring-boot/</link>
-      <pubDate>Sat, 04 Oct 2025 10:00:00 -0300</pubDate>
-      <guid>https://angelobms.github.io/pt/tags/spring-boot/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Fault-Tolerance</title>
       <link>https://angelobms.github.io/pt/tags/fault-tolerance/</link>
       <pubDate>Wed, 24 Sep 2025 18:59:31 -0300</pubDate>
@@ -55,13 +97,6 @@
       <link>https://angelobms.github.io/pt/tags/microprofile/</link>
       <pubDate>Wed, 24 Sep 2025 18:59:31 -0300</pubDate>
       <guid>https://angelobms.github.io/pt/tags/microprofile/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Microservices</title>
-      <link>https://angelobms.github.io/pt/tags/microservices/</link>
-      <pubDate>Wed, 24 Sep 2025 18:59:31 -0300</pubDate>
-      <guid>https://angelobms.github.io/pt/tags/microservices/</guid>
       <description></description>
     </item>
     <item>

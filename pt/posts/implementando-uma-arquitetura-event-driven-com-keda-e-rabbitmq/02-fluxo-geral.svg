@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#2c3e50">
+    Fluxo Event-Driven Architecture
+  </text>
+  
+  <!-- Service A (Producer) -->
+  <g id="service-a">
+    <rect x="50" y="150" width="140" height="100" rx="10" fill="#3498db" stroke="#2c3e50" stroke-width="2"/>
+    <text x="120" y="185" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
+      Serviço A
+    </text>
+    <text x="120" y="205" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">
+      (Producer)
+    </text>
+    <text x="120" y="225" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">
+      Publica eventos
+    </text>
+  </g>
+  
+  <!-- RabbitMQ -->
+  <g id="rabbitmq">
+    <rect x="330" y="150" width="140" height="100" rx="10" fill="#ff6b35" stroke="#2c3e50" stroke-width="2"/>
+    <text x="400" y="185" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
+      RabbitMQ
+    </text>
+    <text x="400" y="205" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">
+      Message Broker
+    </text>
+    <text x="400" y="225" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">
+      Fila: audit.queue
+    </text>
+  </g>
+  
+  <!-- Audit Service (Consumer) -->
+  <g id="audit-service">
+    <rect x="610" y="150" width="140" height="100" rx="10" fill="#27ae60" stroke="#2c3e50" stroke-width="2"/>
+    <text x="680" y="185" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
+      Serviço de
+    </text>
+    <text x="680" y="205" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
+      Auditoria
+    </text>
+    <text x="680" y="225" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">
+      (Consumer)
+    </text>
+  </g>
+  
+  <!-- Arrow 1: Service A to RabbitMQ -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#2c3e50"/>
+    </marker>
+  </defs>
+  
+  <line x1="190" y1="200" x2="320" y2="200" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <text x="255" y="190" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#2c3e50">
+    1. Publica evento
+  </text>
+  
+  <!-- Arrow 2: RabbitMQ to Audit Service -->
+  <line x1="470" y1="200" x2="600" y2="200" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <text x="535" y="190" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#2c3e50">
+    2. Consome evento
+  </text>
+  
+  <!-- Event examples -->
+  <g id="event-examples">
+    <rect x="50" y="280" width="700" height="90" rx="5" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+    <text x="60" y="300" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">
+      Exemplos de Eventos:
+    </text>
+    <text x="60" y="320" font-family="Courier New, monospace" font-size="11" fill="#555">
+      • UserCreated → { userId: 123, action: "CREATE", timestamp: "2025-10-11T10:00:00" }
+    </text>
+    <text x="60" y="340" font-family="Courier New, monospace" font-size="11" fill="#555">
+      • OrderUpdated → { orderId: 456, action: "UPDATE", timestamp: "2025-10-11T10:05:00" }
+    </text>
+    <text x="60" y="360" font-family="Courier New, monospace" font-size="11" fill="#555">
+      • ProductDeleted → { productId: 789, action: "DELETE", timestamp: "2025-10-11T10:10:00" }
+    </text>
+  </g>
+  
+  <!-- KEDA annotation -->
+  <g id="keda-note">
+    <rect x="610" y="70" width="140" height="60" rx="5" fill="#9b59b6" stroke="#2c3e50" stroke-width="1" stroke-dasharray="5,5"/>
+    <text x="680" y="90" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">
+      KEDA monitora
+    </text>
+    <text x="680" y="105" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+      tamanho da fila
+    </text>
+    <text x="680" y="120" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+      e escala pods
+    </text>
+  </g>
+  
+  <!-- Arrow from KEDA to Audit Service -->
+  <line x1="680" y1="130" x2="680" y2="145" stroke="#9b59b6" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+</svg>
+

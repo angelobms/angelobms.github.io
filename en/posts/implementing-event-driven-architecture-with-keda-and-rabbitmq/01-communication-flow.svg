@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" style="background: #fefef8;">
+  <defs>
+    <filter id="roughPaper" x="-50%" y="-50%" width="200%" height="200%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" result="noise" numOctaves="5"/>
+      <feDiffuseLighting in="noise" lighting-color="#f9f9f0" surfaceScale="1">
+        <feDistantLight azimuth="45" elevation="60"/>
+      </feDiffuseLighting>
+    </filter>
+    
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#2c3e50" opacity="0.8"/>
+    </marker>
+  </defs>
+
+  <!-- Hand-drawn style rectangles -->
+  <!-- Producer Service Box -->
+  <g id="producer">
+    <path d="M 50 120 L 175 118 Q 180 118 180 123 L 182 197 Q 182 202 177 202 L 52 205 Q 47 205 47 200 L 48 125 Q 48 120 53 120 Z" 
+          fill="#e8f4f8" stroke="#2980b9" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="115" y="145" font-family="Comic Sans MS, cursive, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50" text-anchor="middle">Event</text>
+    <text x="115" y="165" font-family="Comic Sans MS, cursive, sans-serif" font-size="12" fill="#555" text-anchor="middle">Producer</text>
+    <text x="115" y="185" font-family="Comic Sans MS, cursive, sans-serif" font-size="10" fill="#7f8c8d" text-anchor="middle">(API, Service)</text>
+  </g>
+
+  <!-- Message Broker Box -->
+  <g id="broker">
+    <path d="M 320 80 L 480 78 Q 485 78 485 83 L 488 277 Q 488 282 483 282 L 322 285 Q 317 285 317 280 L 318 85 Q 318 80 323 80 Z" 
+          fill="#fff5e6" stroke="#e67e22" stroke-width="3" stroke-linecap="round"/>
+    <text x="400" y="110" font-family="Comic Sans MS, cursive, sans-serif" font-size="16" font-weight="bold" fill="#d35400" text-anchor="middle">Message Broker</text>
+    <text x="400" y="130" font-family="Comic Sans MS, cursive, sans-serif" font-size="13" fill="#e67e22" text-anchor="middle">(RabbitMQ)</text>
+    
+    <!-- Queue representation -->
+    <rect x="340" y="150" width="120" height="25" rx="3" fill="#ffeaa7" stroke="#fdcb6e" stroke-width="1.5"/>
+    <text x="400" y="168" font-family="Comic Sans MS, cursive, sans-serif" font-size="11" fill="#6c5ce7" text-anchor="middle">audit.queue</text>
+    
+    <rect x="340" y="185" width="120" height="25" rx="3" fill="#ffeaa7" stroke="#fdcb6e" stroke-width="1.5"/>
+    <text x="400" y="203" font-family="Comic Sans MS, cursive, sans-serif" font-size="11" fill="#6c5ce7" text-anchor="middle">order.queue</text>
+    
+    <rect x="340" y="220" width="120" height="25" rx="3" fill="#ffeaa7" stroke="#fdcb6e" stroke-width="1.5"/>
+    <text x="400" y="238" font-family="Comic Sans MS, cursive, sans-serif" font-size="11" fill="#6c5ce7" text-anchor="middle">notify.queue</text>
+  </g>
+
+  <!-- Consumer 1 Box -->
+  <g id="consumer1">
+    <path d="M 590 70 L 740 68 Q 745 68 745 73 L 747 147 Q 747 152 742 152 L 592 155 Q 587 155 587 150 L 588 75 Q 588 70 593 70 Z" 
+          fill="#e8f8f5" stroke="#16a085" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="665" y="95" font-family="Comic Sans MS, cursive, sans-serif" font-size="13" font-weight="bold" fill="#2c3e50" text-anchor="middle">Consumer 1</text>
+    <text x="665" y="115" font-family="Comic Sans MS, cursive, sans-serif" font-size="11" fill="#555" text-anchor="middle">Audit Service</text>
+    <text x="665" y="135" font-family="Comic Sans MS, cursive, sans-serif" font-size="9" fill="#7f8c8d" text-anchor="middle">(process audit logs)</text>
+  </g>
+
+  <!-- Consumer 2 Box -->
+  <g id="consumer2">
+    <path d="M 590 175 L 740 173 Q 745 173 745 178 L 747 252 Q 747 257 742 257 L 592 260 Q 587 260 587 255 L 588 180 Q 588 175 593 175 Z" 
+          fill="#fdeef4" stroke="#c0392b" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="665" y="200" font-family="Comic Sans MS, cursive, sans-serif" font-size="13" font-weight="bold" fill="#2c3e50" text-anchor="middle">Consumer 2</text>
+    <text x="665" y="220" font-family="Comic Sans MS, cursive, sans-serif" font-size="11" fill="#555" text-anchor="middle">Order Service</text>
+    <text x="665" y="240" font-family="Comic Sans MS, cursive, sans-serif" font-size="9" fill="#7f8c8d" text-anchor="middle">(process orders)</text>
+  </g>
+
+  <!-- Consumer 3 Box -->
+  <g id="consumer3">
+    <path d="M 590 280 L 740 278 Q 745 278 745 283 L 747 357 Q 747 362 742 362 L 592 365 Q 587 365 587 360 L 588 285 Q 588 280 593 280 Z" 
+          fill="#f4ecf7" stroke="#8e44ad" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="665" y="305" font-family="Comic Sans MS, cursive, sans-serif" font-size="13" font-weight="bold" fill="#2c3e50" text-anchor="middle">Consumer N</text>
+    <text x="665" y="325" font-family="Comic Sans MS, cursive, sans-serif" font-size="11" fill="#555" text-anchor="middle">Notification Service</text>
+    <text x="665" y="345" font-family="Comic Sans MS, cursive, sans-serif" font-size="9" fill="#7f8c8d" text-anchor="middle">(send notifications)</text>
+  </g>
+
+  <!-- Hand-drawn arrows -->
+  <!-- Arrow from Producer to Broker -->
+  <path d="M 182 162 Q 250 158 315 160" 
+        fill="none" stroke="#2980b9" stroke-width="2.5" 
+        stroke-linecap="round" marker-end="url(#arrowhead)"/>
+  <text x="245" y="145" font-family="Comic Sans MS, cursive, sans-serif" font-size="10" fill="#2c3e50" font-style="italic">Publish</text>
+  <text x="245" y="158" font-family="Comic Sans MS, cursive, sans-serif" font-size="10" fill="#2c3e50" font-style="italic">Event</text>
+
+  <!-- Arrow from Broker to Consumer 1 -->
+  <path d="M 488 110 Q 535 108 585 110" 
+        fill="none" stroke="#16a085" stroke-width="2.5" 
+        stroke-linecap="round" marker-end="url(#arrowhead)"/>
+  <text x="535" y="98" font-family="Comic Sans MS, cursive, sans-serif" font-size="9" fill="#16a085" font-style="italic">Consume</text>
+
+  <!-- Arrow from Broker to Consumer 2 -->
+  <path d="M 488 215 Q 535 213 585 215" 
+        fill="none" stroke="#c0392b" stroke-width="2.5" 
+        stroke-linecap="round" marker-end="url(#arrowhead)"/>
+  <text x="535" y="203" font-family="Comic Sans MS, cursive, sans-serif" font-size="9" fill="#c0392b" font-style="italic">Consume</text>
+
+  <!-- Arrow from Broker to Consumer 3 -->
+  <path d="M 488 248 Q 535 265 585 320" 
+        fill="none" stroke="#8e44ad" stroke-width="2.5" 
+        stroke-linecap="round" marker-end="url(#arrowhead)"/>
+  <text x="515" y="285" font-family="Comic Sans MS, cursive, sans-serif" font-size="9" fill="#8e44ad" font-style="italic">Consume</text>
+
+  <!-- Event icons (small circles representing events) -->
+  <circle cx="240" cy="160" r="4" fill="#3498db" opacity="0.6"/>
+  <circle cx="250" cy="165" r="4" fill="#3498db" opacity="0.6"/>
+  <circle cx="260" cy="158" r="4" fill="#3498db" opacity="0.6"/>
+
+  <!-- Title -->
+  <text x="400" y="35" font-family="Comic Sans MS, cursive, sans-serif" font-size="18" font-weight="bold" fill="#2c3e50" text-anchor="middle">Communication Flow - Event-Driven Architecture</text>
+
+  <!-- Legend at bottom -->
+  <g id="legend">
+    <text x="50" y="400" font-family="Comic Sans MS, cursive, sans-serif" font-size="11" fill="#555" font-weight="bold">Key Features:</text>
+    <text x="50" y="420" font-family="Comic Sans MS, cursive, sans-serif" font-size="10" fill="#7f8c8d">✓ Service decoupling</text>
+    <text x="250" y="420" font-family="Comic Sans MS, cursive, sans-serif" font-size="10" fill="#7f8c8d">✓ Asynchronous communication</text>
+    <text x="450" y="420" font-family="Comic Sans MS, cursive, sans-serif" font-size="10" fill="#7f8c8d">✓ Independent scaling</text>
+  </g>
+
+  <!-- Hand-drawn border effect -->
+  <rect x="15" y="15" width="770" height="425" fill="none" stroke="#34495e" stroke-width="2" stroke-dasharray="5,3" opacity="0.3" rx="5"/>
+</svg>
+

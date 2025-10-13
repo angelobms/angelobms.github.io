@@ -1,0 +1,335 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700">
+  <defs>
+    <style>
+      .handdrawn { 
+        stroke-linecap: round; 
+        stroke-linejoin: round;
+        fill: none;
+      }
+      .text-hand {
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        font-size: 14px;
+      }
+      .text-small {
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        font-size: 11px;
+      }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#555" />
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#27ae60" />
+    </marker>
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#e74c3c" />
+    </marker>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f4f8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d9e2ec;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1000" height="700" fill="url(#bgGradient)"/>
+  
+  <!-- Title -->
+  <text x="500" y="45" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#1a202c">
+    Autoscaling Automático com KEDA
+  </text>
+  <text x="500" y="70" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#718096">
+    Escalamento baseado no tamanho da fila do RabbitMQ (queueLength: 10)
+  </text>
+  
+  <!-- ===== FASE 1: Estado Normal ===== -->
+  <g id="fase1">
+    <!-- Background box -->
+    <rect x="40" y="100" width="280" height="320" rx="8" fill="#ffffff" stroke="#cbd5e0" stroke-width="2" opacity="0.9"/>
+    
+    <text x="180" y="130" class="text-hand" font-size="16" font-weight="bold" text-anchor="middle" fill="#2d3748">
+      📊 Fase 1: Estado Normal
+    </text>
+    
+    <!-- RabbitMQ -->
+    <g id="rabbitmq-fase1">
+      <path d="M 70 160 Q 68 158 75 156 L 145 156 Q 152 158 150 160 L 150 220 Q 152 227 145 225 L 75 225 Q 68 227 70 220 Z" 
+            class="handdrawn" stroke="#FF6B35" stroke-width="3" fill="#FFE5DD"/>
+      <text x="110" y="145" class="text-small" fill="#FF6B35" text-anchor="middle" font-weight="bold">🐰 RabbitMQ</text>
+      
+      <!-- Few messages -->
+      <rect x="80" y="175" width="16" height="16" fill="#4299e1" stroke="#2b6cb0" stroke-width="2" rx="3"/>
+      <rect x="100" y="175" width="16" height="16" fill="#4299e1" stroke="#2b6cb0" stroke-width="2" rx="3"/>
+      <rect x="120" y="175" width="16" height="16" fill="#4299e1" stroke="#2b6cb0" stroke-width="2" rx="3"/>
+      
+      <text x="110" y="210" class="text-small" fill="#2d3748" text-anchor="middle" font-weight="bold">5 mensagens</text>
+    </g>
+    
+    <!-- Arrow -->
+    <path d="M 155 190 L 185 190" stroke="#48bb78" stroke-width="2.5" marker-end="url(#arrowhead-green)"/>
+    <text x="170" y="183" class="text-small" fill="#48bb78">✓</text>
+    
+    <!-- KEDA -->
+    <g id="keda-fase1">
+      <circle cx="210" cy="190" r="22" class="handdrawn" stroke="#805ad5" stroke-width="3" fill="#e9d8fd"/>
+      <text x="210" y="196" class="text-small" fill="#553c9a" text-anchor="middle" font-weight="bold">KEDA</text>
+    </g>
+    
+    <!-- Arrow to Kubernetes -->
+    <path d="M 180 260 L 180 280" stroke="#48bb78" stroke-width="2.5" marker-end="url(#arrowhead-green)"/>
+    <text x="155" y="272" class="text-small" fill="#48bb78">mantém</text>
+    
+    <!-- Kubernetes Pod -->
+    <g id="k8s-fase1">
+      <rect x="80" y="285" width="210" height="120" rx="6" fill="#e6fffa" stroke="#319795" stroke-width="2"/>
+      <text x="185" y="305" class="text-small" fill="#234e52" text-anchor="middle" font-weight="bold">⎈ Kubernetes Cluster</text>
+      
+      <!-- Single Pod -->
+      <g id="pod1-fase1">
+        <rect x="130" y="320" width="110" height="70" rx="5" fill="#c6f6d5" stroke="#38a169" stroke-width="2.5"/>
+        <text x="185" y="340" class="text-small" fill="#22543d" text-anchor="middle" font-weight="bold">🟢 Pod 1</text>
+        <text x="185" y="358" class="text-small" fill="#2f855a" text-anchor="middle">audit-service</text>
+        <text x="185" y="376" class="text-small" fill="#718096" text-anchor="middle" font-style="italic">Running</text>
+      </g>
+    </g>
+    
+    <!-- Status box -->
+    <rect x="50" y="370" width="260" height="40" rx="4" fill="#f0fff4" stroke="#9ae6b4" stroke-width="2"/>
+    <text x="180" y="390" class="text-small" fill="#22543d" text-anchor="middle" font-weight="bold">✅ Réplicas: 1/1</text>
+    <text x="180" y="403" class="text-small" fill="#22543d" text-anchor="middle">Carga normal - sistema estável</text>
+  </g>
+  
+  <!-- ===== FASE 2: Carga Alta ===== -->
+  <g id="fase2">
+    <!-- Background box -->
+    <rect x="360" y="100" width="280" height="320" rx="8" fill="#ffffff" stroke="#cbd5e0" stroke-width="2" opacity="0.9"/>
+    
+    <text x="500" y="130" class="text-hand" font-size="16" font-weight="bold" text-anchor="middle" fill="#c53030">
+      ⚠️ Fase 2: Carga Alta!
+    </text>
+    
+    <!-- RabbitMQ -->
+    <g id="rabbitmq-fase2">
+      <path d="M 390 160 Q 388 158 395 156 L 465 156 Q 472 158 470 160 L 470 235 Q 472 242 465 240 L 395 240 Q 388 242 390 235 Z" 
+            class="handdrawn" stroke="#FF6B35" stroke-width="3" fill="#FFE5DD"/>
+      <text x="430" y="145" class="text-small" fill="#FF6B35" text-anchor="middle" font-weight="bold">🐰 RabbitMQ</text>
+      
+      <!-- Many messages - 3 rows -->
+      <rect x="400" y="170" width="14" height="14" fill="#e53e3e" stroke="#9b2c2c" stroke-width="2" rx="2"/>
+      <rect x="418" y="170" width="14" height="14" fill="#e53e3e" stroke="#9b2c2c" stroke-width="2" rx="2"/>
+      <rect x="436" y="170" width="14" height="14" fill="#e53e3e" stroke="#9b2c2c" stroke-width="2" rx="2"/>
+      <rect x="454" y="170" width="14" height="14" fill="#e53e3e" stroke="#9b2c2c" stroke-width="2" rx="2"/>
+      
+      <rect x="400" y="188" width="14" height="14" fill="#e53e3e" stroke="#9b2c2c" stroke-width="2" rx="2"/>
+      <rect x="418" y="188" width="14" height="14" fill="#e53e3e" stroke="#9b2c2c" stroke-width="2" rx="2"/>
+      <rect x="436" y="188" width="14" height="14" fill="#e53e3e" stroke="#9b2c2c" stroke-width="2" rx="2"/>
+      <rect x="454" y="188" width="14" height="14" fill="#e53e3e" stroke="#9b2c2c" stroke-width="2" rx="2"/>
+      
+      <rect x="400" y="206" width="14" height="14" fill="#e53e3e" stroke="#9b2c2c" stroke-width="2" rx="2"/>
+      <rect x="418" y="206" width="14" height="14" fill="#e53e3e" stroke="#9b2c2c" stroke-width="2" rx="2"/>
+      <text x="445" y="218" class="text-small" fill="#9b2c2c" font-weight="bold">...</text>
+      
+      <text x="430" y="232" class="text-small" fill="#c53030" text-anchor="middle" font-weight="bold">50+ mensagens!</text>
+    </g>
+    
+    <!-- Arrow with alert -->
+    <path d="M 475 195 L 505 195" stroke="#e53e3e" stroke-width="2.5" marker-end="url(#arrowhead-red)"/>
+    <text x="490" y="188" class="text-small" fill="#e53e3e">⚠</text>
+    
+    <!-- KEDA Alert -->
+    <g id="keda-fase2">
+      <circle cx="530" cy="195" r="22" class="handdrawn" stroke="#e53e3e" stroke-width="3" fill="#fff5f5"/>
+      <text x="530" y="201" class="text-small" fill="#c53030" text-anchor="middle" font-weight="bold">KEDA</text>
+      <text x="530" y="225" class="text-small" fill="#c53030" text-anchor="middle">detecta!</text>
+    </g>
+    
+    <!-- Arrow to Kubernetes -->
+    <path d="M 500 260 L 500 280" stroke="#ed8936" stroke-width="2.5" marker-end="url(#arrowhead-red)"/>
+    <text x="465" y="272" class="text-small" fill="#c05621">escalando...</text>
+    
+    <!-- Kubernetes -->
+    <g id="k8s-fase2">
+      <rect x="400" y="285" width="210" height="120" rx="6" fill="#fffaf0" stroke="#dd6b20" stroke-width="2"/>
+      <text x="505" y="305" class="text-small" fill="#7c2d12" text-anchor="middle" font-weight="bold">⎈ Kubernetes Cluster</text>
+      
+      <!-- Pod 1 -->
+      <g id="pod1-fase2">
+        <rect x="415" y="320" width="80" height="70" rx="5" fill="#fed7d7" stroke="#fc8181" stroke-width="2.5"/>
+        <text x="455" y="340" class="text-small" fill="#742a2a" text-anchor="middle" font-weight="bold">🔴 Pod 1</text>
+        <text x="455" y="358" class="text-small" fill="#9b2c2c" text-anchor="middle">Sobrecarga!</text>
+        <text x="455" y="376" class="text-small" fill="#718096" text-anchor="middle" font-style="italic">100% CPU</text>
+      </g>
+      
+      <!-- New pod creating -->
+      <g id="pod2-creating">
+        <rect x="510" y="320" width="80" height="70" rx="5" fill="#bee3f8" stroke="#4299e1" stroke-width="2.5" stroke-dasharray="4,2"/>
+        <text x="550" y="340" class="text-small" fill="#2c5282" text-anchor="middle" font-weight="bold">⚙️ Pod 2</text>
+        <text x="550" y="358" class="text-small" fill="#2b6cb0" text-anchor="middle">Criando...</text>
+        <text x="550" y="376" class="text-small" fill="#718096" text-anchor="middle" font-style="italic">Starting</text>
+      </g>
+    </g>
+    
+    <!-- Status box -->
+    <rect x="370" y="370" width="260" height="40" rx="4" fill="#fff5f5" stroke="#feb2b2" stroke-width="2"/>
+    <text x="500" y="390" class="text-small" fill="#742a2a" text-anchor="middle" font-weight="bold">⚠️ Réplicas: 1 → 5</text>
+    <text x="500" y="403" class="text-small" fill="#742a2a" text-anchor="middle">Escalonamento em andamento</text>
+  </g>
+  
+  <!-- ===== FASE 3: Escalado ===== -->
+  <g id="fase3">
+    <!-- Background box -->
+    <rect x="680" y="100" width="280" height="320" rx="8" fill="#ffffff" stroke="#cbd5e0" stroke-width="2" opacity="0.9"/>
+    
+    <text x="820" y="130" class="text-hand" font-size="16" font-weight="bold" text-anchor="middle" fill="#2f855a">
+      ✅ Fase 3: Escalado!
+    </text>
+    
+    <!-- RabbitMQ -->
+    <g id="rabbitmq-fase3">
+      <path d="M 710 160 Q 708 158 715 156 L 785 156 Q 792 158 790 160 L 790 220 Q 792 227 785 225 L 715 225 Q 708 227 710 220 Z" 
+            class="handdrawn" stroke="#FF6B35" stroke-width="3" fill="#FFE5DD"/>
+      <text x="750" y="145" class="text-small" fill="#FF6B35" text-anchor="middle" font-weight="bold">🐰 RabbitMQ</text>
+      
+      <!-- Fewer messages again -->
+      <rect x="720" y="175" width="16" height="16" fill="#68d391" stroke="#2f855a" stroke-width="2" rx="3"/>
+      <rect x="740" y="175" width="16" height="16" fill="#68d391" stroke="#2f855a" stroke-width="2" rx="3"/>
+      <rect x="760" y="175" width="16" height="16" fill="#68d391" stroke="#2f855a" stroke-width="2" rx="3"/>
+      
+      <text x="750" y="210" class="text-small" fill="#22543d" text-anchor="middle" font-weight="bold">8 mensagens</text>
+    </g>
+    
+    <!-- Arrow -->
+    <path d="M 795 190 L 825 190" stroke="#48bb78" stroke-width="2.5" marker-end="url(#arrowhead-green)"/>
+    <text x="810" y="183" class="text-small" fill="#48bb78">✓</text>
+    
+    <!-- KEDA Happy -->
+    <g id="keda-fase3">
+      <circle cx="850" cy="190" r="22" class="handdrawn" stroke="#38a169" stroke-width="3" fill="#c6f6d5"/>
+      <text x="850" y="196" class="text-small" fill="#22543d" text-anchor="middle" font-weight="bold">KEDA</text>
+      <text x="850" y="215" class="text-small" fill="#22543d" text-anchor="middle">OK!</text>
+    </g>
+    
+    <!-- Arrow to Kubernetes -->
+    <path d="M 820 260 L 820 280" stroke="#48bb78" stroke-width="2.5" marker-end="url(#arrowhead-green)"/>
+    <text x="785" y="272" class="text-small" fill="#48bb78">gerencia</text>
+    
+    <!-- Kubernetes with multiple pods -->
+    <g id="k8s-fase3">
+      <rect x="720" y="285" width="210" height="120" rx="6" fill="#e6fffa" stroke="#319795" stroke-width="2"/>
+      <text x="825" y="305" class="text-small" fill="#234e52" text-anchor="middle" font-weight="bold">⎈ Kubernetes Cluster</text>
+      
+      <!-- Pod 1 -->
+      <rect x="735" y="320" width="60" height="60" rx="4" fill="#c6f6d5" stroke="#38a169" stroke-width="2"/>
+      <text x="765" y="340" class="text-small" fill="#22543d" text-anchor="middle" font-weight="bold">🟢 #1</text>
+      <text x="765" y="358" class="text-small" fill="#2f855a" text-anchor="middle" font-size="9">audit</text>
+      <text x="765" y="371" class="text-small" fill="#718096" text-anchor="middle" font-size="8">Running</text>
+      
+      <!-- Pod 2 -->
+      <rect x="805" y="320" width="60" height="60" rx="4" fill="#c6f6d5" stroke="#38a169" stroke-width="2"/>
+      <text x="835" y="340" class="text-small" fill="#22543d" text-anchor="middle" font-weight="bold">🟢 #2</text>
+      <text x="835" y="358" class="text-small" fill="#2f855a" text-anchor="middle" font-size="9">audit</text>
+      <text x="835" y="371" class="text-small" fill="#718096" text-anchor="middle" font-size="8">Running</text>
+      
+      <!-- Pod 3 -->
+      <rect x="735" y="338" width="60" height="60" rx="4" fill="#c6f6d5" stroke="#38a169" stroke-width="2"/>
+      <text x="765" y="358" class="text-small" fill="#22543d" text-anchor="middle" font-weight="bold">🟢 #3</text>
+      <text x="765" y="376" class="text-small" fill="#2f855a" text-anchor="middle" font-size="9">audit</text>
+      <text x="765" y="389" class="text-small" fill="#718096" text-anchor="middle" font-size="8">Running</text>
+      
+      <!-- Pod 4 -->
+      <rect x="805" y="338" width="60" height="60" rx="4" fill="#c6f6d5" stroke="#38a169" stroke-width="2"/>
+      <text x="835" y="358" class="text-small" fill="#22543d" text-anchor="middle" font-weight="bold">🟢 #4</text>
+      <text x="835" y="376" class="text-small" fill="#2f855a" text-anchor="middle" font-size="9">audit</text>
+      <text x="835" y="389" class="text-small" fill="#718096" text-anchor="middle" font-size="8">Running</text>
+      
+      <!-- Pod 5 -->
+      <rect x="870" y="320" width="50" height="78" rx="4" fill="#c6f6d5" stroke="#38a169" stroke-width="2"/>
+      <text x="895" y="342" class="text-small" fill="#22543d" text-anchor="middle" font-weight="bold">🟢</text>
+      <text x="895" y="360" class="text-small" fill="#2f855a" text-anchor="middle" font-size="10">#5</text>
+      <text x="895" y="378" class="text-small" fill="#2f855a" text-anchor="middle" font-size="8">audit</text>
+      <text x="895" y="391" class="text-small" fill="#718096" text-anchor="middle" font-size="8">Running</text>
+    </g>
+    
+    <!-- Status box -->
+    <rect x="690" y="370" width="260" height="40" rx="4" fill="#f0fff4" stroke="#9ae6b4" stroke-width="2"/>
+    <text x="820" y="390" class="text-small" fill="#22543d" text-anchor="middle" font-weight="bold">✅ Réplicas: 5/5 (max: 10)</text>
+    <text x="820" y="403" class="text-small" fill="#22543d" text-anchor="middle">Processando em paralelo ⚡</text>
+  </g>
+  
+  <!-- Progress Arrow -->
+  <path d="M 330 260 L 350 260" stroke="#a0aec0" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <path d="M 650 260 L 670 260" stroke="#a0aec0" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Bottom Section: Commands and Metrics -->
+  <g id="bottom-section">
+    <!-- Terminal Commands -->
+    <rect x="40" y="450" width="460" height="220" rx="6" fill="#1a202c" stroke="#2d3748" stroke-width="2"/>
+    <text x="270" y="475" class="text-small" fill="#48bb78" text-anchor="middle" font-weight="bold">💻 Comandos para Teste</text>
+    
+    <text x="60" y="500" font-family="monospace" font-size="11" fill="#63b3ed">$ kubectl get pods -w</text>
+    <text x="60" y="518" font-family="monospace" font-size="10" fill="#a0aec0">audit-service-6d8f9-hxm2k   1/1   Running</text>
+    <text x="60" y="533" font-family="monospace" font-size="10" fill="#63b3ed">audit-service-6d8f9-km8pl   0/1   ContainerCreating</text>
+    <text x="60" y="548" font-family="monospace" font-size="10" fill="#48bb78">audit-service-6d8f9-km8pl   1/1   Running</text>
+    <text x="60" y="563" font-family="monospace" font-size="10" fill="#63b3ed">audit-service-6d8f9-zt4nq   0/1   ContainerCreating</text>
+    
+    <line x1="55" y1="578" x2="485" y2="578" stroke="#4a5568" stroke-width="1"/>
+    
+    <text x="60" y="598" font-family="monospace" font-size="11" fill="#63b3ed">$ kubectl get hpa</text>
+    <text x="60" y="616" font-family="monospace" font-size="10" fill="#a0aec0">NAME                   TARGETS   MIN   MAX</text>
+    <text x="60" y="631" font-family="monospace" font-size="10" fill="#48bb78">keda-hpa-audit-svc     50/10     1     10</text>
+    
+    <line x1="55" y1="645" x2="485" y2="645" stroke="#4a5568" stroke-width="1"/>
+    
+    <text x="60" y="663" font-family="monospace" font-size="10" fill="#ed8936">⚡ KEDA escala de 1 para 5 réplicas!</text>
+    
+    <!-- Key Insights -->
+    <rect x="520" y="450" width="440" height="220" rx="6" fill="#ffffff" stroke="#cbd5e0" stroke-width="2"/>
+    <text x="740" y="475" class="text-small" fill="#2d3748" text-anchor="middle" font-weight="bold">📊 Pontos-Chave</text>
+    
+    <g id="insights">
+      <!-- Insight 1 -->
+      <circle cx="540" cy="500" r="4" fill="#48bb78"/>
+      <text x="555" y="504" class="text-small" fill="#2d3748">
+        <tspan font-weight="bold">queueLength: 10</tspan> - escala quando há
+      </text>
+      <text x="555" y="518" class="text-small" fill="#2d3748">
+        mais de 10 mensagens por pod
+      </text>
+      
+      <!-- Insight 2 -->
+      <circle cx="540" cy="540" r="4" fill="#4299e1"/>
+      <text x="555" y="544" class="text-small" fill="#2d3748">
+        <tspan font-weight="bold">minReplicaCount: 1</tspan> - mínimo de pods
+      </text>
+      <text x="555" y="558" class="text-small" fill="#2d3748">
+        sempre disponíveis
+      </text>
+      
+      <!-- Insight 3 -->
+      <circle cx="540" cy="580" r="4" fill="#805ad5"/>
+      <text x="555" y="584" class="text-small" fill="#2d3748">
+        <tspan font-weight="bold">maxReplicaCount: 10</tspan> - limite máximo
+      </text>
+      <text x="555" y="598" class="text-small" fill="#2d3748">
+        para controlar custos
+      </text>
+      
+      <!-- Insight 4 -->
+      <circle cx="540" cy="620" r="4" fill="#ed8936"/>
+      <text x="555" y="624" class="text-small" fill="#2d3748">
+        <tspan font-weight="bold">Autoscaling</tspan> - ajuste dinâmico e
+      </text>
+      <text x="555" y="638" class="text-small" fill="#2d3748">
+        automático conforme demanda
+      </text>
+      
+      <!-- Insight 5 -->
+      <circle cx="540" cy="655" r="4" fill="#f56565"/>
+      <text x="555" y="659" class="text-small" fill="#2d3748">
+        <tspan font-weight="bold">Scale to zero</tspan> - pode reduzir a 0 se
+      </text>
+      <text x="555" y="673" class="text-small" fill="#2d3748">
+        configurado (economia máxima)
+      </text>
+    </g>
+  </g>
+</svg>
