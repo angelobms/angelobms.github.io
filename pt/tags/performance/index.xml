@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Performance on Meu Site Pessoal</title>
+    <link>https://angelobms.github.io/pt/tags/performance/</link>
+    <description>Recent content in Performance on Meu Site Pessoal</description>
+    <generator>Hugo -- 0.150.0</generator>
+    <language>pt</language>
+    <lastBuildDate>Mon, 27 Oct 2025 10:00:00 -0300</lastBuildDate>
+    <atom:link href="https://angelobms.github.io/pt/tags/performance/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>As Armadilhas do Uso de Bibliotecas Externas para a Performance do Seu Serviço</title>
+      <link>https://angelobms.github.io/pt/posts/as-armadilhas-do-uso-de-bibliotecas-externas-para-a-performance-do-seu-servico/</link>
+      <pubDate>Mon, 27 Oct 2025 10:00:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/pt/posts/as-armadilhas-do-uso-de-bibliotecas-externas-para-a-performance-do-seu-servico/</guid>
+      <description>Entenda como dependências externas impactam latência, memória e custos — e quando vale adotá-las, com checklist e boas práticas.</description>
+    </item>
+  </channel>
+</rss>

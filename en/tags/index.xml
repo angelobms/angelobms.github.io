@@ -6,8 +6,36 @@
     <description>Recent content in Tags on My Personal Website</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 11 Oct 2025 10:00:00 -0300</lastBuildDate>
+    <lastBuildDate>Mon, 27 Oct 2025 10:00:00 -0300</lastBuildDate>
     <atom:link href="https://angelobms.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Backend</title>
+      <link>https://angelobms.github.io/en/tags/backend/</link>
+      <pubDate>Mon, 27 Oct 2025 10:00:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/en/tags/backend/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java</title>
+      <link>https://angelobms.github.io/en/tags/java/</link>
+      <pubDate>Mon, 27 Oct 2025 10:00:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/en/tags/java/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Microservices</title>
+      <link>https://angelobms.github.io/en/tags/microservices/</link>
+      <pubDate>Mon, 27 Oct 2025 10:00:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/en/tags/microservices/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Performance</title>
+      <link>https://angelobms.github.io/en/tags/performance/</link>
+      <pubDate>Mon, 27 Oct 2025 10:00:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/en/tags/performance/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Audit Microservice</title>
       <link>https://angelobms.github.io/en/tags/audit-microservice/</link>
@@ -37,13 +65,6 @@
       <description></description>
     </item>
     <item>
-      <title>Microservices</title>
-      <link>https://angelobms.github.io/en/tags/microservices/</link>
-      <pubDate>Sat, 11 Oct 2025 10:00:00 -0300</pubDate>
-      <guid>https://angelobms.github.io/en/tags/microservices/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>RabbitMQ</title>
       <link>https://angelobms.github.io/en/tags/rabbitmq/</link>
       <pubDate>Sat, 11 Oct 2025 10:00:00 -0300</pubDate>
@@ -58,13 +79,6 @@
       <description></description>
     </item>
     <item>
-      <title>Backend</title>
-      <link>https://angelobms.github.io/en/tags/backend/</link>
-      <pubDate>Sat, 04 Oct 2025 10:00:00 -0300</pubDate>
-      <guid>https://angelobms.github.io/en/tags/backend/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Beginners</title>
       <link>https://angelobms.github.io/en/tags/beginners/</link>
       <pubDate>Sat, 04 Oct 2025 10:00:00 -0300</pubDate>
@@ -76,13 +90,6 @@
       <link>https://angelobms.github.io/en/tags/development/</link>
       <pubDate>Sat, 04 Oct 2025 10:00:00 -0300</pubDate>
       <guid>https://angelobms.github.io/en/tags/development/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Java</title>
-      <link>https://angelobms.github.io/en/tags/java/</link>
-      <pubDate>Sat, 04 Oct 2025 10:00:00 -0300</pubDate>
-      <guid>https://angelobms.github.io/en/tags/java/</guid>
       <description></description>
     </item>
     <item>

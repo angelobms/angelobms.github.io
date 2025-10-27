@@ -2,21 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://angelobms.github.io/pt/tags/audit-microservice/</loc>
-    <lastmod>2025-10-11T10:00:00-03:00</lastmod>
+    <loc>https://angelobms.github.io/pt/posts/as-armadilhas-do-uso-de-bibliotecas-externas-para-a-performance-do-seu-servico/</loc>
+    <lastmod>2025-10-27T10:00:00-03:00</lastmod>
+  </url><url>
+    <loc>https://angelobms.github.io/pt/tags/backend/</loc>
+    <lastmod>2025-10-27T10:00:00-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://angelobms.github.io/en/tags/audit-microservice/"
+                href="https://angelobms.github.io/en/tags/backend/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="https://angelobms.github.io/pt/tags/audit-microservice/"
+                href="https://angelobms.github.io/pt/tags/backend/"
                 />
   </url><url>
     <loc>https://angelobms.github.io/pt/categories/</loc>
-    <lastmod>2025-10-11T10:00:00-03:00</lastmod>
+    <lastmod>2025-10-27T10:00:00-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -29,7 +32,7 @@
                 />
   </url><url>
     <loc>https://angelobms.github.io/pt/categories/development/</loc>
-    <lastmod>2025-10-11T10:00:00-03:00</lastmod>
+    <lastmod>2025-10-27T10:00:00-03:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -39,6 +42,84 @@
                 rel="alternate"
                 hreflang="pt"
                 href="https://angelobms.github.io/pt/categories/development/"
+                />
+  </url><url>
+    <loc>https://angelobms.github.io/pt/tags/java/</loc>
+    <lastmod>2025-10-27T10:00:00-03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://angelobms.github.io/en/tags/java/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://angelobms.github.io/pt/tags/java/"
+                />
+  </url><url>
+    <loc>https://angelobms.github.io/pt/tags/microservices/</loc>
+    <lastmod>2025-10-27T10:00:00-03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://angelobms.github.io/en/tags/microservices/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://angelobms.github.io/pt/tags/microservices/"
+                />
+  </url><url>
+    <loc>https://angelobms.github.io/pt/tags/performance/</loc>
+    <lastmod>2025-10-27T10:00:00-03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://angelobms.github.io/en/tags/performance/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://angelobms.github.io/pt/tags/performance/"
+                />
+  </url><url>
+    <loc>https://angelobms.github.io/pt/posts/</loc>
+    <lastmod>2025-10-27T10:00:00-03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://angelobms.github.io/en/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://angelobms.github.io/pt/posts/"
+                />
+  </url><url>
+    <loc>https://angelobms.github.io/pt/tags/</loc>
+    <lastmod>2025-10-27T10:00:00-03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://angelobms.github.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://angelobms.github.io/pt/tags/"
+                />
+  </url><url>
+    <loc>https://angelobms.github.io/pt/tags/audit-microservice/</loc>
+    <lastmod>2025-10-11T10:00:00-03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://angelobms.github.io/en/tags/audit-microservice/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://angelobms.github.io/pt/tags/audit-microservice/"
                 />
   </url><url>
     <loc>https://angelobms.github.io/pt/tags/event-driven-architecture/</loc>
@@ -83,32 +164,6 @@
                 href="https://angelobms.github.io/pt/tags/kubernetes-autoscaling/"
                 />
   </url><url>
-    <loc>https://angelobms.github.io/pt/tags/microservices/</loc>
-    <lastmod>2025-10-11T10:00:00-03:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://angelobms.github.io/en/tags/microservices/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://angelobms.github.io/pt/tags/microservices/"
-                />
-  </url><url>
-    <loc>https://angelobms.github.io/pt/posts/</loc>
-    <lastmod>2025-10-11T10:00:00-03:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://angelobms.github.io/en/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://angelobms.github.io/pt/posts/"
-                />
-  </url><url>
     <loc>https://angelobms.github.io/pt/tags/rabbitmq/</loc>
     <lastmod>2025-10-11T10:00:00-03:00</lastmod>
     <xhtml:link
@@ -135,32 +190,6 @@
                 href="https://angelobms.github.io/pt/tags/spring-boot/"
                 />
   </url><url>
-    <loc>https://angelobms.github.io/pt/tags/</loc>
-    <lastmod>2025-10-11T10:00:00-03:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://angelobms.github.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://angelobms.github.io/pt/tags/"
-                />
-  </url><url>
-    <loc>https://angelobms.github.io/pt/tags/backend/</loc>
-    <lastmod>2025-10-04T10:00:00-03:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://angelobms.github.io/en/tags/backend/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://angelobms.github.io/pt/tags/backend/"
-                />
-  </url><url>
     <loc>https://angelobms.github.io/pt/posts/criando-seu-primeiro-projeto-spring-boot/</loc>
     <lastmod>2025-10-04T10:00:00-03:00</lastmod>
   </url><url>
@@ -170,20 +199,7 @@
     <loc>https://angelobms.github.io/pt/tags/iniciantes/</loc>
     <lastmod>2025-10-04T10:00:00-03:00</lastmod>
   </url><url>
-    <loc>https://angelobms.github.io/pt/tags/java/</loc>
-    <lastmod>2025-10-04T10:00:00-03:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://angelobms.github.io/en/tags/java/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://angelobms.github.io/pt/tags/java/"
-                />
-  </url><url>
-    <loc>https://angelobms.github.io/pt/posts/criando-aplica%C3%A7%C3%B5es-resilientes-com-toler%C3%A2ncia-a-falhas-com-quarkus/</loc>
+    <loc>https://angelobms.github.io/pt/posts/criando-aplicacoes-resilientes-com-tolerancia-a-falhas-com-quarkus/</loc>
     <lastmod>2025-09-24T18:59:31-03:00</lastmod>
   </url><url>
     <loc>https://angelobms.github.io/pt/tags/fault-tolerance/</loc>

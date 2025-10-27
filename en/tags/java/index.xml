@@ -6,8 +6,15 @@
     <description>Recent content in Java on My Personal Website</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 04 Oct 2025 10:00:00 -0300</lastBuildDate>
+    <lastBuildDate>Mon, 27 Oct 2025 10:00:00 -0300</lastBuildDate>
     <atom:link href="https://angelobms.github.io/en/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Pitfalls of Using External Libraries for Your Service Performance</title>
+      <link>https://angelobms.github.io/en/posts/the-pitfalls-of-using-external-libraries-for-your-service-performance/</link>
+      <pubDate>Mon, 27 Oct 2025 10:00:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/en/posts/the-pitfalls-of-using-external-libraries-for-your-service-performance/</guid>
+      <description>Understand how external dependencies impact latency, memory, and costs — and when it is worth adopting them, with checklist and best practices.</description>
+    </item>
     <item>
       <title>Creating Your First Spring Boot Project: Complete Guide for Beginners</title>
       <link>https://angelobms.github.io/en/posts/creating-your-first-spring-boot-project/</link>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Performance on My Personal Website</title>
+    <link>https://angelobms.github.io/en/tags/performance/</link>
+    <description>Recent content in Performance on My Personal Website</description>
+    <generator>Hugo -- 0.150.0</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 27 Oct 2025 10:00:00 -0300</lastBuildDate>
+    <atom:link href="https://angelobms.github.io/en/tags/performance/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Pitfalls of Using External Libraries for Your Service Performance</title>
+      <link>https://angelobms.github.io/en/posts/the-pitfalls-of-using-external-libraries-for-your-service-performance/</link>
+      <pubDate>Mon, 27 Oct 2025 10:00:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/en/posts/the-pitfalls-of-using-external-libraries-for-your-service-performance/</guid>
+      <description>Understand how external dependencies impact latency, memory, and costs — and when it is worth adopting them, with checklist and best practices.</description>
+    </item>
+  </channel>
+</rss>
