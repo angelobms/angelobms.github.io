@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Meu Site Pessoal</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>pt</language>
-    <lastBuildDate>Mon, 27 Oct 2025 10:00:00 -0300</lastBuildDate>
+    <lastBuildDate>Fri, 31 Oct 2025 21:23:00 -0300</lastBuildDate>
     <atom:link href="https://angelobms.github.io/pt/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Integração entre Sistemas utilizando Inteligência Artificial: o próximo passo da automação corporativa</title>
+      <link>https://angelobms.github.io/pt/posts/integracao-sistemas-inteligencia-artificial-automacao-corporativa/</link>
+      <pubDate>Fri, 31 Oct 2025 21:23:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/pt/posts/integracao-sistemas-inteligencia-artificial-automacao-corporativa/</guid>
+      <description>Explore como a Inteligência Artificial está revolucionando a integração de sistemas corporativos, transformando conexões estáticas em ecossistemas inteligentes que aprendem e se adaptam em tempo real.</description>
+    </item>
     <item>
       <title>As Armadilhas do Uso de Bibliotecas Externas para a Performance do Seu Serviço</title>
       <link>https://angelobms.github.io/pt/posts/as-armadilhas-do-uso-de-bibliotecas-externas-para-a-performance-do-seu-servico/</link>

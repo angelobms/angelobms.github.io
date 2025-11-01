@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Automação on Meu Site Pessoal</title>
+    <link>https://angelobms.github.io/pt/tags/automacao/</link>
+    <description>Recent content in Automação on Meu Site Pessoal</description>
+    <generator>Hugo -- 0.150.0</generator>
+    <language>pt</language>
+    <lastBuildDate>Fri, 31 Oct 2025 21:23:00 -0300</lastBuildDate>
+    <atom:link href="https://angelobms.github.io/pt/tags/automacao/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Integração entre Sistemas utilizando Inteligência Artificial: o próximo passo da automação corporativa</title>
+      <link>https://angelobms.github.io/pt/posts/integracao-sistemas-inteligencia-artificial-automacao-corporativa/</link>
+      <pubDate>Fri, 31 Oct 2025 21:23:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/pt/posts/integracao-sistemas-inteligencia-artificial-automacao-corporativa/</guid>
+      <description>Explore como a Inteligência Artificial está revolucionando a integração de sistemas corporativos, transformando conexões estáticas em ecossistemas inteligentes que aprendem e se adaptam em tempo real.</description>
+    </item>
+  </channel>
+</rss>

@@ -6,8 +6,15 @@
     <description>Recent content in Microservices on My Personal Website</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 27 Oct 2025 10:00:00 -0300</lastBuildDate>
+    <lastBuildDate>Fri, 31 Oct 2025 21:23:00 -0300</lastBuildDate>
     <atom:link href="https://angelobms.github.io/en/tags/microservices/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>System Integration using Artificial Intelligence: the next step in corporate automation</title>
+      <link>https://angelobms.github.io/en/posts/system-integration-artificial-intelligence-corporate-automation/</link>
+      <pubDate>Fri, 31 Oct 2025 21:23:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/en/posts/system-integration-artificial-intelligence-corporate-automation/</guid>
+      <description>Explore how Artificial Intelligence is revolutionizing corporate system integration, transforming static connections into intelligent ecosystems that learn and adapt in real-time.</description>
+    </item>
     <item>
       <title>The Pitfalls of Using External Libraries for Your Service Performance</title>
       <link>https://angelobms.github.io/en/posts/the-pitfalls-of-using-external-libraries-for-your-service-performance/</link>

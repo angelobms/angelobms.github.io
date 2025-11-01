@@ -6,8 +6,64 @@
     <description>Recent content in Tags on My Personal Website</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 27 Oct 2025 10:00:00 -0300</lastBuildDate>
+    <lastBuildDate>Fri, 31 Oct 2025 21:23:00 -0300</lastBuildDate>
     <atom:link href="https://angelobms.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>API</title>
+      <link>https://angelobms.github.io/en/tags/api/</link>
+      <pubDate>Fri, 31 Oct 2025 21:23:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/en/tags/api/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Artificial Intelligence</title>
+      <link>https://angelobms.github.io/en/tags/artificial-intelligence/</link>
+      <pubDate>Fri, 31 Oct 2025 21:23:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/en/tags/artificial-intelligence/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Automation</title>
+      <link>https://angelobms.github.io/en/tags/automation/</link>
+      <pubDate>Fri, 31 Oct 2025 21:23:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/en/tags/automation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Event-Driven Architecture</title>
+      <link>https://angelobms.github.io/en/tags/event-driven-architecture/</link>
+      <pubDate>Fri, 31 Oct 2025 21:23:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/en/tags/event-driven-architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Machine Learning</title>
+      <link>https://angelobms.github.io/en/tags/machine-learning/</link>
+      <pubDate>Fri, 31 Oct 2025 21:23:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/en/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Microservices</title>
+      <link>https://angelobms.github.io/en/tags/microservices/</link>
+      <pubDate>Fri, 31 Oct 2025 21:23:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/en/tags/microservices/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RPA</title>
+      <link>https://angelobms.github.io/en/tags/rpa/</link>
+      <pubDate>Fri, 31 Oct 2025 21:23:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/en/tags/rpa/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>System Integration</title>
+      <link>https://angelobms.github.io/en/tags/system-integration/</link>
+      <pubDate>Fri, 31 Oct 2025 21:23:00 -0300</pubDate>
+      <guid>https://angelobms.github.io/en/tags/system-integration/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Backend</title>
       <link>https://angelobms.github.io/en/tags/backend/</link>
@@ -23,13 +79,6 @@
       <description></description>
     </item>
     <item>
-      <title>Microservices</title>
-      <link>https://angelobms.github.io/en/tags/microservices/</link>
-      <pubDate>Mon, 27 Oct 2025 10:00:00 -0300</pubDate>
-      <guid>https://angelobms.github.io/en/tags/microservices/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Performance</title>
       <link>https://angelobms.github.io/en/tags/performance/</link>
       <pubDate>Mon, 27 Oct 2025 10:00:00 -0300</pubDate>
@@ -41,13 +90,6 @@
       <link>https://angelobms.github.io/en/tags/audit-microservice/</link>
       <pubDate>Sat, 11 Oct 2025 10:00:00 -0300</pubDate>
       <guid>https://angelobms.github.io/en/tags/audit-microservice/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Event-Driven Architecture</title>
-      <link>https://angelobms.github.io/en/tags/event-driven-architecture/</link>
-      <pubDate>Sat, 11 Oct 2025 10:00:00 -0300</pubDate>
-      <guid>https://angelobms.github.io/en/tags/event-driven-architecture/</guid>
       <description></description>
     </item>
     <item>
